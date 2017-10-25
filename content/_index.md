@@ -1,0 +1,13 @@
++++
+title="CCBB"
+type="page"
+pre ="<i class='fa fa-home'></i> "
+weight = 5
++++
+
+# Center for Computational Biology and Bioinformatics
+
+The Center's mission is to bring together researchers who are developing and applying computational biology and bioinformatic approaches across a wide range of biological questions. In order to enhance Penn State's recognized strength in this area, the Center will continue to foster collaborations and contribute to education and training.
+
+Browse our site to learn about the center's [history](about/), the [people](people/) involved, the seminars it hosts, and the various [educational](edu/) and 
+computational biology and bioinformatic [resources](resources/) available on campus.

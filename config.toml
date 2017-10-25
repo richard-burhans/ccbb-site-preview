@@ -1,0 +1,26 @@
+baseURL = "http://www.ccbb.psu.edu/"
+languageCode = "en-us"
+DefaultContentLanguage = "en"
+
+title = "CCBB"
+theme = "docdock"
+
+[params]
+#editURL = "https://github.com/nekrut/ccbb-site"
+noHomeIcon = true # default is false
+noSearch = true # default is false
+showVisitedLinks = false # default is false
+# themeStyle = "theme" # overide base css
+themeVariant = "gray" # choose theme variant "green", "gold" , "gray", "blue" (default)
+ordersectionsby = "weight" # ordersectionsby = "title"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+
+[[menu.shortcuts]]
+#pre = "<h3>More</h3>"
+name = "<i class='fa fa-home'></i> Home"
+identifier = "home"
+url = "/"
+weight = 1

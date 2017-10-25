@@ -1,0 +1,10 @@
+[submodule "themes/minimal"]
+	path = themes/minimal
+	url = https://github.com/calintat/minimal.git
+[submodule "themes/docdock"]
+	path = themes/docdock
+	url = https://github.com/vjeantet/hugo-theme-docdock.git
+[submodule "public"]
+	path = public
+	url = https://github.com/psu-ccbb/psu-ccbb.github.io.git
+	branch = master
