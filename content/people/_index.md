@@ -9,7 +9,7 @@ weight = 20
 
 | CCBB Member          |  Affiliation                  |
 |-----------|-----------------------|
-| <a href="http://www.personal.psu.edu/rua15/">Raquel Assis</a> | <span class="badge">BIO</span></a> |
+| <a href="http://www.personal.psu.edu/rua15/">Raquel Assis</a> | <span class="badge">BIO</span> |
 | <a href="http://www.personal.psu.edu/lub14/">Le Bao</a> | <span class="badge">STAT</span> |
 | <a href="https://profiles.psu.edu/profiles/display/113588">Laura Carrel</a> | <span class="badge">BMB (COM)</span> |
 | <a href="http://sites.psu.edu/chiaromonte/">Francesca Chiaromonte</a> | <span class="badge">STAT</span> |
