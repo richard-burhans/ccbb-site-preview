@@ -8,5 +8,5 @@ install:
   - rm -rf public
 
 script:
-  - hugo
+  - /snap/bin/hugo
   - pushd public && htmlproofer --allow-hash-href --file-ignore /revealjs/ . && popd

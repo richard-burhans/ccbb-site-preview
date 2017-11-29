@@ -24,7 +24,7 @@ snap install hugo || {
     exit 1
 }
 
-## set up rvm environment and c: https://rvm.io/
+## use rvm to setup a ruby environment: https://rvm.io/
 set +o nounset
 set +o errexit
 
