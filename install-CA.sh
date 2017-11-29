@@ -44,6 +44,8 @@ Jtl7GQVoP7o81DgGotPmjw7jtHFtQELFhLRAlSv0ZaBIefYdgWOWnU914Ph85I6p
 EndOfCert
 
 dpkg-reconfigure ca-certificates
+update-ca-certificates
+
 echo "--------------------------------------------------------------------------------"
 ls -al /etc/ssl/certs
 
