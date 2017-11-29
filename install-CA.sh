@@ -43,7 +43,17 @@ Jtl7GQVoP7o81DgGotPmjw7jtHFtQELFhLRAlSv0ZaBIefYdgWOWnU914Ph85I6p
 -----END CERTIFICATE-----
 EndOfCert
 
+ls -al $CCBB_CERT_ROOT_DIR/USERTrustRSAAddTrustCA.crt
+md5sum $CCBB_CERT_ROOT_DIR/USERTrustRSAAddTrustCA.crt
+
+echo "grep 1"
+grep USERTrustRSAAddTrustCA.crt /etc/ca-certificates.conf
 dpkg-reconfigure ca-certificates
+
+echo "grep 2"
+grep USERTrustRSAAddTrustCA.crt /etc/ca-certificates.conf
+
+
 update-ca-certificates
 
 echo "--------------------------------------------------------------------------------"
