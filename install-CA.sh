@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+echo 51e14b4c734e450402ea2cf73f2aee0f
+md5sum /usr/share/ca-certificates/mozilla/AddTrust_External_Root.crt
+
+find /usr/share/ca-certificates -type f -name \*.crt | xargs md5sum
+
 ls -al /etc/ssl/certs
 
 CCBB_CERT_ROOT_DIR=/usr/share/ca-certificates/ccbb
