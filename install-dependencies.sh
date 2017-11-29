@@ -21,8 +21,13 @@ snap install hugo || {
     exit 1
 }
 
-(echo "$HOME/.rvmrc"; cat $HOME/.rvmrc) || {
-    echo "$HOME/.rvmrc DOES NOT EXIST"
+## set up rvm environment
+#. $HOME/.rvmrc
+
+#rvm_path='/home/travis/.rvm'
+
+(rvm_path='/home/travis/.rvm'; echo "$rvm_path/scripts/rvm"; cat "$rvm_path/scripts/rvm") || {
+    echo "$rvm_path/scripts/rvm DOES NOT EXIST"
 }
 
 ## add rvm bin directory to path
