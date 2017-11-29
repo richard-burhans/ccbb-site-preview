@@ -21,6 +21,10 @@ snap install hugo || {
     exit 1
 }
 
+## add rvm bin directory to path
+PATH=${PATH:+${PATH}:}$HOME/.rvm/bin
+export PATH
+
 ## use rvm default ruby
 rvm use default || {
     echo "failed setting up ruby environment"
