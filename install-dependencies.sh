@@ -21,15 +21,7 @@ snap install hugo || {
     exit 1
 }
 
-(echo "/etc/rvmrc"; test -e /etc/rvmrc) || {
-    echo "/etc/rvmrc DOES NOT EXIST"
-}
-
-(echo "/etc/profile.d/rvm.sh"; test -e /etc/profile.d/rvm.sh) || {
-    echo "/etc/profile.d/rvm.sh DOES NOT EXIST"
-}
-
-(echo "$HOME/.rvmrc"; test -e $HOME/.rvmrc) || {
+(echo "$HOME/.rvmrc"; cat $HOME/.rvmrc) || {
     echo "$HOME/.rvmrc DOES NOT EXIST"
 }
 
