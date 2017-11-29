@@ -12,4 +12,4 @@ before_script:
 
 script:
   - /snap/bin/hugo
-  - pushd public && htmlproofer --allow-hash-href --alt-ignore /imgages/gopher-404.jpg --file-ignore /revealjs/ . && popd
+  - pushd public && htmlproofer --allow-hash-href --alt-ignore /images/gopher-404.jpg --file-ignore /revealjs/ . && popd
