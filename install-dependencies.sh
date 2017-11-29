@@ -30,7 +30,9 @@ source "$HOME/.rvmrc"
 
 set +o nounset
 set +o errexit
+set -o xtrace
 source "$rvm_path/scripts/rvm"
+set +o xtrace
 set -o nounset
 set -o errexit
 
