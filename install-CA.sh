@@ -50,7 +50,7 @@ echo "grep 1"
 grep USERTrustRSAAddTrustCA.crt /etc/ca-certificates.conf
 
 dpkg-reconfigure ca-certificates
-sed -ie 's/^!ccbb\/\(.*\.crt\)$/ccbb\/\1/'
+sed -ie 's/^!ccbb\/\(.*\.crt\)$/ccbb\/\1/' /etc/ca-certificates.conf
 
 echo "grep 2"
 grep USERTrustRSAAddTrustCA.crt /etc/ca-certificates.conf
