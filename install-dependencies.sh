@@ -24,20 +24,24 @@ snap install hugo || {
     exit 1
 }
 
-## set up rvm environment
+## set up rvm environment: https://rvm.io/
+echo "INFO: setting up rvm environment"
 source "$HOME/.rvmrc"
+set -o -nounset
 source "$rvm_path/scripts/rvm"
+set -o nounset
 export PATH="${PATH:+${PATH}:}$rvm_bin_path"
 
 ## use rvm default ruby
 rvm use default || {
-    echo "failed setting up ruby environment"
+    echo "ERROR: failed setting up ruby environment"
     exit 1
 }
 
 ## install HTMLProofer
+echo "INFO: installing HTMLProofer"
 NOKOGIRI_USE_SYSTEM_LIBRARIES=true gem install --source https://rubygems.org html-proofer || {
-    echo "failed installing HTMLProofer"
+    echo "ERROR: failed installing HTMLProofer"
     exit 1
 }
 
