@@ -27,7 +27,7 @@ snap install hugo || {
 ## set up rvm environment: https://rvm.io/
 echo "INFO: setting up rvm environment"
 source "$HOME/.rvmrc"
-set -o -nounset
+set +o nounset
 source "$rvm_path/scripts/rvm"
 set -o nounset
 export PATH="${PATH:+${PATH}:}$rvm_bin_path"
