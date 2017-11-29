@@ -27,9 +27,23 @@ snap install hugo || {
 ## set up rvm environment: https://rvm.io/
 echo "INFO: setting up rvm environment"
 source "$HOME/.rvmrc"
+
+echo "-- before ----------------------------------------------------------------------"
+set +o
+
 set +o nounset
+
+echo "-- after -----------------------------------------------------------------------"
+set +o
+echo "--------------------------------------------------------------------------------"
+
 source "$rvm_path/scripts/rvm"
 set -o nounset
+
+echo "-- reset -----------------------------------------------------------------------"
+set +o
+echo "--------------------------------------------------------------------------------"
+
 export PATH="${PATH:+${PATH}:}$rvm_bin_path"
 
 ## use rvm default ruby
