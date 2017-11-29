@@ -40,12 +40,7 @@ Jtl7GQVoP7o81DgGotPmjw7jtHFtQELFhLRAlSv0ZaBIefYdgWOWnU914Ph85I6p
 -----END CERTIFICATE-----
 EndOfCert
 
-dpkg-reconfigure ca-certificates
-sed -ie 's/^!ccbb\/\(.*\.crt\)$/ccbb\/\1/' /etc/ca-certificates.conf
-update-ca-certificates
-
-exit 0
-
+# InCommon RSA Server CA
 # http://crt.usertrust.com/InCommonRSAServerCA_2.crt
 cat > $CCBB_CERT_ROOT_DIR/InCommonRSAServerCA_2.crt <<EndOfCert
 -----BEGIN CERTIFICATE-----
@@ -84,3 +79,8 @@ OjplXuXE0OPa0utaKC25Aplgom88L2Z8mEWcyfoB7zKOfD759AN7JKZWCYwk
 -----END CERTIFICATE-----
 EndOfCert
 
+dpkg-reconfigure ca-certificates
+sed -ie 's/^!ccbb\/\(.*\.crt\)$/ccbb\/\1/' /etc/ca-certificates.conf
+update-ca-certificates
+
+exit 0
