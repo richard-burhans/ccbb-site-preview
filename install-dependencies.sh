@@ -24,25 +24,22 @@ snap install hugo || {
     exit 1
 }
 
-## set up rvm environment: https://rvm.io/
-echo "INFO: setting up rvm environment"
-source "$HOME/.rvmrc"
-
+## set up rvm environment and c: https://rvm.io/
 set +o nounset
 set +o errexit
-set -o xtrace
+
+echo "INFO: setting up rvm environment"
+source "$HOME/.rvmrc"
 source "$rvm_path/scripts/rvm"
-set +o xtrace
+export PATH="${PATH:+${PATH}:}$rvm_bin_path"
+echo "INFO: finished setting up rvm environment"
+
+echo "INFO: changing to rvm default ruby"
+rvm use default
+echo "INFO: finished changing to rvm default ruby"
+
 set -o nounset
 set -o errexit
-
-export PATH="${PATH:+${PATH}:}$rvm_bin_path"
-
-## use rvm default ruby
-rvm use default || {
-    echo "ERROR: failed setting up ruby environment"
-    exit 1
-}
 
 ## install HTMLProofer
 echo "INFO: installing HTMLProofer"
