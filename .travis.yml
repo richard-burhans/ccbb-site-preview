@@ -1,11 +1,11 @@
 dist: trusty
 sudo: required
 
-# before_install:
-#   - sudo ./install-dependencies.sh
+before_install:
+  - sudo ./install-dependencies.sh
 
-# install:
-#   - rm -rf public
+install:
+  - rm -rf public
 
 before_script:
   - sudo ./install-CA.sh

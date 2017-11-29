@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# 51e14b4c734e450402ea2cf73f2aee0f  /usr/share/ca-certificates/mozilla/AddTrust_External_Root.crt
-# 890d62be87a44342020daec2f09e4a83  /usr/share/ca-certificates/ccbb/USERTrustRSAAddTrustCA.crt
-
 CCBB_CERT_ROOT_DIR=/usr/share/ca-certificates/ccbb
 mkdir -p $CCBB_CERT_ROOT_DIR
 
@@ -43,23 +40,9 @@ Jtl7GQVoP7o81DgGotPmjw7jtHFtQELFhLRAlSv0ZaBIefYdgWOWnU914Ph85I6p
 -----END CERTIFICATE-----
 EndOfCert
 
-ls -al $CCBB_CERT_ROOT_DIR/USERTrustRSAAddTrustCA.crt
-md5sum $CCBB_CERT_ROOT_DIR/USERTrustRSAAddTrustCA.crt
-
-echo "grep 1"
-grep USERTrustRSAAddTrustCA.crt /etc/ca-certificates.conf
-
 dpkg-reconfigure ca-certificates
 sed -ie 's/^!ccbb\/\(.*\.crt\)$/ccbb\/\1/' /etc/ca-certificates.conf
-
-echo "grep 2"
-grep USERTrustRSAAddTrustCA.crt /etc/ca-certificates.conf
-
-
 update-ca-certificates
-
-echo "--------------------------------------------------------------------------------"
-ls -al /etc/ssl/certs
 
 exit 0
 
@@ -101,8 +84,3 @@ OjplXuXE0OPa0utaKC25Aplgom88L2Z8mEWcyfoB7zKOfD759AN7JKZWCYwk
 -----END CERTIFICATE-----
 EndOfCert
 
-
-
-# /usr/share/ca-certificates
-# /etc/ca-certificates.conf
-# update-ca-certificates
