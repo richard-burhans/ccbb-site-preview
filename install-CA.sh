@@ -48,7 +48,9 @@ md5sum $CCBB_CERT_ROOT_DIR/USERTrustRSAAddTrustCA.crt
 
 echo "grep 1"
 grep USERTrustRSAAddTrustCA.crt /etc/ca-certificates.conf
+
 dpkg-reconfigure ca-certificates
+sed -ie 's/^!ccbb\/\(.*\.crt\)$/ccbb\/\1/'
 
 echo "grep 2"
 grep USERTrustRSAAddTrustCA.crt /etc/ca-certificates.conf
