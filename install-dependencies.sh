@@ -21,6 +21,12 @@ snap install hugo || {
     exit 1
 }
 
+## use rvm default ruby
+rvm use default || {
+    echo "failed setting up ruby environment"
+    exit 1
+}
+
 ## install HTMLProofer
 NOKOGIRI_USE_SYSTEM_LIBRARIES=true gem install --source https://rubygems.org html-proofer || {
     echo "failed installing HTMLProofer"
