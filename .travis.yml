@@ -1,0 +1,12 @@
+dist: trusty
+sudo: required
+
+before_install:
+  - sudo ./install-dependencies.sh
+
+install:
+  - rm -rf public
+
+script:
+  - hugo
+  - pushd public && htmlproofer --allow-hash-href --file-ignore /revealjs/ . && popd
