@@ -1,8 +1,6 @@
 +++
-title="CCBB"
-type="page"
-pre ="<i class='fa fa-home'></i> "
-weight = 5
+title="Home"
+description=""
 +++
 
 # Center for Computational Biology and Bioinformatics
