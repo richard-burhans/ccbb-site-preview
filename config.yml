@@ -1,0 +1,23 @@
+baseURL: "http://www.ccbb.psu.edu/"
+languageCode: "en-us"
+DefaultContentLanguage: "en"
+
+title: "CCBB"
+theme: "docdock"
+
+params:
+    editURL:
+    showVisitedLinks: false
+    themeStyle: "original"     # default is "original"
+    themeVariant: "gray"       # default is "blue"
+    ordersectionsby: "weight"  # ordersectionsby = "title"
+    disableHomeIcon: false     # default is false
+    disableSearch: false       # default is false
+    disableNavChevron: false   # default is false
+    disableBreadcrumbs: true   # default is false
+
+outputs:
+    home:
+        - "HTML"
+        - "RSS"
+        - "JSON"

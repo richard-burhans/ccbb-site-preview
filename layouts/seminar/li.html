@@ -1,0 +1,33 @@
+{{- $.Scratch.Set "has_presenters" false -}}
+{{- if and (isset .Params "presenters") (ne .Params.presenters "") -}}
+    {{- $.Scratch.Set "has_presenters" true -}}
+{{- end -}}
+{{- $.Scratch.Set "has_affiliations" false -}}
+{{- if and (isset .Params "affiliations") (ne .Params.affiliations "") -}}
+    {{- $.Scratch.Set "has_affiliations" true -}}
+{{- end -}}
+<div class="panel panel-success">
+    <div class="panel-heading">
+        {{- dateFormat "January 2, 2006 3:04PM" .Params.seminar_date -}}
+    </div>
+    <div class="panel-body">
+        {{ if eq ($.Scratch.Get "has_presenters") true -}}
+        <strong>{{ .Params.presenters }}</strong>{{ if eq ($.Scratch.Get "has_affiliations") true }}, {{ end -}}
+        {{- end -}}
+        {{- if eq ($.Scratch.Get "has_affiliations") true -}}
+        {{ .Params.affiliations }}
+        {{- end -}}
+        {{ if and (isset .Params "title") (ne .Params.title "" ) }}
+        <br>Title: <em>{{ .Params.title }}</em>
+        {{- end -}}
+        {{ if and (isset .Params "host") (ne .Params.host "" ) }}
+        <br>Hosted by: {{ .Params.host }}
+        {{- end -}}
+        {{ if and (isset .Params "location") (ne .Params.location "" ) }}
+        <br>Location: {{ .Params.location }}
+        {{- end -}}
+        {{ if and (isset .Params "zoom_url") (ne .Params.zoom_url "" ) }}
+        <br>Zoom URL: <a href="{{ .Params.zoom_url }}">{{ .Params.zoom_url }}</a>
+        {{- end -}}
+    </div>
+</div>

@@ -1,0 +1,16 @@
+{{ define "main" }}
+{{ .Content }}
+{{ $paginator := .Paginate (.Data.Pages.ByParam "seminar_date").Reverse }}
+<div class="extra-pagination inner">
+{{ partial "pagination.html" $paginator }}
+</div>
+
+{{ range $index, $page := $paginator.Pages }}
+   {{ .Render "li" }}
+{{ end }}
+
+<div style="margin-bottom:2rem"></div>
+
+{{ partial "pagination.html" $paginator }}
+
+{{end}}

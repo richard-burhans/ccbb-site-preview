@@ -12,7 +12,7 @@ There are several regular events at Penn State that are of interest to researche
 
 * [Bioinformatics and Genomics Retreats](https://www.huck.psu.edu/content/graduate-programs/bioinformatics-and-genomics/annual-retreat)
 * [Center for Medical Genomics retreats](https://www.google.com/search?q=psu+center+for+medical+genomics+retreat)
-* [Weekly Wednesday Wartik Genomics Lecture Series (WWWGLS)](../wwwgls-seminar/)
+* [Weekly Wednesday Wartik Genomics Lecture Series (WWWGLS)](../seminar/)
 
 
 ### Related campus organizations
