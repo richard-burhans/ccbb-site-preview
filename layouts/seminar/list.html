@@ -1,6 +1,9 @@
 {{ define "main" }}
+{{if .Content}}
 {{ .Content }}
-{{ $paginator := .Paginate (.Data.Pages.ByParam "seminar_date").Reverse }}
+{{else }}
+{{ $paginator := .Paginate .Data.Pages.ByWeight.Reverse }}
+
 <div class="extra-pagination inner">
 {{ partial "pagination.html" $paginator }}
 </div>
@@ -13,4 +16,5 @@
 
 {{ partial "pagination.html" $paginator }}
 
+{{end}}
 {{end}}

@@ -11,7 +11,7 @@
       <a href="{{ .RelPermalink}}">
         <span>{{safeHTML .Params.Pre}}{{.Title}}{{safeHTML .Params.Post}}</span>
 
-        {{- $numberOfPages := (add (len (where .Pages ".Params.type" "page")) (len .Sections)) }}
+        {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
         {{- if ne $numberOfPages 0 }}
           {{- if or (.IsAncestor $currentNode) (.Params.alwaysopen) }}
             <i class="fa fa-angle-down fa-lg category-icon"></i>
@@ -34,14 +34,23 @@
           {{- range $pages.ByTitle }}
             {{- if and .Params.hidden (not $.showhidden) }}
             {{- else}}
-            {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks }}
+            {{- partial "section-tree-nav" (dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks) }}
             {{- end}}
           {{- end}}
         {{- else}}
-          {{- range $pages.ByWeight }}
-            {{- if and .Params.hidden (not $.showhidden) }}
-            {{- else}}
-            {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks }}
+          {{- if and (isset .Params "reverse") (eq .Params.reverse true) }}
+            {{- range $pages.ByWeight.Reverse }}
+              {{- if and .Params.hidden (not $.showhidden) }}
+              {{- else}}
+              {{- partial "section-tree-nav" (dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks) }}
+              {{- end}}
+            {{- end}}
+          {{- else }}
+            {{- range $pages.ByWeight }}
+              {{- if and .Params.hidden (not $.showhidden) }}
+              {{- else}}
+              {{- partial "section-tree-nav" (dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks) }}
+              {{- end}}
             {{- end}}
           {{- end}}
         {{- end}}
