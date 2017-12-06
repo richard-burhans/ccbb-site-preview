@@ -35,9 +35,7 @@
       <ul class="topics">
         {{- if not .Site.Params.disableHomeIcon}}
             <li data-nav-id="{{"/" | relURL}}" class="dd-item">
-            <a href="{{"/" | relURL}}">
-                <span><i class="fa fa-fw fa-home"></i>{{.Site.Home.Title}}</span>
-            </a>
+            <a href="{{"/" | relURL}}"><span><i class="fa fa-fw fa-home"></i>{{.Site.Home.Title}}</span></a>
             </li>
         {{- end}}
 		
@@ -69,11 +67,16 @@
 
 
 
+
 <section id="body">
 <div id="overlay"></div>
 <div class="padding highlightable">
 {{if not .IsHome}}
-  {{- if not .Site.Params.disableBreadcrumbs}}
+  {{- if .Site.Params.disableTopBar -}}
+  <span id="sidebar-toggle-span">
+    <a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i>navigation</a>
+  </span>
+  {{- else -}}
   <div id="top-bar">
     {{ if and (or .IsPage .IsSection) .Site.Params.editURL }}
       {{ $File := .File }}
@@ -109,7 +112,7 @@
     <!-- /TOC -->
 
   </div>
-  {{- end }}
+  {{- end -}}
 {{end}}
 {{if .Params.tags }}
   <div id="tags">

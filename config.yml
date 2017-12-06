@@ -14,7 +14,7 @@ params:
     disableHomeIcon: false     # default is false
     disableSearch: false       # default is false
     disableNavChevron: false   # default is false
-    disableBreadcrumbs: true   # default is false
+    disableTopBar: true        # default is false
 
 outputs:
     home:
