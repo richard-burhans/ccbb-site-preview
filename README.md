@@ -28,7 +28,7 @@ $ cd ccbb-site
 $ hugo
 ```
 
-You can check out the site using:
+You can test out the site using:
 
 ```
 $ hugo server
