@@ -12,4 +12,4 @@ before_script:
 
 script:
   - /snap/bin/hugo
-  - pushd public && htmlproofer --allow-hash-href --alt-ignore /images/gopher-404.jpg --file-ignore /revealjs/ --url-ignore https://profiles.psu.edu/profiles/display/113588 . && popd
+  - pushd public && htmlproofer --disable-external --allow-hash-href --alt-ignore /images/gopher-404.jpg --file-ignore /revealjs/ . && popd
