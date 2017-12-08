@@ -38,8 +38,8 @@
             {{- end}}
           {{- end}}
         {{- else}}
-          {{- if and (isset .Params "reverse") (eq .Params.reverse true) }}
-            {{- range $pages.ByWeight.Reverse }}
+          {{- if and (isset .Params "reverse_skip_one") (eq .Params.reverse_skip_one true) }}
+            {{- range after 1 $pages.ByWeight.Reverse }}
               {{- if and .Params.hidden (not $.showhidden) }}
               {{- else}}
               {{- partial "section-tree-nav" (dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks) }}
