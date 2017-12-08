@@ -1,5 +1,6 @@
 {{ define "main" }}
   {{ .Content }}
+  {{ partial "seminar-default" . }}
   {{ partial "seminar-table-header" . }}
   {{ range sort (index .Site.Data.seminar .File.TranslationBaseName) "seminar_date" "desc" }}
     {{ partial "seminar-tr" . }}
