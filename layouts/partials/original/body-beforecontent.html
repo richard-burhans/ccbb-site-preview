@@ -122,9 +122,11 @@
   </div>
 {{end}}
 <div id="body-inner">
-  {{if not .IsHome}}
-    <h1>{{.Title}}</h1>
-  {{end}}
+  {{ if not .IsHome }}
+    {{- with .Title -}}
+    <h1>{{.}}</h1>
+    {{- end -}}
+  {{ end }}
 
 {{define "breadcrumb"}}
 {{ if .page.Parent}}

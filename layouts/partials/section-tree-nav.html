@@ -1,6 +1,11 @@
 {{- $showvisitedlinks := .showvisitedlinks }}
 {{- $currentNode := .currentnode }}
  {{- with .sect}}
+   {{- if isset .Params "short_title" -}}
+     {{- .Scratch.Set "menuTitle" .Params.short_title -}}
+   {{- else -}}
+     {{- .Scratch.Set "menuTitle" .Title -}}
+    {{- end -}}
   {{- if .IsSection}}
     {{- safeHTML .Params.head}}
     <li data-nav-id="{{.URL}}" class="dd-item
@@ -9,7 +14,7 @@
         {{- if .Params.alwaysopen}} parent{{end -}}
         ">
       <a href="{{ .RelPermalink}}">
-        <span>{{safeHTML .Params.Pre}}{{.Title}}{{safeHTML .Params.Post}}</span>
+        <span>{{safeHTML .Params.Pre}}{{.Scratch.Get "menuTitle"}}{{safeHTML .Params.Post}}</span>
 
         {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
         {{- if ne $numberOfPages 0 }}
@@ -63,7 +68,7 @@
      {{- if eq .URL $currentNode.URL}} active{{end -}}
       ">
         <a href="{{ .RelPermalink}}">
-          <span>{{safeHTML .Params.Pre}}{{.Title}}{{safeHTML .Params.Post}}</span>
+          <span>{{safeHTML .Params.Pre}}{{.Scratch.Get "menuTitle"}}{{safeHTML .Params.Post}}</span>
           {{- if $showvisitedlinks}}<i class="fa fa-circle-thin read-icon"></i>{{end}}
         </a>
     </li>

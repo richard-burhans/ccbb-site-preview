@@ -1,5 +1,5 @@
 +++
-title="Visiting scholars"
+short_title="Visiting scholars"
 type="page"
 pre ="<i class='fa fa-user-o'></i> "
 weight = 70
