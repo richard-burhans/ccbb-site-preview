@@ -1,4 +1,7 @@
 {{ define "main" }}
+    {{- range first 1 .Data.Pages.ByWeight.Reverse -}}
+      <h1>{{ .Title }}</h1>
+    {{- end -}}
     {{ partial "seminar-default" . }}
     {{- range first 1 .Data.Pages.ByWeight.Reverse -}}
         {{ partial "seminar-table-header" . }}
