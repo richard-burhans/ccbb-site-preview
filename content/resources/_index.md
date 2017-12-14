@@ -15,7 +15,7 @@ There are several regular events at Penn State that are of interest to researche
 * [Weekly Wednesday Wartik Genomics Lecture Series (WWWGLS)](../seminar/)
 
 
-### Related campus organizations
+### Related Penn State organizations
 
 
 * [Center for Medical Genomics](http://www.bx.psu.edu/ctr_med_genom/)

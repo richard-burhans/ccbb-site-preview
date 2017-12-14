@@ -31,8 +31,8 @@ Applications are accepted on a rolling basis, with the first decisions being mad
 If an application is accepted, 
 
 * We ask that the visitor make an effort to engage the CCBB community while at PSU. A simple way to do this would be to allocate a day where the visitor gives a research talk at UP and meets with interested faculty members of the Center. 
-* It is the responsibility of the host to make sure that the speaker qualifies for reimbursement. For example, there are University guidelines for non-employee reimbursements (https://guru.psu.edu/tools/NRAPaymentGuidelines.cfm). The host should speak with her/his department's administrative staff to make sure the visitor meets the requirements.
-* The Center itself does not provide administrative support for arranging the speaker's visit or while they are here. Such support, however, can usually be provided by the host's department or from the Huck Institutes for the Life Sciences. This includes finding living accommodations and the appropriate office space.
+* It is the responsibility of the host to make sure that the visitor qualifies for reimbursement prior to the trip being arranged. For example, there are University guidelines for non-employee reimbursements (https://guru.psu.edu/tools/NRAPaymentGuidelines.cfm). 
+* The host should help co-ordinate finding living accommodations and arranging of office space.
 * The visitor and host will be asked to fill in an outcomes survey or otherwise help for reporting purposes.
 
 A PDF of the call is available [here](../docs/Call_ShortTermVisitor.pdf)

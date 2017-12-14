@@ -22,6 +22,7 @@ Penn State offers several courses that cover  Computational Biology and Bioinfor
 | BMB 484 | [Functional Genomics](http://bulletins.psu.edu/undergrad/courses/B/B%20M%20B/484/201314SP) |
 | BIOL 422 | [Advanced Genetics](http://bulletins.psu.edu/undergrad/courses/B/BIOL/422/201011FA) |
 | BIOL 428 | [Population Genetics](http://bulletins.psu.edu/undergrad/courses/B/BIOL/428/200001SP) |
+| MCIBS 556 | [Computation, Bioinformatics, and Statistics Practicum](http://bulletins.psu.edu/undergrad/courses/M/MCIBS/556) |
 
 
 ## Graduate programs
