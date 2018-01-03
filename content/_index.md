@@ -10,5 +10,5 @@ The Center's mission is to bring together researchers who are developing and app
 Browse our site to learn about the center's [history](about/), the [people](people/) involved, the seminars it hosts, and the various [educational](edu/) and computational biology and bioinformatic [resources](resources/) available on campus.
 
 {{% panel theme="info" header="News" %}}
-[Call](/visitingscholars) for short-term visiting scholars released.
+[Call](/visitingscholars) for short-term visiting scholars released!
 {{% /panel %}}
