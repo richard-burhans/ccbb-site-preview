@@ -5,8 +5,10 @@
     {{ partial "seminar-default" . }}
     {{- range first 1 .Data.Pages.ByWeight.Reverse -}}
         {{ partial "seminar-table-header" . }}
-        {{- range sort (index .Site.Data.seminar .File.TranslationBaseName) "seminar_date" "desc" -}}
-            {{ partial "seminar-tr" . }}
+        {{- with (index .Site.Data.seminar .File.TranslationBaseName) -}}
+          {{- range sort . "seminar_date" "desc" -}}
+              {{ partial "seminar-tr" . }}
+          {{- end -}}
         {{- end -}}
         {{ partial "seminar-table-footer" . }}
     {{- end -}}
