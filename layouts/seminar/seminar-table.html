@@ -3,9 +3,9 @@
   {{ partial "seminar-default" . }}
   {{ partial "seminar-table-header" . }}
   {{- with (index .Site.Data.seminar .File.TranslationBaseName) -}}
-    {{ range sort . "seminar_date" "desc" }}
+    {{- range sort . "seminar_date" -}}
       {{ partial "seminar-tr" . }}
-    {{ end }}
+    {{- end -}}
   {{- end -}}
   {{ partial "seminar-table-footer" . }}
 {{ end }}

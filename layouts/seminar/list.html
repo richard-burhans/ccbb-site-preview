@@ -1,15 +1,13 @@
 {{ define "main" }}
-    {{- range first 1 .Data.Pages.ByWeight.Reverse -}}
-      <h1>{{ .Title }}</h1>
-    {{- end -}}
+  {{- with index .Data.Pages.ByWeight.Reverse 0 -}}
+    <h1>{{ .Title }}</h1>
     {{ partial "seminar-default" . }}
-    {{- range first 1 .Data.Pages.ByWeight.Reverse -}}
-        {{ partial "seminar-table-header" . }}
-        {{- with (index .Site.Data.seminar .File.TranslationBaseName) -}}
-          {{- range sort . "seminar_date" "desc" -}}
-              {{ partial "seminar-tr" . }}
-          {{- end -}}
-        {{- end -}}
-        {{ partial "seminar-table-footer" . }}
+    {{ partial "seminar-table-header" . }}
+    {{- with index .Site.Data.seminar .File.TranslationBaseName -}}
+      {{- range sort . "seminar_date" -}}
+        {{ partial "seminar-tr" . }}
+      {{- end -}}
     {{- end -}}
+    {{ partial "seminar-table-footer" . }}
+  {{- end -}}
 {{ end }}
