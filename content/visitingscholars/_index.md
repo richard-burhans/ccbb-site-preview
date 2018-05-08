@@ -18,7 +18,7 @@ The Center for Computational Biology and Bioinformatics (CCBB, http://ccbb.psu.e
 * Preference will be given to hosts that are junior faculty. 
 * An effort will be made to distribute funding amongst different hosts -- we do not expect to support more than one application from host per year.
 
-Applications are accepted on a rolling basis, with the first decisions being made after Feb 15th, 2018. We expect to have funds for about 3-6 awards in 2018. If you are a scholar interested in visiting, please first identify and contact a potential host at CCBB. Prior collaboration with the host is not required. Applications should be submitted by the potential host by email to ccbb@psu.edu. They should include:
+Applications are accepted on a rolling basis. We expect to have funds for about 3-6 awards in 2018. If you are a scholar interested in visiting, please first identify and contact a potential host at CCBB. Prior collaboration with the host is not required. Applications should be submitted by the potential host by email to ccbb@psu.edu. They should include:
 
 * Name of host and of visiting scholar
 * CV of visiting scholar
