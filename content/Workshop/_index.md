@@ -8,7 +8,7 @@ weight = 80
 # 2018 Workshop on emerging methods for sequence analysis
 
 CCBB will host a one-day workshop on emerging methods for sequence analysis. The workshop will feature a mix of invited speakers and local Penn State speakers. 
-It will be held on June 22nd (2018), immediately following the [PSU Boot Camp on Data Reproducibility](TODO).
+It will be held on June 22nd (2018), immediately following the PSU Boot Camp on Data Reproducibility.
 The workshop is organized by [Qunhua Li](http://www.personal.psu.edu/users/q/u/qul12/), [Shaun Mahony](http://mahonylab.org/), [Paul Medvedev](http://medvedevgroup.com/medvedev.html), and [Anton Nekrutenko](https://nekrut.github.io/lab_site/).
 
 
