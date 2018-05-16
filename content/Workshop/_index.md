@@ -22,7 +22,7 @@ The invited talks are:
 | Elena Fertig (invited) | Enter the matrix: factorization uncovers knowledge from omics |
 | Seyoung Kim (invited) | Statistical methods for learning gene networks under SNP perturbation |
 | Adam Phillippy (invited) | Can nanopore sequencing finally finish the human genome? | 
-| Rob Patro (invited) | TBD  
+| Rob Patro (invited) | Deconvolution, dictionaries and de Bruijn graphs : algorithm and data structure design for modern genomics 
 
 
 
