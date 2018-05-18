@@ -28,7 +28,7 @@ The workshop will be held on June 22nd, 2018, in the [ASI](http://www.psumap.com
 | 10:30 | *Coffee break*  
 | 10:50 | **Invited talk:** [Rob Patro](http://www.robpatro.com) (Stony Brook) | Deconvolution, dictionaries and de Bruijn graphs : algorithm and data structure design for modern genomics | 
 | 11:50 | [Kristoffer Sahlin](http://ksahlin.github.io/) | IsoCon: Deciphering highly similar multi-copy gene transcripts from PacBio Iso-Seq data
-| 12:05 | Wilfried Guiblet | TBD
+| 12:05 | Wilfried Guiblet | A new dimension to DNA sequencing: polymerization kinetics at non-B DNA structures
 | 12:20 | Lunch with Posters |  
 | 1:50 | **Invited talk:** [Seyoung Kim](http://www.cs.cmu.edu/~sssykim/) (CMU) | Statistical methods for learning gene networks under SNP perturbation 
 | 2:50 | Guray Kuzu | Using topic modeling to identify protein groups from ChIPexo data
