@@ -22,7 +22,7 @@ The workshop will be held on June 22nd, 2018, in the [ASI](http://www.psumap.com
 | Time | Speaker | Title |
 |:------|:-----|:-----|
 | 8:30 | Breakfast | |
-| 9:00 | **Invited talk:** [Elena Fertig](https://fertiglab.com/) (JHU) | Enter the matrix: factorization uncovers knowledge from omics |
+| 9:00 | **Invited talk:** [Elana Fertig](https://fertiglab.com/) (JHU) | Enter the matrix: factorization uncovers knowledge from omics |
 | 10:00 | [Marzia Cremona](https://sites.psu.edu/marziacremona/) | Discovering functional motifs in "Omics" curves using probabilistic K-mean with local alignment
 | 10:15 | Nate Coraor | TBD
 | 10:30 | *Coffee break*  
