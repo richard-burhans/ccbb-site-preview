@@ -12,7 +12,7 @@ It will be held on June 22nd (2018), immediately following the PSU Boot Camp on 
 
 
 ## Registration
-Please register [here](https://goo.gl/forms/KzkaUhVxp9MmqxsV2) by May 25th 5PM.
+Please register [here](https://goo.gl/forms/KzkaUhVxp9MmqxsV2) by May 31st.
 Registration is free. 
 Breakfast and lunch will be provided for registered participants. 
 
