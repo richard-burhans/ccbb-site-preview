@@ -36,7 +36,7 @@ The workshop will be held on June 22nd, 2018, in the [ASI](http://www.psumap.com
 | 3:20 | *Coffee break*
 | 3:40 | **Invited talk:** [Adam Phillippy](https://genomeinformatics.github.io/) (NIH) | Can nanopore sequencing finally finish the human genome? 
 | 4:40 |  Tao Yang | Detecting the differentially interacting genomic regions from Hi-C data 
-| 4:55 |  Jie Xu | TBD
+| 4:55 |  Jie Xu | Detection of structure variations in cancer cell lines and leukemia patient samples.
 | 5:05 | Closing remarks | |
 | 6 PM | Dinner (by invitation) | |
 
