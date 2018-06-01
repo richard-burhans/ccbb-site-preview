@@ -18,7 +18,7 @@ The workshop will be held on June 22nd, 2018, in the [ASI](http://www.psumap.com
 | 8:30 | Registration, breakfast, and poster set-up | |
 | 9:00 | **Invited talk:** [Elana Fertig](https://fertiglab.com/) (JHU) | Enter the matrix: factorization uncovers knowledge from omics |
 | 10:00 | [Marzia Cremona](https://sites.psu.edu/marziacremona/) | Discovering functional motifs in "Omics" curves using probabilistic K-mean with local alignment
-| 10:15 | Nate Coraor | TBD
+| 10:15 | Nate Coraor | Genomics at a national scale: Distributed computing on NSF XSEDE resources with Galaxy and Pulsar
 | 10:30 | *Coffee break and posters*  
 | 11:00 | **Invited talk:** [Rob Patro](http://www.robpatro.com) (Stony Brook) | Deconvolution, dictionaries and de Bruijn graphs : algorithm and data structure design for modern genomics | 
 | 12:00 | [Kristoffer Sahlin](http://ksahlin.github.io/) | IsoCon: Deciphering highly similar multi-copy gene transcripts from PacBio Iso-Seq data
