@@ -34,6 +34,11 @@ The workshop will be held on June 22nd, 2018, in the [ASI](http://www.psumap.com
 | 5:30 | Closing remarks | |
 | 6 PM | Dinner (by invitation) | |
 
+## Local information
+* Free Wifi is available (“attwifi”) throughout campus. 
+* The best way to get around State College is walking. Uber and Lyft are also available.
+* Select hotel, attraction and dining recommendations [here](https://drive.google.com/open?id=17Xbh-_JCUy1CQelU-3vNo0C4ejFs97Ql&usp=sharing). 
+* More comprehensive info is available at http://visitpennstate.org/
 
 ## Organizers
 * [Qunhua Li](http://www.personal.psu.edu/users/q/u/qul12/)
@@ -41,7 +46,7 @@ The workshop will be held on June 22nd, 2018, in the [ASI](http://www.psumap.com
 * [Paul Medvedev](http://medvedevgroup.com/medvedev.html)
 * [Anton Nekrutenko](https://nekrut.github.io/lab_site/)
 
-## Registration
+## Registration (closed)
 Please register [here](https://goo.gl/forms/KzkaUhVxp9MmqxsV2) by May 31st.
 Registration is free. 
 Breakfast, lunch, and coffee will be provided for registered participants. 
