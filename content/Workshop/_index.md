@@ -41,7 +41,8 @@ The workshop will be held on June 22nd, 2018, in the [ASI](http://www.psumap.com
 ## Local information
 * Free Wifi is available ("attwifi") throughout campus. 
 * The best way to get around State College is walking. Uber and Lyft are also available.
-* Select hotel, attraction and dining recommendations [here](https://drive.google.com/open?id=17Xbh-_JCUy1CQelU-3vNo0C4ejFs97Ql&usp=sharing). 
+* Select hotel, attraction and dining recommendations [here](https://drive.google.com/open?id=17Xbh-_JCUy1CQelU-3vNo0C4ejFs97Ql&usp=sharing).
+* The workshop is happening at the same time as the [Central PA Theatre and Dance Fest](https://centralpatheatre.com/).
 * More comprehensive info is available at http://visitpennstate.org/
 
 ## Organizers
