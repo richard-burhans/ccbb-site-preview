@@ -16,6 +16,7 @@ weight = 20
 | <a href="http://www.personal.psu.edu/mxd60/">Michael DeGiorgio</a> | <span class="badge">BIO</span> |
 | <a href="https://autism.bx.psu.edu/">Santhosh Girirajan</a> | <span class="badge">BMB (ECOS)</span> |
 | <a href="http://www.bx.psu.edu/~ross/">Ross Hardison</a> | <span class="badge">BMB (ECOS)</span> |
+| <a href="https://www.hall-lab.org/">Molly Hall</a> | <span class="badge">VBS</span> |
 <a href="http://bmb.psu.edu/directory/aml25">Arthur Lesk</a> | <span class="badge">BMB (ECOS)</span> |
 <a href="http://www.personal.psu.edu/users/q/u/qul12/">Qunhua Li</a> | <span class="badge">STAT</span> |
 <a href="https://dajiangliu.wordpress.com/">Dajiang Liu</a> | <span class="badge">PHS</span> |
@@ -40,4 +41,5 @@ Legend <br>
 <span class="badge">STAT</span> = Department of Statistics <br />
 <span class="badge">CSE</span> = Department of Computer Science and Engineering <br />
 <span class="badge">PHS</span> = Public Health Sciences <br />
+<span class="badge">VBS</span> = Department of Veterinary and Biomedical Sciences <br />
 </small>
