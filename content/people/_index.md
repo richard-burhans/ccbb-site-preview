@@ -14,6 +14,7 @@ weight = 20
 | <a href="https://profiles.psu.edu/profiles/display/113588">Laura Carrel</a> | <span class="badge">BMB (COM)</span> |
 | <a href="http://sites.psu.edu/chiaromonte/">Francesca Chiaromonte</a> | <span class="badge">STAT</span> |
 | <a href="http://www.personal.psu.edu/mxd60/">Michael DeGiorgio</a> | <span class="badge">BIO</span> |
+| <a href="https://dokhlab.med.psu.edu/dokhlab/">Nikolay Dokholyan</a> | <span class="badge">COM</span> | 
 | <a href="https://autism.bx.psu.edu/">Santhosh Girirajan</a> | <span class="badge">BMB (ECOS)</span> |
 | <a href="https://www.hall-lab.org/">Molly Hall</a> | <span class="badge">VBS</span> |
 | <a href="http://www.bx.psu.edu/~ross/">Ross Hardison</a> | <span class="badge">BMB (ECOS)</span> |
@@ -29,15 +30,18 @@ weight = 20
 <a href="http://bmb.psu.edu/directory/bfp2">Frank Pugh</a> | <span class="badge">BMB (ECOS)</span> |
 <a href="http://www.personal.psu.edu/mlr36/">Matthew Reimherr</a> | <span class="badge">STAT</span> |
 <a href="http://www.personal.psu.edu/sws4/">Stephen Schaeffer</a> | <span class="badge">BIO</span> |
+<a href="https://sites.psu.edu/mxs2589/">Mingfu Shao</a> | <span class="badge">CSE</span> |
 <a href="http://szparalab.psu.edu/">Moriah Szpara</a> | <span class="badge">BMB (ECOS)</span> |
 <a href="http://yuelab.org/">Feng Yue</a> | <span class="badge">BMB (COM)</span> |
 <a href="http://sites.stat.psu.edu/~yzz2/">Yu Zhang</a> | <span class="badge">STAT</span> |
 
 
 Legend <br>
-<small><span class="badge">BMB (COM)</span> = Department of Biochemistry and Molecular Biology (College of Medicine) <br />
+<small>
+<span class="badge">BMB (COM)</span> = Department of Biochemistry and Molecular Biology (College of Medicine) <br />
 <span class="badge">BMB (ECOS)</span> = Department of Biochemistry and Molecular Biology (College of Science) <br />
 <span class="badge">BIOL</span> = Department of Biology <br />
+<span class="badge">COM</span> = College of Medicine <br />
 <span class="badge">STAT</span> = Department of Statistics <br />
 <span class="badge">CSE</span> = Department of Computer Science and Engineering <br />
 <span class="badge">PHS</span> = Public Health Sciences <br />
