@@ -11,18 +11,18 @@ Penn State offers several courses that cover  Computational Biology and Bioinfor
 
 | Course ID | Description and links |
 |:------|:-----|
-| BMMB/MCIBS 554 | [Introduction to data driven life sciences](http://bulletins.psu.edu/graduate/courses/B/BMMB/554/201516SP) |
-| CSE/BMMB 566 | [Algorithms and Data Structures for Bioinformatics](http://bulletins.psu.edu/graduate/courses/C/CSE/566/201516SP) |
+| BMMB/MCIBS 554 | [Introduction to data driven life sciences](https://bulletins.psu.edu/search/?P=BMMB+554) |
+| CSE/BMMB 566 | [Algorithms and Data Structures for Bioinformatics](https://bulletins.psu.edu/search/?P=CSE+566) |
 | BMB 497 | Introduction to Bioinformatics | 
-| BMMB 852 | [Applied Bioinformatics](http://bulletins.psu.edu/graduate/courses/B/BMMB/852/201314SP)|
+| BMMB 852 | [Applied Bioinformatics](https://bulletins.psu.edu/search/?P=BMMB+852)|
 | PHYS/BIOL 497 | [Network analysis of biological systems](https://www.ralbert.me/teaching.html)|
-| STAT 555 | [Statistical Analysis of Genomics Data](http://bulletins.psu.edu/graduate/courses/S/STAT/555/201617FA) |
-| BIOL 405 | [Molecular Evolution ](http://bulletins.psu.edu/undergrad/courses/B/BIOL/405/199494FA) | 
-| BMMB 551 | [Genomics](http://bulletins.psu.edu/graduate/courses/B/BMMB/551/201516SP) |
-| BMB 484 | [Functional Genomics](http://bulletins.psu.edu/undergrad/courses/B/B%20M%20B/484/201314SP) |
-| BIOL 422 | [Advanced Genetics](http://bulletins.psu.edu/undergrad/courses/B/BIOL/422/201011FA) |
-| BIOL 428 | [Population Genetics](http://bulletins.psu.edu/undergrad/courses/B/BIOL/428/200001SP) |
-| MCIBS 556 | [Computation, Bioinformatics, and Statistics Practicum](http://bulletins.psu.edu/undergrad/courses/M/MCIBS/556) |
+| STAT 555 | [Statistical Analysis of Genomics Data](https://bulletins.psu.edu/search/?P=STAT+555) |
+| BIOL 405 | [Molecular Evolution ](https://bulletins.psu.edu/search/?P=BIOL+405) | 
+| BMMB 551 | [Genomics](https://bulletins.psu.edu/search/?P=BMMB+551) |
+| BMB 484 | [Functional Genomics](https://bulletins.psu.edu/search/?P=BMB+484) |
+| BIOL 422 | [Advanced Genetics](https://bulletins.psu.edu/search/?P=BIOL+422) |
+| BIOL 428 | [Population Genetics](https://bulletins.psu.edu/search/?P=BIOL+428) |
+| MCIBS 556 | [Computation, Bioinformatics, and Statistics Practicum](https://bulletins.psu.edu/search/?P=MCIBS+556) |
 
 
 ## Graduate programs
