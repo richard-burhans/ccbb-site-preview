@@ -10,10 +10,5 @@ The Center's mission is to bring together researchers who are developing and app
 Browse our site to learn about the center's [history](about/), the [people](people/) involved, the [seminars](/seminar) it hosts, and the various [educational](edu/) and computational biology and bioinformatic [resources](resources/) available on campus.
 The center also runs a [visiting scholars](/visitingscholars) program and hosts [workshops](/workshop).
 
-
-{{% panel theme="info" header="News" %}}
-CCBB is hosting a [workshop](/workshop) on emerging methods for sequence analysis.
-{{% /panel %}}
-
 The Center's activities are funded by the [Huck Institutes of the Life Sciences](https://www.huck.psu.edu/) and 
 the [Institute for CyberScience](https://ics.psu.edu/).
