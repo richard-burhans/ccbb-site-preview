@@ -6,7 +6,7 @@
 <div class="highlightable">
   <div id="header-wrapper">
     <div id="header">
-		{{ range where .Site.Pages "Source.BaseFileName" "_header" }} 
+		{{ range where .Site.Pages "File.BaseFileName" "_header" }}
 		{{ .Content }} 
 		{{else}}
 		<span style="font-size:smaller">
