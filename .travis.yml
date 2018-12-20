@@ -6,7 +6,7 @@
 # non-zero exit code in the following and the build is "failed"
 #   - script
 
-dist: trusty
+dist: xenial
 sudo: required
 
 # non-zero exit code: build is "errored"
