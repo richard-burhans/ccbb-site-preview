@@ -9,7 +9,7 @@
         <strong>{{ .presenters }}</strong>
         {{- with .affiliations -}}<br>{{ . }}{{- end -}}
         {{- with .host -}}<br>Hosted by: {{ . }}{{- end -}}
-        {{- with .zoom_url -}}<br><a href="{{ . }}">Zoom URL</a>{{- end -}}
+        <br>{{- if .zoom_url -}}<a href="{{ .zoom_url }}">Zoom URL</a>{{- else -}}No Zoom URL{{- end -}}
     </td>
     <td><em>{{ .title }}</em></td>
 </tr>
