@@ -23,7 +23,7 @@ weight = 20
 <a href="http://www.personal.psu.edu/users/q/u/qul12/">Qunhua Li</a> | <span class="badge">STAT</span> |
 <a href="https://dajiangliu.wordpress.com/">Dajiang Liu</a> | <span class="badge">PHS</span> |
 <a href="http://llinaslab.psu.edu/">Manuel Llinas</a> | <span class="badge">BMB (ECOS)</span> |
-<a href="http://http://www.cse.psu.edu/~kxm85/">Kamesh Madduri</a> | <span class="badge">CSE</span> |
+<a href="http://www.cse.psu.edu/~kxm85/">Kamesh Madduri</a> | <span class="badge">CSE</span> |
 <a href="http://mahonylab.org/">Shaun Mahony</a> | <span class="badge">BMB (ECOS)</span> |
 <a href="http://www.bx.psu.edu/makova_lab/">Kateryna Makova</a> | <span class="badge">BIO</span> |
 <a href="http://medvedevgroup.com/">Paul Medvedev</a> | <span class="badge">CSE</span><span class="badge">BMB (ECOS)</span> |
