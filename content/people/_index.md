@@ -18,12 +18,14 @@ weight = 20
 | <a href="https://autism.bx.psu.edu/">Santhosh Girirajan</a> | <span class="badge">BMB (ECOS)</span> |
 | <a href="https://www.hall-lab.org/">Molly Hall</a> | <span class="badge">VBS</span> |
 | <a href="http://www.bx.psu.edu/~ross/">Ross Hardison</a> | <span class="badge">BMB (ECOS)</span> |
+| <a href="https://bio.psu.edu/directory/yuh371">Yifei Huang</a> | <span class="badge">BIO</span> |
 <a href="http://bmb.psu.edu/directory/aml25">Arthur Lesk</a> | <span class="badge">BMB (ECOS)</span> |
 <a href="http://www.personal.psu.edu/users/q/u/qul12/">Qunhua Li</a> | <span class="badge">STAT</span> |
 <a href="https://dajiangliu.wordpress.com/">Dajiang Liu</a> | <span class="badge">PHS</span> |
 <a href="http://llinaslab.psu.edu/">Manuel Llinas</a> | <span class="badge">BMB (ECOS)</span> |
 <a href="http://mahonylab.org/">Shaun Mahony</a> | <span class="badge">BMB (ECOS)</span> |
 <a href="http://www.bx.psu.edu/makova_lab/">Kateryna Makova</a> | <span class="badge">BIO</span> |
+<a href="http://http://www.cse.psu.edu/~kxm85/">Kamesh Madduri</a> | <span class="badge">CSE</span> |
 <a href="http://medvedevgroup.com/">Paul Medvedev</a> | <span class="badge">CSE</span><span class="badge">BMB (ECOS)</span> |
 <a href="http://www.bx.psu.edu/miller_lab/">Webb Miller</a> | <span class="badge">BIO</span> <span class="badge">CSE</span> | 
 <a href="http://nekrut.bx.psu.edu">Anton Nekrutenko</a> | <span class="badge">BMB (ECOS)</span> | 
