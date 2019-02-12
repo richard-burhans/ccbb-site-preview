@@ -12,3 +12,5 @@ The center also runs a [visiting scholars](/visitingscholars) program and hosts 
 
 The Center's activities are funded by the [Huck Institutes of the Life Sciences](https://www.huck.psu.edu/) and 
 the [Institute for CyberScience](https://ics.psu.edu/).
+
+Center members can access relevant documents through our [box folder](https://psu.app.box.com/folder/66738941651).
