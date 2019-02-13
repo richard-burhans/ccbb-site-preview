@@ -18,7 +18,7 @@ The Center for Computational Biology and Bioinformatics (CCBB, http://ccbb.psu.e
 
 Interested students can learn more about the research performed at CCBB by visiting the webpages of our faculty (http://www.ccbb.psu.edu/people). After identifying a potential faculty host, please reach out to gauge their interest and develop a plan for the visit. Applications should be submitted by your potential host to ccbb@psu.edu with the following information: name of host and of visiting scholar, CV of visiting scholar, a brief research proposal for the visit (between 100 and 400 words), and the proposed timeline of the stay (should be between 1 and 6 months). Applications are accepted on a rolling basis.
 
-If your application is accepted, CCBB will reimburse your travel expenses. It is the responsibility of the host to make sure that you qualify for reimbursement prior to the trip being arranged. You and your host may also be asked to fill out a short outcomes survey or otherwise help for reporting purposes.
+If your application is accepted, CCBB will reimburse your travel expenses. Your host may be able to provide you with additional funding, but this is something you should discuss with your host. It is the responsibility of the host to make sure that you qualify for reimbursement prior to the trip being arranged. You and your host may also be asked to fill out a short outcomes survey or otherwise help for reporting purposes.
 
 Feel free to contact ccbb@psu.edu if you have any questions.
 
