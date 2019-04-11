@@ -5,7 +5,7 @@ pre ="<i class='fa fa-user-o'></i> "
 weight = 20
 +++
 
-### Members
+### Core Members
 
 | CCBB Member          |  Affiliation                  |
 |-----------|-----------------------|
@@ -34,9 +34,11 @@ weight = 20
 <a href="http://www.personal.psu.edu/sws4/">Stephen Schaeffer</a> | <span class="badge">BIO</span> |
 <a href="https://sites.psu.edu/mxs2589/">Mingfu Shao</a> | <span class="badge">CSE</span> |
 <a href="http://szparalab.psu.edu/">Moriah Szpara</a> | <span class="badge">BMB (ECOS)</span> |
-<a href="http://yuelab.org/">Feng Yue</a> | <span class="badge">BMB (COM)</span> |
-<a href="http://sites.stat.psu.edu/~yzz2/">Yu Zhang</a> | <span class="badge">STAT</span> |
 
+
+### Affiliate Members
+| CCBB Member          |  Affiliation                  |
+|-----------|-----------------------|
 
 Legend <br>
 <small>
