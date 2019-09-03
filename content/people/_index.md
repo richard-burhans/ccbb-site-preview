@@ -9,11 +9,9 @@ weight = 20
 
 | CCBB Member          |  Affiliation                  |
 |-----------|-----------------------|
-| <a href="http://www.personal.psu.edu/rua15/">Raquel Assis</a> | <span class="badge">BIOL</span> |
 | <a href="http://www.personal.psu.edu/lub14/">Le Bao</a> | <span class="badge">STAT</span> |
 | <a href="https://profiles.psu.edu/profiles/display/113588">Laura Carrel</a> | <span class="badge">BMB (COM)</span> |
 | <a href="http://sites.psu.edu/chiaromonte/">Francesca Chiaromonte</a> | <span class="badge">STAT</span> |
-| <a href="http://www.personal.psu.edu/mxd60/">Michael DeGiorgio</a> | <span class="badge">BIOL</span> |
 | <a href="https://dokhlab.med.psu.edu/dokhlab/">Nikolay Dokholyan</a> | <span class="badge">COM</span> | 
 | <a href="https://autism.bx.psu.edu/">Santhosh Girirajan</a> | <span class="badge">BMB (ECOS)</span> |
 | <a href="https://www.hall-lab.org/">Molly Hall</a> | <span class="badge">VBS</span> |
