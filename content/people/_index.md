@@ -39,6 +39,7 @@ weight = 20
 |-----------|-----------------------|
 | <a href="http://www.personal.psu.edu/mua972/">Marco Archetti</a> | <span class="badge">BIOL</span> |
 | <a href="https://www.bme.psu.edu/labs/Lian-lab/">Xiaojun (Lance) Lian </a> | <span class="badge">BIOL</span> <span class="badge">BME</span> |
+| <a href="https://koslicki.math.oregonstate.edu/">David Koslicki</a> | <span class="badge">CSE</span> <span class="badge">BIOL</span> |
 
 Legend <br>
 <small>
