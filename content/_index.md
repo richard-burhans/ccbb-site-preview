@@ -11,6 +11,6 @@ Browse our site to learn about the center's [history](about/), the [people](peop
 The center also runs a [visiting scholars](/visitingscholars) program and hosts [workshops](/workshop).
 
 The Center's activities are funded by the [Huck Institutes of the Life Sciences](https://www.huck.psu.edu/) and 
-the [Institute for CyberScience](https://ics.psu.edu/).
+the [Institute for Computational and Data Sciences](https://ics.psu.edu/).
 
 Center members can access relevant documents through our [box folder](https://psu.app.box.com/folder/66738941651).
