@@ -2,6 +2,6 @@ seminar_date: 2020-01-29T16:00:00
 title: 'To be announced'
 presenters: 'Xiaoheng Cheng and Amatur Rahman'
 affiliations: 'The Pennsylvania State University'
-host: 'TBD'
-zoom_url: 'TBD'
+host:
+zoom_url:
 location:
