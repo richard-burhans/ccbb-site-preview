@@ -5,3 +5,4 @@ affiliations: 'The Pennsylvania State University'
 host:
 zoom_url: 'To be rescheduled'
 location: 
+reschedule: true

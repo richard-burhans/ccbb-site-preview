@@ -1,15 +1,18 @@
-
 <tr>
     <td>
+        {{- if not .reschedule -}}
         <span style="white-space:nowrap">{{ dateFormat "January 2" .seminar_date }}</span>
         {{- if or (ne (time .seminar_date).Hour 16) (ne (time .seminar_date).Minute 0) -}}<br>{{- dateFormat "3:04PM" .seminar_date }}{{- end -}}
+        {{- else -}}
+        <span style="white-space:nowrap">To be rescheduled</span>
+        {{- end -}}
         {{- with .location -}}<br>{{ . }}{{- end -}}
     </td>
     <td>
         <strong>{{ .presenters }}</strong>
         {{- with .affiliations -}}<br>{{ . }}{{- end -}}
         {{- with .host -}}<br>Hosted by: {{ . }}{{- end -}}
-        <br>{{- if .zoom_url -}}<a href="{{ .zoom_url }}">Zoom URL</a>{{- else -}}No Zoom URL{{- end -}}
+        <br>{{- if and (not .reschedule) .zoom_url -}}<a href="{{ .zoom_url }}">Zoom URL</a>{{- else -}}No Zoom URL{{- end -}}
     </td>
     <td><em>{{ .title }}</em></td>
 </tr>

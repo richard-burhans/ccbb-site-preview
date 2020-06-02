@@ -5,3 +5,4 @@ affiliations: 'University of Pennsylvania'
 host: 'Center for Medical Genomics'
 zoom_url: 'To be rescheduled'
 location:
+reschedule: true
