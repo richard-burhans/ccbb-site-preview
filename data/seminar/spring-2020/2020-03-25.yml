@@ -5,4 +5,4 @@ affiliations: 'The Pennsylvania State University'
 host: 
 zoom_url: 'https://psu.zoom.us/j/966399089'
 location: 
-reschedule: 
+reschedule: false
