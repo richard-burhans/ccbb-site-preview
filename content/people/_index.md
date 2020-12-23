@@ -39,20 +39,22 @@ weight = 20
 |-----------|-----------------------|
 | <a href="http://www.personal.psu.edu/mua972/">Marco Archetti</a> | <span class="badge">BIOL</span> |
 | <a href="https://animalscience.psu.edu/directory/evk5387">Erika Ganda</a> | <span class="badge">AS</span> |
-| <a href="https://www.bme.psu.edu/labs/Lian-lab/">Xiaojun (Lance) Lian </a> | <span class="badge">BIOL</span> <span class="badge">BME</span> |
 | <a href="https://koslicki.math.oregonstate.edu/">David Koslicki</a> | <span class="badge">CSE</span> <span class="badge">BIOL</span> |
+| <a href="https://www.bme.psu.edu/labs/Lian-lab/">Xiaojun (Lance) Lian </a> | <span class="badge">BIOL</span> <span class="badge">BME</span> |
+| <a href="https://jsilve24.github.io/SilvermanLab/">Justin Silverman</a> |  <span class="badge">IST</span> |
 
 
 
 Legend <br>
 <small>
-<span class="badge">AS</span> = Department of Animal Sciences <br />
+<span class="badge">AS</span> = Department of Animal Sciences <br /> 
 <span class="badge">BMB (COM)</span> = Department of Biochemistry and Molecular Biology (College of Medicine) <br />
 <span class="badge">BMB (ECOS)</span> = Department of Biochemistry and Molecular Biology (College of Science) <br />
 <span class="badge">BME</span> = Department of Biomedical Engineering <br />
 <span class="badge">BIOL</span> = Department of Biology <br />
 <span class="badge">COM</span> = College of Medicine <br />
 <span class="badge">CSE</span> = Department of Computer Science and Engineering <br />
+<span class="badge">IST</span> = College of Information Sciences and Technology <br />
 <span class="badge">PHS</span> = Public Health Sciences <br />
 <span class="badge">STAT</span> = Department of Statistics <br />
 <span class="badge">VBS</span> = Department of Veterinary and Biomedical Sciences <br />
