@@ -42,7 +42,7 @@ weight = 20
 | <a href="https://koslicki.math.oregonstate.edu/">David Koslicki</a> | <span class="badge">CSE</span> <span class="badge">BIOL</span> |
 | <a href="https://www.bme.psu.edu/labs/Lian-lab/">Xiaojun (Lance) Lian </a> | <span class="badge">BIOL</span> <span class="badge">BME</span> |
 | <a href="https://jsilve24.github.io/SilvermanLab/">Justin Silverman</a> |  <span class="badge">IST</span> |
-
+| <a href="https://science.psu.edu/stat/people/xkz5224">Xiang Zhu</a> |  <span class="badge">STAT</span> |
 
 
 Legend <br>
