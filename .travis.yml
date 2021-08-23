@@ -1,27 +1,14 @@
-# non-zero exit code in the following and the build is "errored"
-#   - before_install
-#   - install
-#   - before_script
-#
-# non-zero exit code in the following and the build is "failed"
-#   - script
-
 dist: xenial
 sudo: required
 
-# non-zero exit code: build is "errored"
 before_install:
   - sudo ./install-dependencies.sh
 
-# non-zero exit code: build is "errored"
 install:
   - rm -rf public
 
-# non-zero exit code: build is "errored"
-#before_script:
-#  - sudo ./install-CA.sh
-
 script:
+  - rvm use default
   - /snap/bin/hugo
   - pushd public && htmlproofer --disable-external --allow-hash-href --alt-ignore /images/gopher-404.jpg --file-ignore /revealjs/ . && popd
 
@@ -35,3 +22,7 @@ deploy:
   repo: psu-ccbb/psu-ccbb.github.io
   target_branch: master
   fqdn: www.ccbb.psu.edu
+
+env:
+  global:
+    - RUBY_RELEASE=2.6.7

@@ -34,9 +34,15 @@ source "$rvm_path/scripts/rvm"
 export PATH="${PATH:+${PATH}:}$rvm_bin_path"
 echo "INFO: finished setting up rvm environment"
 
-echo "INFO: changing to rvm default ruby"
+echo "INFO: installing ruby-${RUBY_RELEASE}"
+rvm install "${RUBY_RELEASE}"
+echo "INFO: finished installing ruby-${RUBY_RELEASE}"
+
+echo "INFO: setting rvm default alias to ruby-${RUBY_RELEASE}"
+rvm alias create default "ruby-${RUBY_RELEASE}"
+echo "INFO: finished setting rvm default alias to ruby-${RUBY_RELEASE}"
+
 rvm use default
-echo "INFO: finished changing to rvm default ruby"
 
 set -o nounset
 set -o errexit
