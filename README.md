@@ -1,4 +1,4 @@
-[www.ccbb.psu.edu](http://www.ccbb.psu.edu) [![Build Status](https://travis-ci.com/psu-ccbb/ccbb-site.svg?token=dMMa6azk5yJH4pPmtQet&branch-master)](https://app.travis-ci.com/github/psu-ccbb/ccbb-site)
+[www.ccbb.psu.edu](http://www.ccbb.psu.edu) [![Build Status](https://app.travis-ci.com/psu-ccbb/ccbb-site.svg?token=dMMa6azk5yJH4pPmtQet&branch=master)](https://app.travis-ci.com/github/psu-ccbb/ccbb-site)
 ===
 
 ### Hugo
