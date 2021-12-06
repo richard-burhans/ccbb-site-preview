@@ -30,7 +30,7 @@ jobs:
         run: hugo
 
       - name: Check Site
-      - working-directory: ./public
+        working-directory: ./public
         run: bundle exec htmlproofer -- --disable-external --allow-hash-href --alt-ignore /images/gopher-404.jpg --file-ignore /revealjs/ .
 
       - name: Deploy Site
