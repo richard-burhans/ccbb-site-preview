@@ -31,7 +31,7 @@ jobs:
 
       - name: Check Site
         working-directory: ./public
-        run: bundle exec htmlproofer -- --disable-external --allow-hash-href --alt-ignore /images/gopher-404.jpg --file-ignore /revealjs/ .
+        run: bundle exec htmlproofer --disable-external --allow-hash-href --alt-ignore /images/gopher-404.jpg --file-ignore /revealjs/ .
 
       - name: Deploy Site
         uses: peaceiris/actions-gh-pages@v3
