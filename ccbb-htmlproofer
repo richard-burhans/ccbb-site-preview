@@ -12,7 +12,7 @@ options = {
     disable_external: true,
     ignore_empty_alt: true,
     ignore_empty_mailto: false,
-    ignore_files: [ "./images/gopher-404.jpg", "./revealjs/" ],
+    ignore_files: [ "./images/gopher-404.jpg", %r{^\./revealjs/} ],
     ignore_missing_alt: true,
     ignore_status_codes: [],
     ignore_urls: [],
