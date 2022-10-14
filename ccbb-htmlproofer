@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require 'html-proofer'
+
+options = {
+    allow_hash_href: true,
+    allow_missing_href: false,
+    assume_extension: ".html",
+    check_external_hash: true,
+    checks: ["Links", "Images", "Scripts"],
+    directory_index_file: "index.html",
+    disable_external: true,
+    ignore_empty_alt: true,
+    ignore_empty_mailto: false,
+    ignore_files: [ "./images/gopher-404.jpg", "./revealjs/" ],
+    ignore_missing_alt: true,
+    ignore_status_codes: [],
+    ignore_urls: [],
+    enforce_https: false,
+    extensions: [".html"],
+    log_level: :info,
+    only_4xx: false,
+    swap_attributes: {},
+    swap_urls: {}
+}
+
+HTMLProofer.check_directory(".", options).run
+
