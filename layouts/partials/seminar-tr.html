@@ -14,5 +14,5 @@
         {{- with .host -}}<br>Hosted by: {{ . }}{{- end -}}
         <br>{{- if and (not .reschedule) .zoom_url -}}<a href="{{ .zoom_url }}">Zoom URL</a>{{- else -}}No Zoom URL{{- end -}}
     </td>
-    <td><em>{{ .title }}</em></td>
+    <td><em>{{ .title }}</em>{{- with .slides -}}&nbsp;&nbsp;&nbsp;[<a href="{{ . }}" target="_blank">Slides</a>]{{- end -}}</td>
 </tr>
