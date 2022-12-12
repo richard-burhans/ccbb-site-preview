@@ -23,6 +23,10 @@ The Center for Computational Biology and Bioinformatics and Penn State Universit
 * May 4th: Late registration deadline. 
 * May 24 : Day of workshop
 
+## Keynotes
+* [Pavel Pevzner](https://bioalgorithms.ucsd.edu/)
+* TBD
+
 ## Previous workshops
 * [2018](http://ccbb.psu.edu/workshop/)
 
