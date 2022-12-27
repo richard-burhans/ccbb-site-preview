@@ -25,7 +25,7 @@ The Center for Computational Biology and Bioinformatics and Penn State Universit
 
 ## Keynotes
 * [Pavel Pevzner](https://bioalgorithms.ucsd.edu/)
-* TBD
+* [Mona Singh](https://www.cs.princeton.edu/~mona/)
 
 ## Previous workshops
 * [2018](http://ccbb.psu.edu/workshop/)
