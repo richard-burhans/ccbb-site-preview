@@ -9,7 +9,7 @@ weight = 81
 
 
 ## Call for participation
-The Center for Computational Biology and Bioinformatics at Penn State will host a one-day workshop on emerging methods for sequence analysis on May 24, 2023. The workshop will feature a mix of invited speakers and talks selected from submitted abstracts. We thank Mona Singh, Princeton University, and Pavel Pevzner, UC San Diego, for accepting our invitation as keynote speakers! Registration is free.
+The Center for Computational Biology and Bioinformatics at Penn State will host a one-day workshop on emerging methods for sequence analysis on May 24, 2023. The workshop will feature a mix of invited speakers and talks selected from submitted abstracts. We thank Mona Singh, Princeton University, and Pavel Pevzner, UC San Diego, for accepting our invitation as keynote speakers! Please register through this [link](https://forms.gle/kXrRGduDU6ncm5Ru9). Registration is free.
   
 We invite submissions of abstracts highlighting methodological innovation and summarizing experimental or theoretical results through EasyChair: https://easychair.org/conferences/?conf=wemsa23. Abstracts should be max. 250 words long and can be submitted until April 1st. We encourage submission of unpublished work. There is no formal review. After reading through all abstracts, the organizing committee will select abstracts for oral presentation. We invite authors of remaining abstracts to present their work in the form of a poster. If you have any questions, please email the organizers at wemsa23@psu.edu.
 
@@ -31,7 +31,7 @@ Note: if using adaptive technology and you require an accommodation, please inst
 ## Key Dates
 * April 1: Abstract submission deadline
 * April 15: Abstract notification deadline
-* April 25th: Registration deadline. Registrations after this deadline are space permitting, on a first-come first-serve basis.
+* April 25th: Registration deadline. Register [here](https://forms.gle/kXrRGduDU6ncm5Ru9). Registrations after this deadline are space permitting, on a first-come first-serve basis. 
 * May 4th: Late registration deadline. 
 * May 24 : Day of workshop
 
