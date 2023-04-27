@@ -8,7 +8,7 @@ weight = 81
 # 2023 Workshop on emerging methods for sequence analysis
 
 ## Schedule (Draft)
-| Session                                         | Time     | Speaker                   | Title                                                                                                          | Full-Authoer List                                                              |
+| Session                                         | Time     | Speaker                   | Title                                                                                                          | Full-Author List                                                              |
 |-------------------------------------------------|----------|---------------------------|----------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
 | Breakfast, poster setup, registration           |  8:30 AM |                           |                                                                                                                |                                                                                |
 | Morning keynote                                 |  9:00 AM | Pavel Pevzner             | Towards complete genomics and metagenomics                                                                     |                                                                                |
