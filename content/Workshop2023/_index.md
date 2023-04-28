@@ -34,10 +34,10 @@ weight = 81
 
 
 ## Key Dates
-* April 1: Abstract submission deadline
-* April 15: Abstract notification deadline
-* April 25th: Registration deadline. Register [here](https://forms.gle/kXrRGduDU6ncm5Ru9). Registrations after this deadline are space permitting, on a first-come first-serve basis. 
-* May 4th: Late registration deadline. 
+* ~~April 1: Abstract submission deadline~~
+* ~~April 15: Abstract notification deadline~~
+* ~~April 25th: Registration deadline. Registrations after this deadline are space permitting, on a first-come first-serve basis. ~~
+* May 4th: ~~Late registration deadline.~~ NOTE: THE WORKSHOP REGISTRATION IS NOW CLOSED DUE TO SPACE LIMITATIONS. IF YOU STILL REALLY WANT TO ATTEND BUT MISSED THE DEADLINE, PLEASE EMAIL US WEMSA23@PSU.EDU AND WE CAN PUT YOU ON A WAITLIST OR TRY TO OTHERWISE ACCOMMODATE.
 * May 4th: Late poster accept deadline
 * May 24 : Day of workshop
 
