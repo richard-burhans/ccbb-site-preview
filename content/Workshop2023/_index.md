@@ -7,7 +7,10 @@ weight = 81
 
 # 2023 Workshop on emerging methods for sequence analysis
 
-**Location is Hintz Alumni Center, https://www.map.psu.edu/?id=1134#!m/261351**
+## Information for participants
+* Location is Hintz Alumni Center, https://www.map.psu.edu/?id=1134#!m/261351
+* A set of recommended hotels, restaurants, and parking garages/lots have been compiled in a google map: https://www.google.com/maps/d/u/0/edit?mid=1USYgOeGSxdYGUApuxe63kwU4ivYnNcw&usp=sharing
+* Notes about parking: The Fraser Street garage (135 S Fraser St, State College, PA 16801) is closest to the workshop venue. All the downtown garages are roughly $1/hour. More information about parking is available at: https://www.statecollegepa.us/169/Downtown-Parking
 
 ## Schedule (Draft)
 | Session                                         | Time     | Speaker                   | Title                                                                                                          | Full-Author List                                                              |
