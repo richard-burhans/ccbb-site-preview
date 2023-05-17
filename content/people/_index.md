@@ -38,6 +38,7 @@ weight = 20
 | CCBB Member          |  Affiliation                  |
 |-----------|-----------------------|
 | <a href="http://www.personal.psu.edu/mua972/">Marco Archetti</a> | <span class="badge">BIOL</span> |
+| <a href="https://www.eecs.psu.edu/departments/directory-detail-g.aspx?q=skc6192">Stefan Canzar</a> | <span class="badge">CSE</span> |
 | <a href="https://animalscience.psu.edu/directory/evk5387">Erika Ganda</a> | <span class="badge">AS</span> |
 | <a href="https://koslicki.math.oregonstate.edu/">David Koslicki</a> | <span class="badge">CSE</span> <span class="badge">BIOL</span> |
 | <a href="https://www.bme.psu.edu/labs/Lian-lab/">Xiaojun (Lance) Lian </a> | <span class="badge">BIOL</span> <span class="badge">BME</span> |
