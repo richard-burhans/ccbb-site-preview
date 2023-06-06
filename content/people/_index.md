@@ -27,7 +27,6 @@ weight = 20
 | <a href="http://medvedevgroup.com/">Paul Medvedev</a> | <span class="badge">CSE</span> <span class="badge">BMB (ECOS)</span> |
 | <a href="http://www.bx.psu.edu/miller_lab/">Webb Miller</a> | <span class="badge">BIOL</span> <span class="badge">CSE</span> | 
 | <a href="http://nekrut.bx.psu.edu">Anton Nekrutenko</a> | <span class="badge">BMB (ECOS)</span> | 
-| <a href="http://bmb.psu.edu/directory/bfp2">Frank Pugh</a> | <span class="badge">BMB (ECOS)</span> |
 | <a href="http://www.personal.psu.edu/mlr36/">Matthew Reimherr</a> | <span class="badge">STAT</span> |
 | <a href="http://www.personal.psu.edu/sws4/">Stephen Schaeffer</a> | <span class="badge">BIOL</span> |
 | <a href="https://sites.psu.edu/mxs2589/">Mingfu Shao</a> | <span class="badge">CSE</span> |
