@@ -12,7 +12,7 @@ Penn State offers several courses that cover  Computational Biology and Bioinfor
 | Course ID | Description and links |
 |:------|:-----|
 | BMB 484 | [Functional Genomics](https://bulletins.psu.edu/search/?P=BMB+484) |
-| BMB 497 | Introduction to Bioinformatics | 
+| BMB 482 | Introduction to Computational Biology | 
 | BMMB 551 | [Genomics](https://bulletins.psu.edu/search/?P=BMMB+551) |
 | BMMB/MCIBS 554 | [Introduction to data driven life sciences](https://bulletins.psu.edu/search/?P=BMMB+554) |
 | BMMB 852 | [Applied Bioinformatics](https://bulletins.psu.edu/search/?P=BMMB+852)|
