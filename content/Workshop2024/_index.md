@@ -8,7 +8,7 @@ weight = 82
 # WEMSA2024: Workshop on Emerging Methods for Sequence Analysis
 
 ## Call for participation
-The Center for Computational Biology and Bioinformatics at Penn State will host a one-day workshop on emerging methods for sequence analysis on August 9, 2024. The workshop will feature a mix of invited speakers and talks selected from submitted abstracts. To participate in the workshop please fill [registration form](https://forms.gle/oVqkd6ikguc4TNBs8). Registration is free.
+The Center for Computational Biology and Bioinformatics at Penn State will host a one-day workshop on emerging methods for sequence analysis on August 9, 2024. The workshop will feature a mix of invited speakers and talks selected from submitted abstracts. We thank **Zhiping Weng** (University of Massachusetts) and **Ben Raphael** (Princeton University) for accepting our invitation as keynote speakers! To participate in the workshop please fill [registration form](https://forms.gle/oVqkd6ikguc4TNBs8). Registration is free.
   
 We invite submissions of abstracts highlighting methodological innovation and summarizing experimental or theoretical results by filling [abstract submission form](https://forms.gle/S1D5Uy1rLmfwB4JU7). Talk abstracts should be at most 250 words long and can be submitted before June 15, 23:59 AOE. Poster abstracts can be submitted before July 20, 23:59 AOE. We encourage submission of unpublished work. There is no formal review. The organizing committee will choose abstracts for oral presentation based on the originality of the methods, significance of the results, and relevance to the intended audience. We invite authors of remaining abstracts to present their work in the form of a poster.
 
