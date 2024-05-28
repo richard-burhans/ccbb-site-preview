@@ -20,10 +20,9 @@ Submissions in the general scope of methods for biological sequence analysis wil
 * methods for analyzing omics data, e.g., single-cell, transcriptomic, or proteogenomic data
 
 ## Key Dates
-* June 15: Abstract submission deadline
-* June 29: Abstract notification deadline
-* July 09: Registration deadline. Registrations after this deadline are space permitting, on a first-come first-serve basis.
-* July 20: Late registration deadline
+* June 28: Abstract submission deadline
+* July 08: Abstract notification deadline
+* July 15: Registration deadline. Registrations after this deadline are space permitting, on a first-come first-serve basis.
 * July 20: Late poster submission deadline
 * Aug 09 : Day of workshop
 
