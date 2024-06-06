@@ -35,9 +35,3 @@ Students interested in pursuing graduate studies with Computational Biology and 
 * [Biochemistry and Molecular Biology (BMB)](http://bmb.psu.edu/graduate)
 * [Biology (BIOL)](http://bio.psu.edu/graduate-portal)
 * [Statistics (STAT)](http://stat.psu.edu/education/graduate-programs)
-
-## Training grants
-Traning grants provide external funding for students to participate in training activities outside of their own graduate program. Applications are solicited during the year from students already enrolled in a graduate program. This funding allows students to receive additional training that is not usually part of a graduate program, e.g. additional courses, seminars, or tutorials.
-
-* [Computation, Bioinformatics, and Statistics (CBIOS) Training Program](https://www.huck.psu.edu/resources/students/graduate-students/nih-training-programs/cbios-training-program/about-cbios)
-* [Biomedical Big Data to Knowledge (B2D2K)](https://www.huck.psu.edu/resources/students/graduate-students/nih-training-programs/b2d2k-training-program/about-b2d2k)
