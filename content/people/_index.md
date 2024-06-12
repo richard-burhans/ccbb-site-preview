@@ -35,11 +35,15 @@ weight = 20
 | CCBB Member          |  Affiliation                  |
 |-----------|-----------------------|
 | <a href="https://science.psu.edu/bio/people/mua972">Marco Archetti</a> | <span class="badge">BIOL</span> |
+| <a href="https://sites.google.com/view/anton-bankevich/">Anton Bankevich</a> | <span class="badge">CSE</span> |
 | <a href="https://gandalab.org/">Erika Ganda</a> | <span class="badge">AS</span> |
+| <a href="https://sites.google.com/view/christian-d-huber">Christian Huber</a> | <span class="badge">BIOL</span> |
 | <a href="https://koslickilab.github.io/Koslicki-lab-PSU/">David Koslicki</a> | <span class="badge">CSE</span> <span class="badge">BIOL</span> |
 | <a href="https://www.bme.psu.edu/labs/Lian-lab/">Xiaojun (Lance) Lian </a> | <span class="badge">BIOL</span> <span class="badge">BME</span> |
 | <a href="https://htna.github.io/">Hyuntae Na</a> | <span class="badge">CSE(PSH)</span> |
+| <a href="https://sites.google.com/view/yana-safonova/about">Yana Safonova</a> | <span class="badge">CSE</span> |
 | <a href="https://jsilve24.github.io/SilvermanLab/">Justin Silverman</a> |  <span class="badge">IST</span> |
+| <a href="http://szpiech.com/">Zachary Szpiech</a> | <span class="badge">BIOL</span> |
 | <a href="https://science.psu.edu/stat/people/xkz5224">Xiang Zhu</a> |  <span class="badge">STAT</span> |
 
 
