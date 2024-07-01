@@ -41,3 +41,8 @@ Submissions in the general scope of methods for biological sequence analysis wil
 ## Previous workshops
 * [2018](http://ccbb.psu.edu/workshop/)
 * [2023](http://ccbb.psu.edu/workshop2023/)
+
+
+## Funding
+
+This workshop is funded with the generous support of the Huck Institutes for the Life Sciences.
