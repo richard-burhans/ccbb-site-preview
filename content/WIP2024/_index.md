@@ -15,4 +15,8 @@ weight = 80
 * Xinyue Wang
 * Md Hasin Abrar
 
+## Funding
+
+This workshop is funded with the generous support of the Huck Institutes for the Life Sciences.
+
 ## More details to follow
