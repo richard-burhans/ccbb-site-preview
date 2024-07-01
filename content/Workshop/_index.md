@@ -80,3 +80,8 @@ The poster session will be held during lunch but the posters will be up also dur
 Please register [here](https://goo.gl/forms/KzkaUhVxp9MmqxsV2) by May 31st.
 Registration is free. 
 Breakfast, lunch, and coffee will be provided for registered participants. 
+
+
+## Funding
+
+This workshop was funded with the generous support of the Huck Institutes for the Life Sciences.
