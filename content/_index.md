@@ -10,7 +10,6 @@ The Center's mission is to bring together researchers who are developing and app
 Browse our site to learn about the center's [history](about/), the [people](people/) involved, the [seminars](/seminar) it hosts, and the various [educational](edu/) and computational biology and bioinformatic [resources](resources/) available on campus.
 The center also runs a [visiting scholars](/visitingscholars) program and hosts [workshops](/workshop).
 
-The Center's activities are funded by the [Huck Institutes of the Life Sciences](https://www.huck.psu.edu/) and 
-the [Institute for Computational and Data Sciences](https://ics.psu.edu/).
+The Center's activities are currently funded by the [Huck Institutes of the Life Sciences](https://www.huck.psu.edu/).
 
 Center members can access relevant documents through our [shared folder](https://pennstateoffice365.sharepoint.com/sites/CCBB-faculty).
