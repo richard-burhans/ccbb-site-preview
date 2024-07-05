@@ -13,7 +13,7 @@ The Center for Computational Biology and Bioinformatics at Penn State will host 
 <h2 align=center> <a href=https://forms.gle/oVqkd6ikguc4TNBs8>REGISTER HERE</a></h2>
 
 We invite submissions of abstracts highlighting methodological innovation and summarizing experimental or theoretical results by filling the abstract submission form below. Talk abstracts should be at most 250 words long and can be submitted before July 6, 23:59 AOE. Poster abstracts can be submitted before July 20, 23:59 AOE. We encourage submission of unpublished work. There is no formal review. The organizing committee will choose abstracts for oral presentation based on the originality of the methods, significance of the results, and relevance to the intended audience. We invite authors of remaining abstracts to present their work in the form of a poster.
-<h3>UPDATE: abstruct submission deadline extended to July 06.</h3>
+<h3>UPDATE: abstract submission deadline extended to July 06.</h3>
 <h2 align=center> <a href=https://forms.gle/S1D5Uy1rLmfwB4JU7>SUBMIT TALK OR POSTER ABSTRACT HERE</a></h2>
 
 Submissions in the general scope of methods for biological sequence analysis will be considered. Topics of interest include, but are not limited to:
