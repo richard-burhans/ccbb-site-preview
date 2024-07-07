@@ -37,7 +37,7 @@ weight = 20
 | <a href="https://science.psu.edu/bio/people/mua972">Marco Archetti</a> | <span class="badge">BIOL</span> |
 | <a href="https://sites.google.com/view/anton-bankevich/">Anton Bankevich</a> | <span class="badge">CSE</span> |
 | <a href="https://gandalab.org/">Erika Ganda</a> | <span class="badge">AS</span> |
-| <a href="https://gandalab.org/">Ilias Georgakopoulos-Soares</a> | <span class="badge">COM</span> |
+| <a href="https://sites.psu.edu/georgakopoulossoares/">Ilias Georgakopoulos-Soares</a> | <span class="badge">COM</span> |
 | <a href="https://sites.google.com/view/christian-d-huber">Christian Huber</a> | <span class="badge">BIOL</span> |
 | <a href="https://koslickilab.github.io/Koslicki-lab-PSU/">David Koslicki</a> | <span class="badge">CSE</span> <span class="badge">BIOL</span> |
 | <a href="https://www.bme.psu.edu/labs/Lian-lab/">Xiaojun (Lance) Lian </a> | <span class="badge">BIOL</span> <span class="badge">BME</span> |
