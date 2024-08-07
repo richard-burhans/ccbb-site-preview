@@ -2,7 +2,10 @@
     <td>
         {{- if not .reschedule -}}
         <span style="white-space:nowrap">{{ dateFormat "January 2" .seminar_date }}</span>
+        {{- if and (eq (time .seminar_date).Hour 0) (eq (time .seminar_date).Minute 0) -}}<br><span style="white-space:nowrap">Time TBA</span>
+        {{- else -}}
         {{- if or (ne (time .seminar_date).Hour 15) (ne (time .seminar_date).Minute 0) -}}<br>{{- dateFormat "3:04 pm" .seminar_date }}{{- end -}}
+        {{- end -}}
         {{- else -}}
         <span style="white-space:nowrap">To be rescheduled</span>
         {{- end -}}
