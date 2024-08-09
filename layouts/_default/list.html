@@ -1,0 +1,4 @@
+// ./layouts/_default/list.html
+{{ range .Pages }}
+	<a href="{{ .Permalink }}">{{ .Title }}</a>
+{{ end }}
