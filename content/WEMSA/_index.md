@@ -1,6 +1,6 @@
 +++
 title="WEMSA"
-description=""
+description="Workshop on emerging methods in sequence analysis"
 +++
 
 ## Workshop on emerging methods in sequence analysis
