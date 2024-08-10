@@ -1,6 +1,7 @@
 +++
-title="Wem"
+title="WEMSA"
 description=""
 +++
 
-# WEMSA editions
+# Workshop on emerging methods in sequence analysis
+See menu bar for various editions
