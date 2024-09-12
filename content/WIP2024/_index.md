@@ -1,17 +1,18 @@
 +++
-short_title="2024 WIP"
+short_title="2024 BioMethodDay"
 type="page"
 pre ="<i class='fa fa-paw'></i> "
 weight = 80
 +++
 
-# Bioinformatic methods work-in-progress day 
+# Bioinformatics Method Developers Community Day
 
 ## October 2nd, 2024
 
 ## Organizing committee
 * Paul Medvedev
 * Tinghua Chen
+* Maxwell Konnaris
 * Xinyue Wang
 * Md Hasin Abrar
 
