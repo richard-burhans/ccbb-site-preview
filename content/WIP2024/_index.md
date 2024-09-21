@@ -34,7 +34,7 @@ of work in methods development.
 |                                        |        | Mushan Li                 | Robust estimation of mean‐variance relation                                                              |
 |                                        |        | Judith Rodriguez          | Leveraging FracMinHash Containment for Estimating Nonsynonymous and Synonymous Selection                 |
 |                                        |        | Mahmudur Rahman Hera      | Estimating similarity and dissimilarity metrics using FracMinHash                                        |
-|                                        |        | Xiaofei Carl Zang         | TBD                                                                                                      |
+|                                        |        | Xiaofei Carl Zang         | Anchorage Accurately Assembles Anchor-Flanked Synthetic Long Reads                                            |
 | Keynote Speaker                        | 3:00        | Dajiang Liu               | TBD                                                                                                      |
 | Closing remarks                        | 4:00        |                           |       
 
