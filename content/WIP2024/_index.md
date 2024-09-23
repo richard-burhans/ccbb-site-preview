@@ -9,6 +9,7 @@ weight = 80
 
 The event is open to all Penn State students, faculty, and staff involved in or interested in methods development for bioinformatics. We hope to connect folks and provide a platform for the presentation and discussion
 of work in methods development. 
+
 * October 2nd, 2024
 * Wartik 501
 * Advance registration is closed at this point. Walk-ins are welcome as long as space permits.
