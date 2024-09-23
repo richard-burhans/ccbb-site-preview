@@ -19,25 +19,24 @@ of work in methods development.
 | Session                                | Time           | Speaker                   | Title                                                                                                    |
 |----------------------------------------|----------------|---------------------------|----------------------------------------------------------------------------------------------------------|
 | Coffee and snacks (Wartik 501)      | 9:30        |                           |                                                                                                          |
-| Session 1                              | 10:00   | Ishan Behoora             | Harmonic search applied to glike to estimate population parameters                                       |
-|    Chair: Md. Hasin Abrar                                        |                | Max Mehta                 | VLCD: Vision Language Contrastive Distillation for Robust Automatic Placenta Analysis                    |
+| Session 1 (Chair: Md. Hasin Abrar)                           | 10:00   | Ishan Behoora             | Harmonic search applied to glike to estimate population parameters                                       |
+|                                            |                | Max Mehta                 | VLCD: Vision Language Contrastive Distillation for Robust Automatic Placenta Analysis                    |
 |                                        |        | Manan Saxena              | Scalable Inference for Bayesian Multinomial Dynamic Linear Models                                        |
 |                                        |       | Tinghua Chen              | Bayesian Multinomial Logistic Normal Additive Gaussian Process Model                                     |
 |                                        |       | Qiuhai Zeng               | Linkreg: a Bayesian framework to link cCREs to target genes                                              |
 |                                        |      | Pesho Ivanov              | Mapping long reads with structural variation using sketch bucketing                                      |
-|  Panel Discussion                      | 11:30               | Kevin Hockett             |     The interface between method developers and method consumers                                                                                                     |
-|   Chair: Maxwell Konnaris                                      |         | Kateryna Makova           |                                              |
+|  Panel Discussion (Chair: Maxwell Konnaris)                      | 11:30               | Kevin Hockett             |     The interface between method developers and method consumers                                                                                                     |
+|                                         |         | Kateryna Makova           |                                              |
 |                                        |                | Santhosh Girirajan        |                                                                                                          |
 |                                        |                | PJ Perry                  |                                                                                                          |
 | Lunch                                  | 12:30        | Lunch provided to registered participants in Wartik 501                                                                             |
-| Session 2                              | 1:30   | Kyle McGovern             | Replacing Normalizations with Interval Assumptions Improves Differential Expression/Abundance            |
-|    Chair: Tinghua Chen                |        | Maxwell Konnaris          | Limits on Correlation Analysis in Sequence Count Data Analysis                                           |
+| Session 2 (Chair: Tinghua Chen)                              | 1:30   | Kyle McGovern             | Replacing Normalizations with Interval Assumptions Improves Differential Expression/Abundance            |
+|     |        | Maxwell Konnaris          | Limits on Correlation Analysis in Sequence Count Data Analysis                                           |
 |                                        |        | Mushan Li                 | Robust estimation of mean‐variance relation                                                              |
 |                                        |        | Judith Rodriguez          | Leveraging FracMinHash Containment for Estimating Nonsynonymous and Synonymous Selection                 |
 |                                        |        | Mahmudur Rahman Hera      | Estimating similarity and dissimilarity metrics using FracMinHash                                        |
 |                                        |        | Xiaofei Carl Zang         | Augmenting Transcriptome Annotations through the Lens of Splicing Evolution                                            |
-| Keynote Speaker                        | 3:00        | Dajiang Liu               | Leveraging EHR-based biobanks to predict disease risks and understand gene x environment interactions                                           
-| Chair: Xinyue Wang | | | 
+| Keynote Speaker (Chair: Xinyue Wang)                        | 3:00        | Dajiang Liu               | Leveraging EHR-based biobanks to predict disease risks and understand gene x environment interactions                                           
 | Closing coffee and snacks               | 4:00        |                           |       
 | End               | 4:30        |                           |       
 
