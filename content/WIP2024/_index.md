@@ -18,7 +18,7 @@ of work in methods development.
  
 | Session                                | Time           | Speaker                   | Title                                                                                                    |
 |----------------------------------------|----------------|---------------------------|----------------------------------------------------------------------------------------------------------|
-| Coffee, registration (Wartik 501)      | 9:30        |                           |                                                                                                          |
+| Coffee and snacks (Wartik 501)      | 9:30        |                           |                                                                                                          |
 | Session 1                              | 10:00   | Ishan Behoora             | Harmonic search applied to glike to estimate population parameters                                       |
 |                                        |                | Max Mehta                 | VLCD: Vision Language Contrastive Distillation for Robust Automatic Placenta Analysis                    |
 |                                        |        | Manan Saxena              | Scalable Inference for Bayesian Multinomial Dynamic Linear Models                                        |
