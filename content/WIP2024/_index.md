@@ -36,8 +36,8 @@ of work in methods development.
 |                                        |        | Mahmudur Rahman Hera      | Estimating similarity and dissimilarity metrics using FracMinHash                                        |
 |                                        |        | Xiaofei Carl Zang         | Anchorage Accurately Assembles Anchor-Flanked Synthetic Long Reads                                            |
 | Keynote Speaker                        | 3:00        | Dajiang Liu               | TBD                                                                                                      |
-| Closing remarks                        | 4:00        |                           |       
-
+| Closing coffee and snacks               | 4:00        |                           |       
+| End               | 4:30        |                           |       
 
 ## Organizing committee
 * Paul Medvedev
