@@ -45,7 +45,6 @@ weight = 20
 | <a href="https://sites.google.com/view/yana-safonova/about">Yana Safonova</a> | <span class="badge">CSE</span> |
 | <a href="https://jsilve24.github.io/SilvermanLab/">Justin Silverman</a> |  <span class="badge">IST</span> |
 | <a href="http://szpiech.com/">Zachary Szpiech</a> | <span class="badge">BIOL</span> |
-| <a href="https://science.psu.edu/stat/people/xkz5224">Xiang Zhu</a> |  <span class="badge">STAT</span> |
 
 
 Legend <br>
