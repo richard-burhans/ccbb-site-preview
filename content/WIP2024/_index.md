@@ -31,7 +31,7 @@ of work in methods development.
 |                                        |                | PJ Perry                  |                                                                                                          |
 | Lunch                                  | 12:30        | Lunch provided to registered participants in Wartik 501                                                                             |
 | Session 2 (Chair: Tinghua Chen)                              | 1:30   | Kyle McGovern             | Replacing Normalizations with Interval Assumptions Improves Differential Expression/Abundance            |
-|     |        | Maxwell Konnaris          | Limits on Correlation Analysis in Sequence Count Data Analysis                                           |
+|     |        | Maxwell Konnaris          | Limits on Correlation Estimation in Sequence Count Data Analysis                                           |
 |                                        |        | Mushan Li                 | Robust estimation of mean‐variance relation                                                              |
 |                                        |        | Judith Rodriguez          | Leveraging FracMinHash Containment for Estimating Nonsynonymous and Synonymous Selection                 |
 |                                        |        | Mahmudur Rahman Hera      | Estimating similarity and dissimilarity metrics using FracMinHash                                        |
