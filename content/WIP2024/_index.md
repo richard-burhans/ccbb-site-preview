@@ -24,7 +24,7 @@ of work in methods development.
 |                                        |        | Manan Saxena              | Scalable Inference for Bayesian Multinomial Dynamic Linear Models                                        |
 |                                        |       | Tinghua Chen              | Bayesian Multinomial Logistic Normal Additive Gaussian Process Model                                     |
 |                                        |       | Qiuhai Zeng               | Linkreg: a Bayesian framework to link cCREs to target genes                                              |
-|                                        |      | Pesho Ivanov              | Mapping long reads with structural variation using sketch bucketing                                      |
+|                                        |      | Pesho Ivanov              | Fast and exact sketch-based read mapping                                      |
 |  Panel Discussion (Chair: Maxwell Konnaris)                      | 11:30               | Kevin Hockett             |     The interface between method developers and method consumers                                                                                                     |
 |                                         |         | Kateryna Makova           |                                              |
 |                                        |                | Santhosh Girirajan        |                                                                                                          |
