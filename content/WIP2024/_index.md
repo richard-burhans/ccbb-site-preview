@@ -20,7 +20,7 @@ of work in methods development.
 |----------------------------------------|----------------|---------------------------|----------------------------------------------------------------------------------------------------------|
 | Coffee and snacks (Wartik 501)      | 9:30        |                           |                                                                                                          |
 | Session 1 (Chair: Md. Hasin Abrar)                           | 10:00   | Ishan Behoora             | Harmonic search applied to glike to estimate population parameters                                       |
-|                                            |                | Max Mehta                 | VLCD: Vision Language Contrastive Distillation for Robust Automatic Placenta Analysis                    |
+|                                        |        | Judith Rodriguez          | Leveraging FracMinHash Containment for Estimating Nonsynonymous and Synonymous Selection                 |
 |                                        |        | Manan Saxena              | Scalable Inference for Bayesian Multinomial Dynamic Linear Models                                        |
 |                                        |       | Tinghua Chen              | Bayesian Multinomial Logistic Normal Additive Gaussian Process Model                                     |
 |                                        |       | Qiuhai Zeng               | Linkreg: a Bayesian framework to link cCREs to target genes                                              |
@@ -29,11 +29,10 @@ of work in methods development.
 |                                         |         | Kateryna Makova           |                                              |
 |                                        |                | Santhosh Girirajan        |                                                                                                          |
 |                                        |                | PJ Perry                  |                                                                                                          |
-| Lunch                                  | 12:30        | Lunch provided to registered participants in Wartik 501                                                                             |
+| Lunch  (Wartik 501)                                  | 12:30        |                                                                              |
 | Session 2 (Chair: Tinghua Chen)                              | 1:30   | Kyle McGovern             | Replacing Normalizations with Interval Assumptions Improves Differential Expression/Abundance            |
 |     |        | Maxwell Konnaris          | Limits on Correlation Estimation in Sequence Count Data Analysis                                           |
 |                                        |        | Mushan Li                 | Robust estimation of mean‐variance relation                                                              |
-|                                        |        | Judith Rodriguez          | Leveraging FracMinHash Containment for Estimating Nonsynonymous and Synonymous Selection                 |
 |                                        |        | Mahmudur Rahman Hera      | Estimating similarity and dissimilarity metrics using FracMinHash                                        |
 |                                        |        | Xiaofei Carl Zang         | Augmenting Transcriptome Annotations through the Lens of Splicing Evolution                                            |
 | Keynote Speaker (Chair: Xinyue Wang)                        | 3:00        | Dajiang Liu               | Leveraging EHR-based biobanks to predict disease risks and understand gene x environment interactions                                           
