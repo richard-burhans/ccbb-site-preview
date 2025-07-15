@@ -12,7 +12,6 @@ weight = 20
 | <a href="https://lebao0215.github.io/">Le Bao</a> | <span class="badge">STAT</span> |
 | <a href="https://sites.psu.edu/carrel/">Laura Carrel</a> | <span class="badge">BMB (COM)</span> |
 | <a href="http://sites.psu.edu/chiaromonte/">Francesca Chiaromonte</a> | <span class="badge">STAT</span> |
-| <a href="https://dokhlab.med.psu.edu/dokhlab/">Nikolay Dokholyan</a> | <span class="badge">COM</span> | 
 | <a href="https://autism.bx.psu.edu/">Santhosh Girirajan</a> | <span class="badge">BMB (ECOS)</span> |
 | <a href="http://www.bx.psu.edu/~ross/">Ross Hardison</a> | <span class="badge">BMB (ECOS)</span> |
 | <a href="https://science.psu.edu/bmb/people/am125">Arthur Lesk</a> | <span class="badge">BMB (ECOS)</span> |
