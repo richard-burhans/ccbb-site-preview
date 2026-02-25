@@ -22,9 +22,7 @@ weight = 20
 | <a href="http://mahonylab.org/">Shaun Mahony</a> | <span class="badge">BMB (ECOS)</span> |
 | <a href="http://www.bx.psu.edu/makova_lab/">Kateryna Makova</a> | <span class="badge">BIOL</span> |
 | <a href="http://medvedevgroup.com/">Paul Medvedev</a> | <span class="badge">CSE</span> <span class="badge">BMB (ECOS)</span> |
-| <a href="http://www.bx.psu.edu/miller_lab/">Webb Miller</a> | <span class="badge">BIOL</span> <span class="badge">CSE</span> | 
 | <a href="http://nekrut.bx.psu.edu">Anton Nekrutenko</a> | <span class="badge">BMB (ECOS)</span> | 
-| <a href="https://mreimherr.github.io/">Matthew Reimherr</a> | <span class="badge">STAT</span> |
 | <a href="https://science.psu.edu/bio/people/sws4">Stephen Schaeffer</a> | <span class="badge">BIOL</span> |
 | <a href="https://sites.psu.edu/mxs2589/">Mingfu Shao</a> | <span class="badge">CSE</span> |
 | <a href="http://szparalab.psu.edu/">Moriah Szpara</a> | <span class="badge">BMB (ECOS)</span> |
@@ -36,7 +34,6 @@ weight = 20
 | <a href="https://science.psu.edu/bio/people/mua972">Marco Archetti</a> | <span class="badge">BIOL</span> |
 | <a href="https://sites.google.com/view/anton-bankevich/">Anton Bankevich</a> | <span class="badge">CSE</span> |
 | <a href="https://gandalab.org/">Erika Ganda</a> | <span class="badge">AS</span> |
-| <a href="https://sites.psu.edu/georgakopoulossoares/">Ilias Georgakopoulos-Soares</a> | <span class="badge">COM</span> |
 | <a href="https://sites.google.com/view/christian-d-huber">Christian Huber</a> | <span class="badge">BIOL</span> |
 | <a href="https://koslickilab.github.io/Koslicki-lab-PSU/">David Koslicki</a> | <span class="badge">CSE</span> <span class="badge">BIOL</span> |
 | <a href="https://www.bme.psu.edu/labs/Lian-lab/">Xiaojun (Lance) Lian </a> | <span class="badge">BIOL</span> <span class="badge">BME</span> |
