@@ -1,5 +1,5 @@
 +++
-short_title="2024 BioMethodDay"
+short_title="2026 BioMethodDay"
 type="page"
 pre ="<i class='fa fa-paw'></i> "
 weight = 80
