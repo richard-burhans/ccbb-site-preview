@@ -10,8 +10,8 @@ weight = 80
 The event is open to all Penn State students, faculty, and staff involved in or interested in methods development for bioinformatics. We hope to connect folks and provide a platform for the presentation and discussionof work in methods development. 
 
 
-* Fall 2026, exact date TBD
-* Location TBD
+* September 30 2026
+* Wartik 501
 * Registration and submission link will be available in August
   
 ## Schedule
@@ -19,7 +19,8 @@ The event is open to all Penn State students, faculty, and staff involved in or 
 | Session                                | Time           | Speaker                   | Title                                                                                                    |
 |----------------------------------------|----------------|---------------------------|----------------------------------------------------------------------------------------------------------|
 | TBD |
-
+| Keynote Speaker | 3 - 4pm | Qunhua Li | TBD |
+| TBD |
 ## Organizing committee
 * Paul Medvedev
 * Tinghua Chen
