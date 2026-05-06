@@ -10,6 +10,8 @@ The Center's mission is to bring together researchers who are developing and app
 Browse our site to learn about the center's [history](about/), the [people](people/) involved, the [seminars](/seminar) it hosts, and the various [educational](edu/) and computational biology and bioinformatic [resources](resources/) available on campus.
 The center also runs a [visiting scholars](/visitingscholars) program and hosts [workshops](wemsa/).
 
+Interested in finding computational collaborators for your biological work? Send us an email (ccbb-director@psu.edu) and we will try to connect you!
+
 The Center's activities are currently funded by the [Huck Institutes of the Life Sciences](https://www.huck.psu.edu/).
 
 Center members can access relevant documents through our [shared folder](https://pennstateoffice365.sharepoint.com/sites/CCBB-faculty).
