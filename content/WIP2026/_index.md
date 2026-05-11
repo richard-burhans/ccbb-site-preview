@@ -7,7 +7,7 @@ weight = 80
 
 # Bioinformatics Method Developers Community Day (2026)
 
-The event is open to all Penn State students, faculty, and staff involved in or interested in methods development for bioinformatics. We hope to connect folks and provide a platform for the presentation and discussionof work in methods development. 
+The event is open to all Penn State students, postdocs, faculty, and research staff involved in or interested in methods development for bioinformatics. We hope to connect folks and provide a platform for the presentation and discussionof work in methods development. 
 
 
 * September 30 2026
