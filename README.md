@@ -69,3 +69,38 @@ unmarshal of format "" is not supported
 
 A season folder only needs to exist once it has a real seminar file in it.
 
+## Starting a new season
+
+A season needs **two** things. Adding seminar data without the page will build
+successfully and show nothing on the site, so do not skip the second one.
+
+1. The data files, as described above:
+   `data/seminar/fall-2026/2026-09-02.yml`
+
+2. A page for the season: `content/seminar/fall-2026.md`
+
+   ```yaml
+   ---
+   title: 'Fall 2026'
+   pre: "<i class='fa fa-bell-o'></i> "
+   weight: 20263
+   layout: 'seminar-table'
+   ---
+   ```
+
+`layouts/seminar/seminar-table.html` matches the two by filename, so
+`content/seminar/fall-2026.md` renders whatever is in
+`data/seminar/fall-2026/`. The names must agree exactly.
+
+The `weight` controls where the season sits in the left-hand navigation.
+It is the year followed by a season digit:
+
+| Season | Digit | Example (2026) |
+| ------ | ----- | -------------- |
+| Spring | 1     | `20261`        |
+| Summer | 2     | `20262`        |
+| Fall   | 3     | `20263`        |
+
+(Seasons before 2020 use `2` for fall, from before summer sessions existed.
+Leave those alone; use the table above for anything new.)
+
