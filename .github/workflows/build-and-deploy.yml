@@ -72,6 +72,7 @@ jobs:
         run: |
           if [ "${{ github.repository }}" = "${{ env.PRODUCTION_REPO }}" ]; then
             echo "base=https://www.ccbb.psu.edu/" >> "$GITHUB_OUTPUT"
+            echo "prefix=" >> "$GITHUB_OUTPUT"
           else
             # A preview repo publishes at owner.github.io/<repo>/, so the site
             # is served from a subdirectory rather than the domain root.
@@ -80,6 +81,9 @@ jobs:
             owner="${GITHUB_REPOSITORY%%/*}"
             name="${GITHUB_REPOSITORY#*/}"
             echo "base=https://${owner}.github.io/${name}/" >> "$GITHUB_OUTPUT"
+            # html-proofer checks files on disk, which are not under the
+            # subdirectory the links are prefixed with. Tell it what to strip.
+            echo "prefix=/${name}" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Build Site
@@ -87,6 +91,8 @@ jobs:
 
       - name: Check Site
         working-directory: ./public
+        env:
+          SITE_PATH_PREFIX: ${{ steps.site.outputs.prefix }}
         run: bundle exec ../ccbb-htmlproofer
 
       # Only master deploys. Pull requests build and link-check so a broken

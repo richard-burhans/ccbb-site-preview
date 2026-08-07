@@ -2,6 +2,25 @@
 
 require 'html-proofer'
 
+# When the site is served from a subdirectory rather than a domain root -- a
+# preview clone publishes to owner.github.io/<repo>/ -- Hugo prefixes every
+# absolute link with that path, but the files on disk are not under it. Without
+# stripping the prefix, html-proofer reports every internal link as broken.
+#
+# Production serves from the root of www.ccbb.psu.edu, so SITE_PATH_PREFIX is
+# unset there and nothing is swapped.
+prefix = ENV.fetch('SITE_PATH_PREFIX', '').strip.sub(%r{/\z}, '')
+swap_urls = prefix.empty? ? {} : { %r{^#{Regexp.escape(prefix)}/} => '/' }
+
+# Speaker names and talk titles contain non-ASCII characters. Nokogiri picks its
+# encoding from the environment, so with no UTF-8 locale set it reads those
+# pages as US-ASCII and skips them -- while still reporting success.
+if Encoding.default_external != Encoding::UTF_8
+  warn "ccbb-htmlproofer: default encoding is #{Encoding.default_external}, " \
+       "forcing UTF-8 so pages with accented characters are actually checked"
+  Encoding.default_external = Encoding::UTF_8
+end
+
 options = {
     allow_hash_href: true,
     allow_missing_href: false,
@@ -21,8 +40,7 @@ options = {
     log_level: :info,
     only_4xx: false,
     swap_attributes: {},
-    swap_urls: {}
+    swap_urls: swap_urls
 }
 
 HTMLProofer.check_directory(".", options).run
-
