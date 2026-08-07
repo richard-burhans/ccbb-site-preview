@@ -1,0 +1,89 @@
+name: Auto Re-run Infrastructure Failures
+
+# When "Build and Deploy Site" fails before any of its own steps get to run --
+# i.e. GitHub itself had a problem -- re-run it once automatically.
+#
+# This deliberately does NOT re-run genuine build failures. A broken data file
+# or a bad link will fail again on a second attempt, so retrying it just wastes
+# a few minutes and sends a second failure email.
+
+on:
+  workflow_run:
+    workflows: ["Build and Deploy Site"]
+    types:
+      - completed
+
+permissions:
+  actions: write
+
+jobs:
+  rerun:
+    # Only consider failures, and only the first attempt, so a run can never
+    # retry more than once no matter how the checks below behave.
+    if: >-
+      github.event.workflow_run.conclusion == 'failure' &&
+      github.event.workflow_run.run_attempt == 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Re-run if the failure was GitHub's, not ours
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const run_id = context.payload.workflow_run.id;
+
+            const { data: { jobs } } = await github.rest.actions.listJobsForWorkflowRun({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id,
+              filter: 'latest',
+            });
+
+            // Two shapes of failure count as GitHub's rather than ours. Both
+            // happen before checkout, so nothing in this repo is involved.
+            // Run 31120708760 (2026-08-06) produced both, one per attempt:
+            //
+            // 1. The runner started but died in "Set up job", where it prepares
+            //    the workspace and resolves the actions the workflow refers to
+            //    (attempt 1):
+            //      Failed to resolve action download info. Error: Service Unavailable
+            //
+            // 2. The job never got a runner at all (attempts 2 and 3, and every
+            //    attempt of run 31124186970). These sat ~15 minutes and ended:
+            //      The job was not acquired by Runner of type hosted even after
+            //      multiple attempts
+            //    GitHub reports this as a *cancelled* job with an empty steps
+            //    list -- not a failed one -- while the run overall is a failure.
+            //
+            // Note when checking these by hand: the jobs API returns only the
+            // latest attempt unless you ask for /attempts/<n>/jobs, so this run
+            // looks like case 2 alone until you go back through the attempts.
+            //
+            // A user-cancelled run can also leave a job with no steps, but that
+            // makes the *run* conclusion 'cancelled', which the job-level `if:`
+            // above already filters out before we get here.
+            const describe = j => `${j.name} (${j.conclusion}, ${(j.steps || []).length} steps)`;
+
+            const infra = jobs.some(job => {
+              const steps = job.steps || [];
+              if (job.conclusion !== 'failure' && job.conclusion !== 'cancelled') return false;
+              if (steps.length === 0) return true;
+              return steps.some(s => s.name === 'Set up job' && s.conclusion === 'failure');
+            });
+
+            if (!infra) {
+              const failed = jobs
+                .filter(j => j.conclusion === 'failure')
+                .flatMap(j => (j.steps || [])
+                  .filter(s => s.conclusion === 'failure')
+                  .map(s => `${j.name} / ${s.name}`));
+              core.info(`Real failure, not re-running. Failed steps: ${failed.join(', ') || 'none reported'}`);
+              core.info(`Jobs seen: ${jobs.map(describe).join('; ') || 'none'}`);
+              return;
+            }
+
+            core.info(`Infrastructure failure detected in run ${run_id}; re-running failed jobs.`);
+            await github.rest.actions.reRunWorkflowFailedJobs({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id,
+            });
