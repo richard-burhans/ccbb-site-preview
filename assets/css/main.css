@@ -139,8 +139,15 @@ h1, h2, h3, h4 {
     letter-spacing: -0.01em;
     margin: var(--s-6) 0 var(--s-3);
 }
-h1 { font-size: var(--t-2xl); margin-top: 0; letter-spacing: -0.02em; }
-h2 { font-size: var(--t-xl); }
+/* Headings scale down a little on narrow screens. At a fixed 1.75rem the home
+   page title takes two full lines and pushes the content off the first
+   screen. */
+h1 {
+    font-size: clamp(1.5rem, 1.1rem + 1.8vw, var(--t-2xl));
+    margin-top: 0;
+    letter-spacing: -0.02em;
+}
+h2 { font-size: clamp(1.25rem, 1.05rem + 0.9vw, var(--t-xl)); }
 h3 { font-size: var(--t-lg); }
 
 p, ul, ol { margin: 0 0 var(--s-4); }
@@ -159,6 +166,53 @@ pre {
 }
 
 table { border-collapse: collapse; }
+
+/* Tables written in markdown -- the people list, the resources pages. Excludes
+   the seminar table, which has its own rules below.
+
+   These had no styling at all, so cells had no padding and long names ran
+   straight into the next column. */
+.content table:not(.seminars) {
+    width: 100%;
+    margin: 0 0 var(--s-5);
+    font-size: var(--t-md);
+}
+.content table:not(.seminars) th,
+.content table:not(.seminars) td {
+    text-align: left;
+    padding: var(--s-2) var(--s-4) var(--s-2) 0;
+    border-bottom: 1px solid var(--border);
+    vertical-align: baseline;
+}
+.content table:not(.seminars) th {
+    font-size: var(--t-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    border-bottom-color: var(--border-strong);
+    white-space: nowrap;
+}
+.content table:not(.seminars) tr:hover td { background: var(--surface); }
+/* The first column carries the name and should get the room; later columns are
+   short codes and shouldn't stretch. */
+.content table:not(.seminars) td:first-child { width: 60%; }
+
+/* content/people/_index.md marks each department with <span class="badge">.
+   That class name predates this stylesheet -- it came from the old theme -- so
+   it collides with the seminar status badge. Status badges need to be loud;
+   these are just labels, so they are quietened here rather than renamed, which
+   would mean editing content people maintain by hand. */
+.content table:not(.seminars) .badge {
+    border: 0;
+    background: var(--surface-2);
+    color: var(--ink-muted);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    border-radius: 2px;
+    padding: 0 var(--s-2);
+    margin-right: var(--s-1);
+}
 
 /* ---------------------------------------------------------------- layout */
 
