@@ -37,3 +37,16 @@
   "params" (dict "archive" true)
   "dates" (dict "date" (time.AsTime "1970-01-01"))
 ) }}
+
+{{/* Every seminar on one page with a filter box. Ten years of talks is the
+     shape of data where browsing fails and searching works -- nobody finds
+     "did Rayan Chikhi ever speak here" by clicking through seasons. It is also
+     where a maintainer can find any talk without knowing which season it is
+     in, which is the whole reason season became a stored field. */}}
+{{ $.AddPage (dict
+  "path" "search"
+  "title" "Find a seminar"
+  "kind" "page"
+  "params" (dict "search" true)
+  "dates" (dict "date" (time.AsTime "1970-01-02"))
+) }}

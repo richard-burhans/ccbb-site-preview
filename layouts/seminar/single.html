@@ -9,6 +9,8 @@
 {{ define "main" }}
   {{- if .Params.archive }}
     {{ partial "seminar-archive.html" . }}
+  {{- else if .Params.search }}
+    {{ partial "seminar-search.html" . }}
   {{- else }}
     <h1>{{ .Title }}</h1>
     {{ .Content }}

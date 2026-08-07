@@ -53,6 +53,14 @@
                     </a>
                   </li>
                 {{- end }}
+                {{- if $isSeminars }}
+                  {{- $search := site.GetPage "/seminar/search" }}
+                  <li>
+                    <a href="{{ $search.RelPermalink }}"{{ if eq $current $search }} aria-current="page"{{ end }}>
+                      Find a seminar
+                    </a>
+                  </li>
+                {{- end }}
               </ul>
             {{- end }}
           {{- end }}

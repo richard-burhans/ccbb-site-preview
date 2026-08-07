@@ -72,6 +72,7 @@ Bookmark that. In edit mode the page grows the controls you need:
 
 | To do this | Use |
 | --- | --- |
+| Find any talk, past or future | `/seminar/search/?edit=1` — one box over all of them |
 | Change a talk's speaker, title, time, Zoom link | the **Edit** link on that talk's row |
 | Cancel a talk, or mark a break week | the **Edit** link, then change **Status** |
 | Add a talk | **Add a seminar to …** at the bottom |
@@ -137,6 +138,29 @@ in git, while any *non*-dot file under `data/` crashed the build.
 | `cancelled` | called off; the row still shows, marked |
 | `rescheduled` | being moved; no date shown |
 | `no_seminar` | a break week — put the reason in `note` |
+
+## Finding a seminar
+
+`/seminar/search/` lists every talk the centre has hosted with a filter box.
+Type a speaker, a topic, an affiliation or a year; rows filter as you type.
+
+There is **no search index and no search library**. All 322 talks are rendered
+into the page and the filter hides rows that don't match. At this size that is
+faster than fetching and querying an index, it cannot drift out of sync with the
+data the way a generated index can, and it adds no dependency. With JavaScript
+off the box is hidden and the full list still renders, so find-in-page works.
+
+Accents are folded, so `llinas` finds `Llinás`. Multiple words all have to match,
+in any order. `?q=chikhi` filters on load, so you can link to a search.
+
+This page is also the most useful one for maintainers, because you can find a
+talk without knowing which season it is in:
+
+```
+https://www.ccbb.psu.edu/seminar/search/?edit=1
+```
+
+Search for the talk, click **Edit**. Add and season buttons are at the bottom.
 
 ## How the schedule stays current
 

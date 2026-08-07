@@ -604,3 +604,55 @@ table { border-collapse: collapse; }
 
 .maintain-toggle { margin: var(--s-6) 0 0; font-size: var(--t-sm); }
 .maintain-toggle a { color: var(--ink-faint); }
+
+/* ------------------------------------------------------------- search page */
+
+.search-intro { color: var(--ink-muted); max-width: var(--measure); }
+
+/* Hidden until the inline script adds .js to <html>. Without JavaScript the
+   full list still renders and find-in-page works, which is better than a box
+   that silently does nothing. */
+.search { display: none; margin: 0 0 var(--s-5); max-width: var(--measure); }
+.js .search { display: block; }
+
+.search__label {
+    display: block;
+    font-size: var(--t-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    margin-bottom: var(--s-1);
+}
+.search__input {
+    width: 100%;
+    font: inherit;
+    font-size: var(--t-base);
+    color: var(--ink);
+    background: var(--bg);
+    padding: var(--s-2) var(--s-3);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+}
+.search__input:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+    border-color: var(--accent);
+}
+.search__count {
+    margin: var(--s-1) 0 0;
+    font-size: var(--t-sm);
+    color: var(--ink-faint);
+    min-height: 1.4em;
+}
+.search__empty { color: var(--ink-muted); }
+
+/* On the search page seasons are mixed, so each row says which it belongs to. */
+.seminar__season {
+    display: block;
+    font-size: var(--t-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    white-space: normal;
+}

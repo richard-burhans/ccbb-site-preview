@@ -1,0 +1,109 @@
+{{/* Every seminar, filterable.
+
+     There is no search index and no search library. All 322 talks are rendered
+     into the page and the box filters the rows that are already there. At this
+     size that is faster than fetching and querying an index, it cannot drift
+     out of sync with the data the way a generated index can, and it needs no
+     dependency -- which matters for a site that has to survive years of nobody
+     maintaining it.
+
+     It also degrades honestly: with JavaScript off the box is hidden and you
+     get the full list, where the browser's own find-in-page still works.
+
+     Each row carries a data-s attribute with everything worth matching on, so
+     the filter never has to walk the DOM for text. */}}
+
+{{- $seasons := dict -}}
+{{- range hugo.Data.seasons }}{{ $seasons = merge $seasons (dict .slug .label) }}{{ end -}}
+
+{{- $all := slice -}}
+{{- range $name, $rec := hugo.Data.seminars -}}
+  {{- $all = $all | append (merge $rec (dict "id" $name)) -}}
+{{- end -}}
+{{- $all = sort $all "seminar_date" "desc" -}}
+
+<h1>{{ .Title }}</h1>
+
+<p class="search-intro">
+  Every seminar the centre has hosted, newest first. Type a speaker, a topic, an
+  affiliation or a year.
+</p>
+
+<form class="search" role="search" onsubmit="return false">
+  <label class="search__label" for="q">Search seminars</label>
+  <input class="search__input" type="search" id="q" autocomplete="off"
+         placeholder="e.g. Chikhi, pangenome, 2019, Uppsala">
+  <p class="search__count" id="search-count" aria-live="polite"></p>
+</form>
+
+<table class="seminars seminars--all">
+  <caption>{{ len $all }} seminars</caption>
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Presenter(s)</th>
+      <th scope="col">Topic</th>
+    </tr>
+  </thead>
+  <tbody id="search-rows">
+    {{- $now := now }}
+    {{- range $all }}
+      {{- partial "seminar-row.html" (dict
+            "s" . "next" "" "now" $now
+            "season_label" (index $seasons .season)) }}
+    {{- end }}
+  </tbody>
+</table>
+
+<p class="search__empty" id="search-empty" hidden>
+  No seminars match that. Try a surname, a word from the title, or a year.
+</p>
+
+{{ partial "maintainer-bar.html" (dict "season" "" "page" .) }}
+
+<script>
+(function () {
+  var box = document.getElementById('q');
+  var body = document.getElementById('search-rows');
+  if (!box || !body) return;
+
+  // The form is hidden by default so that with JavaScript off you get the full
+  // list rather than a box that does nothing.
+  document.documentElement.classList.add('js');
+
+  var count = document.getElementById('search-count');
+  var empty = document.getElementById('search-empty');
+
+  // Fold accents so "llinas" finds "Llinás" and "medvedev" finds either form.
+  function fold(s) {
+    return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  }
+
+  var rows = Array.prototype.map.call(body.rows, function (tr) {
+    return { tr: tr, text: fold(tr.getAttribute('data-s') || '') };
+  });
+
+  function run() {
+    var terms = fold(box.value).split(/\s+/).filter(Boolean);
+    var shown = 0;
+    for (var i = 0; i < rows.length; i++) {
+      // Every term must appear somewhere in the row, in any order.
+      var hit = true;
+      for (var t = 0; t < terms.length; t++) {
+        if (rows[i].text.indexOf(terms[t]) === -1) { hit = false; break; }
+      }
+      rows[i].tr.hidden = !hit;
+      if (hit) shown++;
+    }
+    empty.hidden = shown !== 0;
+    count.textContent = terms.length
+      ? shown + ' of ' + rows.length + ' seminars'
+      : '';
+  }
+
+  box.addEventListener('input', run);
+  // Support linking straight to a query, e.g. /seminar/search/?q=chikhi
+  var q = new URLSearchParams(location.search).get('q');
+  if (q) { box.value = q; run(); }
+})();
+</script>

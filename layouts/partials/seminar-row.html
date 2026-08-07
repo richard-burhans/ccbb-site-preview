@@ -15,7 +15,19 @@
      badge. */}}
 
 {{- $s := .s -}}
+{{- $season := .season_label -}}
 {{- $status := or $s.status "scheduled" -}}
+
+{{/* Everything worth matching on, flattened into one attribute so the search
+     filter never has to walk the DOM for text. Dates are included in several
+     forms because people search "2019", "March 2019" and "2019-03" alike. */}}
+{{- $d := time.AsTime $s.seminar_date -}}
+{{- $searchParts := slice
+      (or $s.presenters "") (or $s.affiliations "") (or $s.title "")
+      (or $s.host "") (or $s.location "") (or $s.note "")
+      (or $season "") ($d.Format "2006") ($d.Format "January 2 2006")
+      ($d.Format "2006-01-02") (or $status "") -}}
+{{- $search := delimit $searchParts " " -}}
 {{- $date := time.AsTime $s.seminar_date -}}
 {{- $isPast := lt $date .now -}}
 {{- $isNext := and (ne .next "") (eq $s.seminar_date .next) -}}
@@ -23,7 +35,7 @@
 {{- $offSlot := or (ne $date.Hour 15) (ne $date.Minute 0) -}}
 {{- $off := eq $status "no_seminar" -}}
 
-<tr class="seminar
+<tr data-s="{{ $search }}" class="seminar
   {{- if $isPast }} seminar--past{{ end }}
   {{- if $isNext }} seminar--next{{ end }}
   {{- if eq $status "cancelled" }} seminar--cancelled{{ end }}
@@ -41,6 +53,8 @@
       {{- end -}}
     {{- end -}}
     {{- with $s.location }}<span class="seminar__where">{{ . }}</span>{{ end -}}
+    {{/* Shown only where seasons are mixed together, i.e. the search page. */}}
+    {{- with $season }}<span class="seminar__season">{{ . }}</span>{{ end -}}
     {{- if $isNext }} <span class="badge badge--next">Next</span>{{ end -}}
     {{- if eq $status "cancelled" }} <span class="badge badge--cancelled">Cancelled</span>{{ end -}}
   </td>
