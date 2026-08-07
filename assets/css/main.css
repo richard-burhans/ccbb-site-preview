@@ -77,6 +77,12 @@
 
     --measure: 40rem;
     --radius: 3px;
+
+    /* One page grid. The masthead, the content columns and the footer all use
+       these, so everything lines up on a single left edge instead of each
+       block choosing its own. */
+    --page-max: 66rem;
+    --page-pad: 1.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -221,30 +227,32 @@ table { border-collapse: collapse; }
 .site-header {
     background: var(--psu-navy);
     color: #fff;
-    padding: var(--s-4) var(--s-5);
+    padding: 0;
     border-bottom: 3px solid var(--psu-blue);
 }
-.site-header a { color: #fff; text-decoration: none; display: inline-block; }
+.site-header a {
+    display: block;
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--s-4) var(--page-pad);
+    color: #fff;
+    text-decoration: none;
+}
 .site-header__title {
+    display: inline-block;
     font-size: var(--t-lg);
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     margin: 0;
-}
-.site-header__tagline {
-    margin: 2px 0 0;
-    font-size: var(--t-md);
-    font-weight: 400;
-    color: #b9c4d2;
 }
 
 .layout {
     display: grid;
     grid-template-columns: 15rem minmax(0, 1fr);
     gap: var(--s-7);
-    max-width: 66rem;
+    max-width: var(--page-max);
     margin: 0 auto;
-    padding: var(--s-6) var(--s-5) var(--s-7);
+    padding: var(--s-6) var(--page-pad) var(--s-7);
     align-items: start;
 }
 @media (max-width: 850px) {
@@ -253,6 +261,7 @@ table { border-collapse: collapse; }
         gap: var(--s-4);
         padding: var(--s-4) var(--s-4) var(--s-6);
     }
+    :root { --page-pad: 1rem; }
 }
 
 .content { min-width: 0; }
@@ -260,15 +269,24 @@ table { border-collapse: collapse; }
 
 .site-footer {
     border-top: 1px solid var(--border);
-    padding: var(--s-5);
+    padding: var(--s-5) 0;
     color: var(--ink-muted);
     font-size: var(--t-md);
 }
-.site-footer p { max-width: 66rem; margin: 0 auto; }
+.site-footer p {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
+}
 
 /* ------------------------------------------------------------------- nav */
 
 .nav { font-size: var(--t-md); }
+/* Pulled left by exactly the link padding plus its indicator border, so nav
+   text sits on the same left edge as the masthead, the page heading and the
+   footer. The hover and current-page backgrounds still extend past it, which
+   reads as deliberate rather than misaligned. */
+.nav > details > ul { margin-left: calc(-1 * (var(--s-3) + 2px)); }
 .nav ul { list-style: none; margin: 0; padding: 0; }
 
 /* The disclosure control only exists for narrow screens. Above the breakpoint
