@@ -83,14 +83,28 @@
     return { tr: tr, text: fold(tr.getAttribute('data-s') || '') };
   });
 
+  // Substring matching already finds "genomes" when you type "genome". This
+  // covers the other direction: a trailing "s" is also tried without it, so
+  // "genomes" finds "genome" and "algorithms" finds "algorithm". Not real
+  // stemming -- that would need a library -- but it catches the common case.
+  function variants(term) {
+    return term.length > 3 && term.slice(-1) === 's'
+      ? [term, term.slice(0, -1)]
+      : [term];
+  }
+
   function run() {
-    var terms = fold(box.value).split(/\s+/).filter(Boolean);
+    var terms = fold(box.value).split(/\s+/).filter(Boolean).map(variants);
     var shown = 0;
     for (var i = 0; i < rows.length; i++) {
       // Every term must appear somewhere in the row, in any order.
       var hit = true;
       for (var t = 0; t < terms.length; t++) {
-        if (rows[i].text.indexOf(terms[t]) === -1) { hit = false; break; }
+        var any = false;
+        for (var v = 0; v < terms[t].length; v++) {
+          if (rows[i].text.indexOf(terms[t][v]) !== -1) { any = true; break; }
+        }
+        if (!any) { hit = false; break; }
       }
       rows[i].tr.hidden = !hit;
       if (hit) shown++;
