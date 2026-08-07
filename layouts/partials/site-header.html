@@ -1,11 +1,19 @@
-{{/* The masthead carries the acronym only.
+{{/* The masthead carries the centre's full name on every page, so someone
+     arriving on an inner page from a search result or a mailing-list link can
+     see whose site this is.
 
-     It used to repeat "Center for Computational Biology and Bioinformatics"
-     directly above the home page's own <h1>, which said the same thing. The
-     full name now appears once per page -- as the heading on the home page,
-     and in the footer everywhere else. */}}
+     On the home page the masthead *is* the page heading, so the whole block is
+     marked up as the <h1> -- acronym and full name together, which reads as
+     "CCBB, Center for Computational Biology and Bioinformatics @ Penn State".
+     Elsewhere it is a plain <div> and the page's own title is the <h1>.
+
+     So the name appears on every page, is never said twice on any page, and
+     every page has exactly one <h1>. */}}
 <header class="site-header">
   <a href="{{ "/" | relURL }}">
-    <span class="site-header__title">CCBB</span>
+    {{- if .IsHome }}<h1 class="site-header__id">{{ else }}<div class="site-header__id">{{ end }}
+      <span class="site-header__title">CCBB</span>
+      <span class="site-header__tagline">Center for Computational Biology and Bioinformatics @ Penn State</span>
+    {{- if .IsHome }}</h1>{{ else }}</div>{{ end }}
   </a>
 </header>

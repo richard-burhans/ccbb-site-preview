@@ -3,7 +3,7 @@
   <head>
     {{ partial "head.html" . }}
   </head>
-  <body>
+  <body{{ if .IsHome }} class="home"{{ end }}>
     {{/* Reveals the maintainer controls when the URL carries ?edit=1. CSS cannot
          read the query string, so this one line is the whole reason any script
          is on the page. Everything still works without it -- the controls are
