@@ -18,4 +18,5 @@
   {{- else }}
     <p>No seminars are listed for this season yet.</p>
   {{- end }}
+  {{ partial "maintainer-bar.html" (dict "season" .Params.season "page" .) }}
 {{ end }}

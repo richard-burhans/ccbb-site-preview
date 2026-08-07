@@ -4,6 +4,11 @@
     {{ partial "head.html" . }}
   </head>
   <body>
+    {{/* Reveals the maintainer controls when the URL carries ?edit=1. CSS cannot
+         read the query string, so this one line is the whole reason any script
+         is on the page. Everything still works without it -- the controls are
+         simply always hidden. */}}
+    <script>if(new URLSearchParams(location.search).has('edit')){document.documentElement.classList.add('editing')}</script>
     <a class="skip-link" href="#content">Skip to main content</a>
     {{ partial "site-header.html" . }}
     <div class="layout">

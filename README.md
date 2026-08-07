@@ -58,6 +58,52 @@ The table is a real `<table>` so it keeps its schedule semantics for screen
 readers; CSS restacks it into labelled cards below 700px, which is why every
 `<td>` carries a `data-label`.
 
+## Changing the schedule
+
+**You do not need to edit any files.** Everything is done through forms.
+
+Go to the season's page on the site and add `?edit=1` to the address, e.g.
+
+```
+https://www.ccbb.psu.edu/seminar/fall-2026/?edit=1
+```
+
+Bookmark that. In edit mode the page grows the controls you need:
+
+| To do this | Use |
+| --- | --- |
+| Change a talk's speaker, title, time, Zoom link | the **Edit** link on that talk's row |
+| Cancel a talk, or mark a break week | the **Edit** link, then change **Status** |
+| Add a talk | **Add a seminar to …** at the bottom |
+| Start a new semester | **Start a new season** at the bottom |
+
+Each opens a form. The **Edit** form arrives **already filled in** with that
+talk's current details, so you change what is wrong and submit.
+
+A bot applies the change, replies on the issue, and closes it. The site updates
+a couple of minutes later. Every change is an ordinary commit, so anything can
+be undone — the bot's reply links to it.
+
+Punctuation in titles is fine. Colons, apostrophes, quotes and dashes all work,
+because the form never asks you to write YAML.
+
+### If the bot refuses
+
+It replies explaining what to fix and leaves the issue open. Correct the issue
+and it tries again. Nothing is changed until it succeeds.
+
+Only people with write access to this repository can change the site this way.
+
+### Removing a talk
+
+Prefer **Cancelled** (the date still shows, marked) or **No seminar this week**
+(the date shows with a reason, e.g. "Thanksgiving break"). Both are more useful
+to a reader than a silent gap in the schedule.
+
+**Delete this record** removes it entirely and needs the confirmation box
+ticked. Deleting a talk that has already happened needs a second tick, because
+it removes it from the archive.
+
 ## Seminar data
 
 Seminars live in `data/seminars/`, one file per talk:
@@ -92,9 +138,11 @@ in git, while any *non*-dot file under `data/` crashed the build.
 | `rescheduled` | being moved; no date shown |
 | `no_seminar` | a break week — put the reason in `note` |
 
-## Starting a new season
+## Seasons
 
-Add one entry to `data/seasons.yml`:
+Normally you start a season with the **Start a new season** form (above), which
+can also pre-create the whole semester's weekly slots in one go. This is what it
+does underneath: adds one entry to `data/seasons.yml`.
 
 ```yaml
 - slug: spring-2027

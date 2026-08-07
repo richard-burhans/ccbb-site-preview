@@ -25,6 +25,18 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install --quiet pyyaml
+
+      # Runs before anything is built. A misspelled key is not an error to Hugo
+      # -- it renders as empty and deploys silently -- so this is the only thing
+      # standing between a typo and a speaker's name vanishing from the site.
+      - name: Validate seminar data
+        run: python3 scripts/validate_seminars.py
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:

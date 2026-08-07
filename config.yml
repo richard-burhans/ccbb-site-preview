@@ -20,6 +20,9 @@ markup:
 params:
     ordersectionsby: "weight"
 
+    # Used to build the "Add"/"Edit" issue-form links on seminar pages.
+    repo: "psu-ccbb/ccbb-site"
+
     seminars:
         # How many recent seasons appear in full before older ones are grouped
         # into the archive. Derived from the build date, so seasons age out on

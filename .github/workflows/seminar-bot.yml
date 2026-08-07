@@ -1,0 +1,135 @@
+name: Seminar Bot
+
+# Applies submissions from the seminar issue forms to data/, so nobody has to
+# edit YAML. See scripts/seminar_bot.py.
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write   # commit the data change
+  issues: write     # comment and close
+  actions: write    # kick off the deploy (see "Trigger a rebuild" below)
+
+# One at a time: two submissions landing together would race on the push.
+concurrency:
+  group: seminar-bot
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    # Only the seminar forms, and only while the issue is still open -- a
+    # successful run closes it, so later edits to a closed issue are ignored
+    # rather than applied twice.
+    if: >-
+      contains(github.event.issue.labels.*.name, 'seminar') &&
+      github.event.issue.state == 'open'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ISSUE: ${{ github.event.issue.number }}
+      LANG: C.UTF-8
+      LC_ALL: C.UTF-8
+
+    steps:
+      - uses: actions/checkout@v5
+
+      # Anyone with a GitHub account can open an issue on a public repo. Without
+      # this check these forms would be a public write endpoint to the website.
+      - name: Check the submitter may change the site
+        id: auth
+        env:
+          SUBMITTER: ${{ github.event.issue.user.login }}
+        run: |
+          perm=$(gh api "repos/${{ github.repository }}/collaborators/$SUBMITTER/permission" \
+                   --jq .permission 2>/dev/null || echo none)
+          echo "permission=$perm" >> "$GITHUB_OUTPUT"
+          echo "$SUBMITTER has permission: $perm"
+
+      - name: Refuse submissions from people without write access
+        if: >-
+          steps.auth.outputs.permission != 'admin' &&
+          steps.auth.outputs.permission != 'write' &&
+          steps.auth.outputs.permission != 'maintain'
+        run: |
+          gh issue comment "$ISSUE" --body \
+            "Thanks for the suggestion. This form changes the CCBB website
+          directly, so it only accepts submissions from people with write
+          access to this repository, and nothing has been changed.
+
+          If you think you should have access, please contact the CCBB site
+          maintainers."
+          gh issue close "$ISSUE" --reason "not planned"
+          echo "::notice::Unauthorised submitter; nothing applied."
+          exit 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install --quiet pyyaml
+
+      - name: Apply the submission
+        id: apply
+        env:
+          # Via the environment, never interpolated into the shell -- an issue
+          # body is untrusted input.
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          set +e
+          printf '%s' "$ISSUE_BODY" > /tmp/issue-body.md
+          python3 scripts/seminar_bot.py --body-file /tmp/issue-body.md > /tmp/result.md
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+          cat /tmp/result.md
+
+      # A rejection is a normal outcome: tell them what to fix and leave the
+      # issue open so editing it re-runs this workflow.
+      - name: Explain a rejection
+        if: steps.apply.outputs.rc != '0'
+        run: |
+          { echo "I couldn't apply this, so nothing has changed."; echo;
+            tail -n +2 /tmp/result.md; echo;
+            echo "Edit this issue to correct it and I'll try again."; } > /tmp/comment.md
+          gh issue comment "$ISSUE" --body-file /tmp/comment.md
+          exit 1
+
+      - name: Commit
+        id: commit
+        run: |
+          git config user.name  "ccbb-seminar-bot"
+          git config user.email "ccbb-seminar-bot@users.noreply.github.com"
+          git add -A data/
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          summary=$(head -1 /tmp/result.md | sed 's/^OK //')
+          git commit -m "$summary (#${ISSUE})" \
+                     -m "Applied from issue #${ISSUE} by ${{ github.event.issue.user.login }}."
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      # A push made with GITHUB_TOKEN deliberately does not trigger other
+      # workflows, so the deploy has to be asked for explicitly. Without this
+      # the change would sit in the repo until someone else pushed.
+      - name: Trigger a rebuild
+        if: steps.commit.outputs.changed == 'true'
+        run: gh workflow run build-and-deploy.yml --ref master
+
+      - name: Report back and close
+        run: |
+          { tail -n +2 /tmp/result.md; echo; } > /tmp/comment.md
+          if [ "${{ steps.commit.outputs.changed }}" = "true" ]; then
+            sha="${{ steps.commit.outputs.sha }}"
+            {
+              echo "The site will update in a couple of minutes."
+              echo
+              echo "Applied as [\`${sha:0:7}\`](${{ github.server_url }}/${{ github.repository }}/commit/${sha})."
+              echo "If this was wrong, [revert it](${{ github.server_url }}/${{ github.repository }}/commit/${sha}) —"
+              echo "nothing here is unrecoverable."
+            } >> /tmp/comment.md
+          fi
+          gh issue comment "$ISSUE" --body-file /tmp/comment.md
+          gh issue close "$ISSUE" --reason completed

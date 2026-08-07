@@ -1,0 +1,40 @@
+{{/* Builds a prefilled "Edit" link for one seminar.
+
+     GitHub prefills issue-form fields from the query string, keyed on each
+     field's `id` in .github/ISSUE_TEMPLATE/seminar-edit.yml. Because the site is
+     generated from the same data, the link can carry the talk's current values --
+     so the form opens already filled in rather than blank. That matters because
+     editing outnumbers adding roughly two to one.
+
+     Context: a seminar record (with `id` merged in by season-seminars.html). */}}
+
+{{- $s := . -}}
+{{- $date := "" -}}{{- $time := "" -}}
+{{- with $s.seminar_date -}}
+  {{- $date = substr . 0 10 -}}
+  {{- $time = substr . 11 5 -}}
+{{- end -}}
+
+{{- $status := dict
+      "scheduled" "Scheduled"
+      "cancelled" "Cancelled"
+      "rescheduled" "To be rescheduled"
+      "no_seminar" "No seminar this week" -}}
+
+{{- $params := querify
+      "template" "seminar-edit.yml"
+      "record" $s.id
+      "status" (index $status (or $s.status "scheduled"))
+      "seminar_date" $date
+      "seminar_time" $time
+      "presenters" (or $s.presenters "")
+      "affiliations" (or $s.affiliations "")
+      "talk_title" (or $s.title "")
+      "host" (or $s.host "")
+      "location" (or $s.location "")
+      "zoom_url" (or $s.zoom_url "")
+      "slides" (or $s.slides "")
+      "note" (or $s.note "") -}}
+
+<a class="seminar__edit" rel="nofollow"
+   href="https://github.com/{{ site.Params.repo }}/issues/new?{{ $params }}">Edit</a>

@@ -1,0 +1,81 @@
+# Creates a season in data/seasons.yml, and optionally pre-creates the weekly
+# slots for it. Pre-creating the dates is how the schedule has always been run:
+# the semester's slots go up before the speakers are confirmed, then each is
+# filled in as it firms up. This replaces doing that by hand about twenty times.
+
+name: Start a new season
+description: Add a season to the schedule, optionally with its weekly slots.
+title: "Start season"
+labels: ["seminar"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Penn State's official semester dates are published at
+        [registrar.psu.edu/academic-calendars](https://registrar.psu.edu/academic-calendars/),
+        but the seminar season does not have to match them — talks have run
+        before classes begin and after finals end. Use whatever dates the series
+        actually runs.
+
+  - type: input
+    id: season
+    attributes:
+      label: Season
+      description: Lower-case, season and year.
+      placeholder: fall-2027
+    validations:
+      required: true
+
+  - type: input
+    id: start
+    attributes:
+      label: Season start
+      placeholder: 2027-08-01
+    validations:
+      required: true
+
+  - type: input
+    id: end
+    attributes:
+      label: Season end
+      placeholder: 2027-12-31
+    validations:
+      required: true
+
+  - type: dropdown
+    id: default_weekday
+    attributes:
+      label: Weekday
+      options:
+        - Monday
+        - Tuesday
+        - Wednesday
+        - Thursday
+        - Friday
+      default: 2
+    validations:
+      required: true
+
+  - type: input
+    id: seminar_time
+    attributes:
+      label: Time
+      description: 24-hour clock.
+      placeholder: "15:00"
+    validations:
+      required: true
+
+  - type: input
+    id: slots_from
+    attributes:
+      label: Create slots from
+      description: Optional. First date to create an empty slot for. Leave both slot fields blank to create the season only.
+      placeholder: 2027-08-25
+
+  - type: input
+    id: slots_to
+    attributes:
+      label: Create slots until
+      description: Optional. Last date to create an empty slot for.
+      placeholder: 2027-12-08

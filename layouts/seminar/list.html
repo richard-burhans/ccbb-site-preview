@@ -14,6 +14,8 @@
     {{ partial "seminar-table.html" . }}
   {{- end }}
 
+  {{ partial "maintainer-bar.html" (dict "season" $latest.Params.season "page" .) }}
+
   {{- with after 1 $seasons }}
     <h2>Previous seasons</h2>
     <ul class="season-list">

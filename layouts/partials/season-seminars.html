@@ -8,6 +8,8 @@
      directory layout could not express. */}}
 {{- $all := slice -}}
 {{- range $name, $rec := hugo.Data.seminars -}}
-  {{- $all = $all | append $rec -}}
+  {{/* Carry the map key through as `id`. It is the record's identity for the
+       edit form, and the only place the filename is ever used. */}}
+  {{- $all = $all | append (merge $rec (dict "id" $name)) -}}
 {{- end -}}
 {{- return sort (where $all "season" .) "seminar_date" -}}

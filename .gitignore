@@ -3,3 +3,5 @@ resources/
 .hugo_build.lock
 vendor/
 .bundle/
+__pycache__/
+*.pyc

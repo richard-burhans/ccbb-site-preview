@@ -65,5 +65,6 @@
         {{- if $zoom }}<a href="{{ $s.zoom_url }}">Zoom</a>{{ end -}}
       </span>
     {{- end -}}
+    {{- if $s.id }}{{ partial "edit-link.html" $s }}{{ end -}}
   </td>
 </tr>

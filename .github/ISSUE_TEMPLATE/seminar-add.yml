@@ -1,0 +1,89 @@
+# Labels here must match FIELD_LABELS in scripts/seminar_bot.py -- GitHub renders
+# a form response as "### <label>" followed by the value, and that is how the bot
+# reads it back.
+
+name: Add a seminar
+description: Add a new talk to the schedule.
+title: "Add seminar"
+labels: ["seminar"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill in whatever you know. Everything except the season and date can be
+        added later by clicking **Edit** next to the talk on the seminar page —
+        it is normal to book a date first and fill in the speaker once confirmed.
+
+  - type: input
+    id: season
+    attributes:
+      label: Season
+      description: Which season this talk belongs to, e.g. fall-2026.
+      placeholder: fall-2026
+    validations:
+      required: true
+
+  - type: input
+    id: seminar_date
+    attributes:
+      label: Date
+      description: Year-month-day.
+      placeholder: 2026-09-02
+    validations:
+      required: true
+
+  - type: input
+    id: seminar_time
+    attributes:
+      label: Time
+      description: 24-hour clock. Leave blank to use the season's usual slot.
+      placeholder: "15:00"
+
+  - type: input
+    id: presenters
+    attributes:
+      label: Presenter(s)
+
+  - type: input
+    id: affiliations
+    attributes:
+      label: Affiliation(s)
+
+  - type: textarea
+    id: talk_title
+    attributes:
+      label: Talk title
+      description: Punctuation is fine — colons, quotes, apostrophes all work.
+
+  - type: input
+    id: host
+    attributes:
+      label: Host
+
+  - type: input
+    id: location
+    attributes:
+      label: Location
+
+  - type: input
+    id: zoom_url
+    attributes:
+      label: Zoom URL
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options:
+        - Scheduled
+        - Cancelled
+        - To be rescheduled
+        - No seminar this week
+      default: 0
+
+  - type: input
+    id: note
+    attributes:
+      label: Note
+      description: Shown instead of a title for a break week, e.g. "Thanksgiving break".

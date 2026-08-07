@@ -1,0 +1,115 @@
+# Every field `id` here doubles as a URL query parameter name: GitHub prefills
+# issue-form fields from the query string, keyed on id. The site builds an
+# "Edit" link per seminar row carrying that talk's current values, so this form
+# opens already filled in. See layouts/partials/seminar-row.html.
+#
+# Field LABELS are how the bot reads submissions back -- GitHub renders a form
+# response as "### <label>" followed by the value. Keep labels unique and in
+# sync with FIELD_LABELS in scripts/seminar_bot.py.
+
+name: Edit a seminar
+description: Change the details of a seminar that is already listed.
+title: "Edit seminar"
+labels: ["seminar"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The easiest way to use this form is to click **Edit** next to the talk on
+        the [seminar page](https://www.ccbb.psu.edu/seminar/) — it opens this form
+        already filled in with the current details.
+
+        Change whatever is wrong and submit. You never need to touch a file.
+
+  - type: input
+    id: record
+    attributes:
+      label: Record ID
+      description: Identifies which seminar to change. Leave exactly as it is.
+      placeholder: e.g. 2026-09-02
+    validations:
+      required: true
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      description: Leave on "No change" unless the talk is being cancelled, moved, or removed.
+      options:
+        - No change
+        - Scheduled
+        - Cancelled
+        - To be rescheduled
+        - No seminar this week
+        - Delete this record
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: seminar_date
+    attributes:
+      label: Date
+      description: Year-month-day.
+      placeholder: 2026-09-02
+
+  - type: input
+    id: seminar_time
+    attributes:
+      label: Time
+      description: 24-hour clock. Leave blank to keep the season's usual slot.
+      placeholder: "15:00"
+
+  - type: input
+    id: presenters
+    attributes:
+      label: Presenter(s)
+
+  - type: input
+    id: affiliations
+    attributes:
+      label: Affiliation(s)
+
+  - type: textarea
+    id: talk_title
+    attributes:
+      label: Talk title
+      description: Punctuation is fine — colons, quotes, apostrophes all work.
+
+  - type: input
+    id: host
+    attributes:
+      label: Host
+
+  - type: input
+    id: location
+    attributes:
+      label: Location
+
+  - type: input
+    id: zoom_url
+    attributes:
+      label: Zoom URL
+
+  - type: input
+    id: slides
+    attributes:
+      label: Slides URL
+
+  - type: input
+    id: note
+    attributes:
+      label: Note
+      description: Shown instead of a title for a break week, e.g. "Thanksgiving break".
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirm
+      description: Only needed when deleting.
+      options:
+        - label: Yes, permanently delete this record
+          required: false
+        - label: I understand this is a past seminar and deleting it removes it from the archive
+          required: false
