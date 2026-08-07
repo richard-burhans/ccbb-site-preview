@@ -439,7 +439,9 @@ table { border-collapse: collapse; }
 .maintain-toggle__off { display: none; }
 
 .editing .maintain { display: block; }
-.editing .seminar__edit { display: inline-block; }
+/* block + fit-content rather than inline-block: when a talk has no Zoom or
+   slides link, an inline button runs on directly after the title text. */
+.editing .seminar__edit { display: block; width: fit-content; }
 .editing .maintain-toggle__on { display: none; }
 .editing .maintain-toggle__off { display: inline; }
 
