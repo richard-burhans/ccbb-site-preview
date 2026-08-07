@@ -11,7 +11,7 @@
 {{- if $archived }}
   <p>
     Seasons from earlier years. The
-    <a href="{{ "/seminar/" | relURL }}">current schedule</a> has the recent ones.
+    <a href="{{ (site.GetPage "/seminar").RelPermalink }}">current schedule</a> has the recent ones.
   </p>
 
   {{- $byYear := dict -}}
@@ -41,5 +41,5 @@
   {{- end }}
 {{- else }}
   <p>Nothing has been archived yet — every season is still listed on the
-     <a href="{{ "/seminar/" | relURL }}">current schedule</a>.</p>
+     <a href="{{ (site.GetPage "/seminar").RelPermalink }}">current schedule</a>.</p>
 {{- end }}

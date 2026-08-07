@@ -20,7 +20,7 @@
     <summary>Menu</summary>
     <ul>
       <li class="nav__section">
-        <a href="{{ "/" | relURL }}"{{ if $current.IsHome }} aria-current="page"{{ end }}>Home</a>
+        <a href="{{ site.Home.RelPermalink }}"{{ if $current.IsHome }} aria-current="page"{{ end }}>Home</a>
       </li>
       {{- range $sections }}
         {{- $section := . }}
@@ -42,7 +42,7 @@
               <ul class="nav__children">
                 {{- range $children }}
                   <li>
-                    <a href="{{ .RelPermalink }}"{{ if eq $current . }} aria-current="page"{{ end }}>{{ .Title }}</a>
+                    <a href="{{ .RelPermalink }}"{{ if eq $current . }} aria-current="page"{{ end }}>{{ or .Params.short_title .Title .File.BaseFileName }}</a>
                   </li>
                 {{- end }}
                 {{- with $archived }}

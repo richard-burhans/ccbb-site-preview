@@ -1,4 +1,4 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+  <h1>{{ or .Title .Params.short_title .File.BaseFileName }}</h1>
   {{ .Content }}
 {{ end }}

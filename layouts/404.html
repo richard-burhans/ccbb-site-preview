@@ -1,5 +1,5 @@
 {{ define "main" }}
   <h1>Page not found</h1>
-  <p>That page doesn't exist. Try the <a href="{{ "/" | relURL }}">home page</a>
-     or the <a href="{{ "/seminar/" | relURL }}">seminar schedule</a>.</p>
+  <p>That page doesn't exist. Try the <a href="{{ site.Home.RelPermalink }}">home page</a>
+     or the <a href="{{ (site.GetPage "/seminar").RelPermalink }}">seminar schedule</a>.</p>
 {{ end }}

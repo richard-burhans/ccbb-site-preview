@@ -10,7 +10,7 @@
      So the name appears on every page, is never said twice on any page, and
      every page has exactly one <h1>. */}}
 <header class="site-header">
-  <a href="{{ "/" | relURL }}">
+  <a href="{{ site.Home.RelPermalink }}">
     {{- if .IsHome }}<h1 class="site-header__id">{{ else }}<div class="site-header__id">{{ end }}
       <span class="site-header__title">CCBB</span>
       <span class="site-header__tagline">Center for Computational Biology and Bioinformatics @ Penn State</span>

@@ -95,6 +95,12 @@ jobs:
           SITE_PATH_PREFIX: ${{ steps.site.outputs.prefix }}
         run: bundle exec ../ccbb-htmlproofer
 
+      # Two failures html-proofer cannot see: links with no text, and internal
+      # links missing the site's base path. Both resolve on disk, so the link
+      # check passes while the page is wrong in a browser.
+      - name: Check rendered output
+        run: python3 scripts/check_rendered.py public --base-path "${{ steps.site.outputs.prefix }}"
+
       # Only master deploys. Pull requests build and link-check so a broken
       # change is caught before it can reach the live site.
       #

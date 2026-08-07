@@ -1,10 +1,13 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+  {{/* WIP2024, WIP2026 and visitingscholars set only short_title, a convention
+       from the old theme, so .Title is empty and the page would render a blank
+       heading. */}}
+  <h1>{{ or .Title .Params.short_title .File.BaseFileName }}</h1>
   {{ .Content }}
   {{- with .RegularPages.ByWeight }}
     <ul class="season-list">
       {{- range . }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        <li><a href="{{ .RelPermalink }}">{{ or .Params.short_title .Title .File.BaseFileName }}</a></li>
       {{- end }}
     </ul>
   {{- end }}
