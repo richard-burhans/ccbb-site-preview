@@ -1,12 +1,15 @@
 {{/* Site navigation.
 
-     Replaces docdock's section-tree-nav. Top-level sections are ordered by the
-     `weight` front matter (config param `ordersectionsby`); child pages appear
-     only under the section you are currently in, so the 20-plus seminar seasons
-     don't dominate every page.
+     Top-level sections are ordered by `weight`; child pages appear only under
+     the section you are currently in.
 
-     <details> collapses the whole nav on narrow screens (open on wide ones via
-     the `open` attribute, which CSS leaves alone above the breakpoint). */}}
+     Seminars are special-cased: there are 23 seasons and counting, so the nav
+     lists only the ones inside the recency window (newest first) and links to
+     the archive for the rest. Previously all of them were listed oldest-first,
+     which put the current semester at the very bottom.
+
+     <details> collapses the nav on narrow screens; CSS leaves it alone above
+     the breakpoint. */}}
 
 {{- $current := . -}}
 {{- $sections := where site.Home.Sections "Params.hidden" "!=" true -}}
@@ -20,18 +23,34 @@
         <a href="{{ "/" | relURL }}"{{ if $current.IsHome }} aria-current="page"{{ end }}>Home</a>
       </li>
       {{- range $sections }}
-        {{- $inSection := or ($current.IsDescendant .) (eq $current .) }}
+        {{- $section := . }}
+        {{- $inSection := or ($current.IsDescendant $section) (eq $current $section) }}
         <li class="nav__section">
-          <a href="{{ .RelPermalink }}"{{ if eq $current . }} aria-current="page"{{ end }}>
-            {{ or .Params.short_title .Title }}
+          <a href="{{ $section.RelPermalink }}"{{ if eq $current $section }} aria-current="page"{{ end }}>
+            {{ or $section.Params.short_title $section.Title }}
           </a>
           {{- if $inSection }}
-            {{- $children := .RegularPages.ByWeight.Reverse }}
-            {{- with $children }}
+            {{- $isSeminars := eq $section.Section "seminar" }}
+            {{- $children := $section.RegularPages.ByWeight.Reverse }}
+            {{- $archived := slice }}
+            {{- if $isSeminars }}
+              {{- $window := partial "season-window.html" $section }}
+              {{- $children = $window.recent }}
+              {{- $archived = $window.archived }}
+            {{- end }}
+            {{- if or $children $archived }}
               <ul class="nav__children">
-                {{- range . }}
+                {{- range $children }}
                   <li>
                     <a href="{{ .RelPermalink }}"{{ if eq $current . }} aria-current="page"{{ end }}>{{ .Title }}</a>
+                  </li>
+                {{- end }}
+                {{- with $archived }}
+                  {{- $archive := site.GetPage "/seminar/archive" }}
+                  <li>
+                    <a href="{{ $archive.RelPermalink }}"{{ if eq $current $archive }} aria-current="page"{{ end }}>
+                      Earlier seasons <span class="season-list__count">({{ len . }})</span>
+                    </a>
                   </li>
                 {{- end }}
               </ul>

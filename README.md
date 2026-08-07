@@ -138,6 +138,32 @@ in git, while any *non*-dot file under `data/` crashed the build.
 | `rescheduled` | being moved; no date shown |
 | `no_seminar` | a break week — put the reason in `note` |
 
+## How the schedule stays current
+
+The site is time-aware, and all of it is worked out at build time from the
+build's own clock:
+
+- which talk is flagged **Next**
+- the **Upcoming seminars** list on the home page
+- which seasons are recent and which have been archived
+
+So the build runs on a daily schedule as well as on every push. Without that,
+"upcoming" would freeze at whenever someone last pushed and a talk would stay
+listed as upcoming after it had happened.
+
+**Archiving needs no job and no commit.** A season is *recent* if it has not
+finished yet, or if it is one of the `recent_seasons` most recently finished
+(see `config.yml`). Everything older moves to `/seminar/archive/` on its own as
+the calendar moves — there is nothing to run, nothing to forget, and no stored
+state that can drift.
+
+Archiving is presentation only. Nothing is deleted and no URL changes:
+`/seminar/fall-2016/` keeps resolving forever. This is a scholarly record with
+inbound links, and html-proofer checks the links still work on every build.
+
+To show more or fewer seasons before archiving, change `recent_seasons` in
+`config.yml`.
+
 ## Seasons
 
 Normally you start a season with the **Start a new season** form (above), which

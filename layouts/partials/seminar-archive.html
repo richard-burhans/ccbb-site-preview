@@ -1,0 +1,45 @@
+{{/* The archive index: every season that has aged out of the recent window,
+     grouped by year, newest first.
+
+     Context: the archive page. */}}
+
+{{- $window := partial "season-window.html" .Parent -}}
+{{- $archived := $window.archived -}}
+
+<h1>{{ .Title }}</h1>
+
+{{- if $archived }}
+  <p>
+    Seasons from earlier years. The
+    <a href="{{ "/seminar/" | relURL }}">current schedule</a> has the recent ones.
+  </p>
+
+  {{- $byYear := dict -}}
+  {{- range $archived -}}
+    {{- $year := substr .Params.start 0 4 -}}
+    {{- $existing := index $byYear $year | default slice -}}
+    {{- $byYear = merge $byYear (dict $year ($existing | append .)) -}}
+  {{- end -}}
+
+  {{- $years := slice -}}
+  {{- range $y, $_ := $byYear }}{{ $years = $years | append $y }}{{ end -}}
+
+  {{- range sort $years "value" "desc" }}
+    {{- $year := . }}
+    <div class="archive-group">
+      <h3>{{ $year }}</h3>
+      <ul class="season-list">
+        {{- range index $byYear $year }}
+          {{- $count := len (partialCached "season-seminars.html" .Params.season .Params.season) }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <span class="season-list__count">{{ $count }} seminar{{ if ne $count 1 }}s{{ end }}</span>
+          </li>
+        {{- end }}
+      </ul>
+    </div>
+  {{- end }}
+{{- else }}
+  <p>Nothing has been archived yet — every season is still listed on the
+     <a href="{{ "/seminar/" | relURL }}">current schedule</a>.</p>
+{{- end }}

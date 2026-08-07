@@ -1,0 +1,40 @@
+{{/* The next few talks, for the home page.
+
+     Nothing on the front page used to mention the seminars at all beyond a
+     link, so it could not go out of date -- and could not be useful either.
+     This is derived from the build date, which is why build-and-deploy.yml
+     runs on a schedule: without that, "upcoming" would freeze at whenever
+     someone last pushed. */}}
+
+{{- $limit := site.Params.seminars.upcoming_count | default 3 -}}
+{{- $now := now -}}
+
+{{- $all := slice -}}
+{{- range $name, $rec := hugo.Data.seminars -}}
+  {{/* Held-but-unfilled slots are useful on a season page -- they show the date
+       is taken -- but a front-page entry with no speaker tells a reader
+       nothing, so only talks with a presenter appear here. */}}
+  {{- if and (eq (or $rec.status "scheduled") "scheduled")
+             $rec.presenters
+             (ge (time.AsTime $rec.seminar_date) $now) -}}
+    {{- $all = $all | append $rec -}}
+  {{- end -}}
+{{- end -}}
+
+{{- with first $limit (sort $all "seminar_date") }}
+  <h2>Upcoming seminars</h2>
+  <ul class="upcoming">
+    {{- range . }}
+      {{- $date := time.AsTime .seminar_date }}
+      <li>
+        <span class="upcoming__date">{{ $date.Format "Monday, January 2" }}</span>
+        {{- if or (ne $date.Hour 15) (ne $date.Minute 0) }}
+          {{- if not (and (eq $date.Hour 0) (eq $date.Minute 0)) }}, {{ $date.Format "3:04 pm" }}{{ end }}
+        {{- end }}
+        {{- with .presenters }} — <strong>{{ . }}</strong>{{ end }}
+        {{- with .title }}<br><span class="upcoming__title">{{ . }}</span>{{ end }}
+      </li>
+    {{- end }}
+  </ul>
+  <p><a href="{{ "/seminar/" | relURL }}">Full seminar schedule</a></p>
+{{- end }}

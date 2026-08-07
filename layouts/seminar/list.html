@@ -1,10 +1,13 @@
-{{/* /seminar/ -- the newest season in full, then an index of the rest.
+{{/* /seminar/ -- the current season in full, then the other recent ones, then
+     a link to the archive.
 
-     The old template rendered only the newest season and nothing else, so the
-     other 22 were reachable only through the sidebar. */}}
+     "Current" is the newest season that has not finished, falling back to the
+     most recent one. The old template always showed the newest and nothing
+     else, so the other 22 seasons were reachable only through the sidebar. */}}
 {{ define "main" }}
-  {{- $seasons := .Pages.ByDate.Reverse -}}
-  {{- $latest := index $seasons 0 -}}
+  {{- $window := partial "season-window.html" . -}}
+  {{- $recent := $window.recent -}}
+  {{- $latest := index $recent 0 -}}
 
   <h1>{{ $latest.Title }}</h1>
   {{ .Content }}
@@ -16,8 +19,8 @@
 
   {{ partial "maintainer-bar.html" (dict "season" $latest.Params.season "page" .) }}
 
-  {{- with after 1 $seasons }}
-    <h2>Previous seasons</h2>
+  {{- with after 1 $recent }}
+    <h2>Recent seasons</h2>
     <ul class="season-list">
       {{- range . }}
         {{- $count := len (partialCached "season-seminars.html" .Params.season .Params.season) }}
@@ -27,5 +30,9 @@
         </li>
       {{- end }}
     </ul>
+  {{- end }}
+
+  {{- with $window.archived }}
+    <p><a href="{{ (site.GetPage "/seminar/archive").RelPermalink }}">Earlier seasons ({{ len . }})</a></p>
   {{- end }}
 {{ end }}

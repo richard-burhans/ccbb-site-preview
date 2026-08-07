@@ -1,0 +1,30 @@
+{{/* Splits the seasons into "recent" and "archived".
+
+     Context: the /seminar/ section page.
+     Returns: dict of "recent" and "archived", both newest first.
+
+     A season is recent if it has not finished yet, or if it is one of the
+     `recent_seasons` most recently finished. Everything else is archived.
+
+     This is computed from the build date against each season's `end`, so a
+     season ages out on its own as the calendar moves -- there is no archive job
+     to run or forget, and no stored state that can drift. The scheduled rebuild
+     in build-and-deploy.yml is what makes the boundary move without anyone
+     pushing a commit. */}}
+
+{{- $now := now.Format "2006-01-02" -}}
+{{- $keep := site.Params.seminars.recent_seasons | default 4 -}}
+
+{{- $current := slice -}}
+{{- $finished := slice -}}
+{{- range (where .Pages "Params.archive" "!=" true).ByDate.Reverse -}}
+  {{- if ge .Params.end $now -}}
+    {{- $current = $current | append . -}}
+  {{- else -}}
+    {{- $finished = $finished | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return dict
+      "recent" ($current | append (first $keep $finished))
+      "archived" (after $keep $finished) -}}

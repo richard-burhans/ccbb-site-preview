@@ -25,3 +25,15 @@
     "dates" (dict "date" (time.AsTime .start))
   ) }}
 {{ end }}
+
+{{/* One page holding every season that has aged out of the recent window, so
+     the sidebar doesn't have to carry twenty-odd of them. Nothing is deleted
+     and no URL changes -- /seminar/fall-2016/ keeps resolving forever. This is
+     a scholarly record with inbound links; archiving is presentation only. */}}
+{{ $.AddPage (dict
+  "path" "archive"
+  "title" "Earlier seasons"
+  "kind" "page"
+  "params" (dict "archive" true)
+  "dates" (dict "date" (time.AsTime "1970-01-01"))
+) }}

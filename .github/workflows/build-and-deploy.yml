@@ -6,6 +6,13 @@ on:
       - master
   pull_request:
   workflow_dispatch:
+  # The site is time-aware: which talk is "next", which seasons count as recent,
+  # and the upcoming list on the home page are all worked out at build time.
+  # Without a scheduled build those would freeze at whenever someone last
+  # pushed, and a talk would stay listed as upcoming after it had happened.
+  # 07:00 UTC is roughly 2-3am in State College, depending on the season.
+  schedule:
+    - cron: '0 7 * * *'
 
 # Hugo is pinned rather than floating on "latest" so a Hugo release can never
 # break a deploy without someone choosing to take the upgrade.
