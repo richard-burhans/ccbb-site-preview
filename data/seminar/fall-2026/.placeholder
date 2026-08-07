@@ -1,0 +1,7 @@
+Seminars for this season go here, one file per seminar, named YYYY-MM-DD.yml.
+See the "Adding a seminar" section of README.md for the file format.
+
+This file only exists so the directory is visible in git and on GitHub. Hugo
+ignores dot-prefixed files, so it produces no output. Do not replace it with a
+non-dot file such as dummy.txt -- Hugo parses everything else in data/ and the
+build fails with: unmarshal of format "" is not supported
