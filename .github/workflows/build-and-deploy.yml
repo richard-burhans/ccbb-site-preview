@@ -23,10 +23,22 @@ env:
   # success. Several speaker names and talk titles are non-ASCII.
   LANG: C.UTF-8
   LC_ALL: C.UTF-8
+  # The repository that owns the live site. Anything else -- a fork, a preview
+  # clone -- builds and publishes to its own GitHub Pages instead, and can never
+  # reach the production site. See "Deploy" below.
+  PRODUCTION_REPO: psu-ccbb/ccbb-site
+
+permissions:
+  contents: write   # a fork/preview publishes to its own gh-pages branch
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      # The "Add"/"Edit" links point at whichever repository built the site, so
+      # a preview clone's forms open against the preview -- never against
+      # production. config.yml only supplies the fallback for local builds.
+      HUGO_PARAMS_REPO: ${{ github.repository }}
     steps:
       - uses: actions/checkout@v5
         with:
@@ -55,8 +67,23 @@ jobs:
           hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
 
+      - name: Work out the base URL
+        id: site
+        run: |
+          if [ "${{ github.repository }}" = "${{ env.PRODUCTION_REPO }}" ]; then
+            echo "base=https://www.ccbb.psu.edu/" >> "$GITHUB_OUTPUT"
+          else
+            # A preview repo publishes at owner.github.io/<repo>/, so the site
+            # is served from a subdirectory rather than the domain root.
+            # Derived from GITHUB_REPOSITORY rather than github.event.repository,
+            # which is not populated on scheduled runs.
+            owner="${GITHUB_REPOSITORY%%/*}"
+            name="${GITHUB_REPOSITORY#*/}"
+            echo "base=https://${owner}.github.io/${name}/" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Build Site
-        run: hugo --minify
+        run: hugo --minify --baseURL "${{ steps.site.outputs.base }}"
 
       - name: Check Site
         working-directory: ./public
@@ -64,8 +91,14 @@ jobs:
 
       # Only master deploys. Pull requests build and link-check so a broken
       # change is caught before it can reach the live site.
+      #
+      # The repository guard matters: without it, any fork or preview clone that
+      # happened to hold a valid token would publish to the production site.
       - name: Deploy Site
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+        if: >-
+          github.repository == 'psu-ccbb/ccbb-site' &&
+          github.ref == 'refs/heads/master' &&
+          github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
         with:
           publish_dir: ./public
@@ -73,4 +106,18 @@ jobs:
           external_repository: psu-ccbb/psu-ccbb.github.io
           publish_branch: master
           cname: www.ccbb.psu.edu
+          force_orphan: true
+
+      # Preview clones publish to their own Pages, using the built-in token --
+      # no secret to configure, and no way to reach production.
+      - name: Deploy preview
+        if: >-
+          github.repository != 'psu-ccbb/ccbb-site' &&
+          github.ref == 'refs/heads/master' &&
+          github.event_name != 'pull_request'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          publish_dir: ./public
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
           force_orphan: true
