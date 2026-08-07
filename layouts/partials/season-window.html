@@ -17,7 +17,13 @@
 
 {{- $current := slice -}}
 {{- $finished := slice -}}
-{{- range (where .Pages "Params.archive" "!=" true).ByDate.Reverse -}}
+{{/* Only pages that are actually seasons. The section also holds the archive
+     index and the search page, which are generated the same way; an earlier
+     version excluded the archive by name, so when the search page arrived it
+     was listed as a season ("Find a seminar — schedule to be announced") and,
+     worse, counted toward recent_seasons and pushed a real season into the
+     archive. Testing for the season param covers anything added later. */}}
+{{- range (where .Pages "Params.season" "!=" nil).ByDate.Reverse -}}
   {{- if ge .Params.end $now -}}
     {{- $current = $current | append . -}}
   {{- else -}}
