@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{- with .RegularPages.ByWeight }}
+    <ul class="season-list">
+      {{- range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+  {{- end }}
+{{ end }}

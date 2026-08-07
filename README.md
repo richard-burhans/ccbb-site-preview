@@ -5,34 +5,58 @@
 
 We use [Hugo](https://gohugo.io/) to build our site.  Installation instructions can be found [here](https://gohugo.io/getting-started/installing/).
 
+The build is pinned to the Hugo version in `HUGO_VERSION` in
+`.github/workflows/build-and-deploy.yml`. Use the **extended** build.
+
 ## Usage
 
-You can clone the repo using:
-
-```
-$ git clone --recursive https://github.com/psu-ccbb/ccbb-site.git
-```
-
-or
+There are no submodules, so a plain clone is enough:
 
 ```
 $ git clone https://github.com/psu-ccbb/ccbb-site.git
 $ cd ccbb-site
-$ git submodule update --init --recursive
-```
-
-You can build the site using:
-
-```
-$ cd ccbb-site
 $ hugo
 ```
 
-You can test out the site using:
+You can preview the site with live reload using:
 
 ```
 $ hugo server
 ```
+
+To run the link checker the way CI does:
+
+```
+$ bundle install
+$ hugo
+$ cd public && bundle exec ../ccbb-htmlproofer
+```
+
+## Layouts
+
+The site has **no third-party theme**. Everything it renders lives in this repo:
+
+- `layouts/` — templates
+- `assets/css/main.css` — styles
+
+It previously used the `docdock` theme as a git submodule. That theme was
+unmaintained after 2019 and did not build on current Hugo, which is what froze
+the site on Hugo 0.50 (released 2018) for years. Owning the layouts means
+nothing can go stale out from under us again.
+
+The seminar table is the part most worth understanding:
+
+| File | Does |
+| --- | --- |
+| `layouts/seminar/seminar-table.html` | one season's page |
+| `layouts/seminar/list.html` | `/seminar/` — newest season plus an index of the rest |
+| `layouts/partials/seminar-table.html` | the table, and works out which talk is next |
+| `layouts/partials/seminar-row.html` | one talk |
+| `layouts/partials/seminar-notice.html` | the standing WWWGLS notice above every table |
+
+The table is a real `<table>` so it keeps its schedule semantics for screen
+readers; CSS restacks it into labelled cards below 700px, which is why every
+`<td>` carries a `data-label`.
 
 ## Adding a seminar
 

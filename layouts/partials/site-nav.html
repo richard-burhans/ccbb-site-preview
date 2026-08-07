@@ -1,0 +1,44 @@
+{{/* Site navigation.
+
+     Replaces docdock's section-tree-nav. Top-level sections are ordered by the
+     `weight` front matter (config param `ordersectionsby`); child pages appear
+     only under the section you are currently in, so the 20-plus seminar seasons
+     don't dominate every page.
+
+     <details> collapses the whole nav on narrow screens (open on wide ones via
+     the `open` attribute, which CSS leaves alone above the breakpoint). */}}
+
+{{- $current := . -}}
+{{- $sections := where site.Home.Sections "Params.hidden" "!=" true -}}
+{{- $sections = cond (eq site.Params.ordersectionsby "title") $sections.ByTitle $sections.ByWeight -}}
+
+<nav class="nav" aria-label="Site sections">
+  <details open>
+    <summary>Menu</summary>
+    <ul>
+      <li class="nav__section">
+        <a href="{{ "/" | relURL }}"{{ if $current.IsHome }} aria-current="page"{{ end }}>Home</a>
+      </li>
+      {{- range $sections }}
+        {{- $inSection := or ($current.IsDescendant .) (eq $current .) }}
+        <li class="nav__section">
+          <a href="{{ .RelPermalink }}"{{ if eq $current . }} aria-current="page"{{ end }}>
+            {{ or .Params.short_title .Title }}
+          </a>
+          {{- if $inSection }}
+            {{- $children := .RegularPages.ByWeight.Reverse }}
+            {{- with $children }}
+              <ul class="nav__children">
+                {{- range . }}
+                  <li>
+                    <a href="{{ .RelPermalink }}"{{ if eq $current . }} aria-current="page"{{ end }}>{{ .Title }}</a>
+                  </li>
+                {{- end }}
+              </ul>
+            {{- end }}
+          {{- end }}
+        </li>
+      {{- end }}
+    </ul>
+  </details>
+</nav>

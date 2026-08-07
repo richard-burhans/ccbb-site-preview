@@ -1,0 +1,35 @@
+{{/* Renders a season's seminars as a table.
+
+     Context: a slice of seminar records (one per talk).
+
+     The table stays a real <table> with a <thead> so it keeps its schedule
+     semantics for screen readers; CSS restacks it into labelled cards below
+     700px, which is why every <td> carries a data-label.
+
+     "Next" is the earliest talk still in the future, computed once here rather
+     than per row. */}}
+
+{{- $seminars := sort . "seminar_date" -}}
+{{- $now := now -}}
+{{- $next := "" -}}
+{{- range $seminars -}}
+  {{- if and (eq $next "") (ge (time.AsTime .seminar_date) $now) -}}
+    {{- $next = .seminar_date -}}
+  {{- end -}}
+{{- end -}}
+
+<table class="seminars">
+  <caption>{{ len $seminars }} seminar{{ if ne (len $seminars) 1 }}s{{ end }}</caption>
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Presenter(s)</th>
+      <th scope="col">Topic</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{- range $seminars }}
+      {{- partial "seminar-row.html" (dict "s" . "next" $next "now" $now) }}
+    {{- end }}
+  </tbody>
+</table>

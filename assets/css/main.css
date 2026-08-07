@@ -1,0 +1,309 @@
+/* CCBB site styles.
+   In-repo, no third-party theme -- see README "Layouts". */
+
+:root {
+    --psu-navy: #001e44;
+    --psu-blue: #1e407c;
+    --psu-blue-light: #3b7dd8;
+
+    --ink: #1a1a1a;
+    --ink-muted: #5c5c5c;
+    --ink-faint: #767676;      /* 4.54:1 on --bg, passes AA */
+    --bg: #ffffff;
+    --surface: #f5f6f8;
+    --surface-2: #eceef2;
+    --border: #d4d7dd;
+    --accent: var(--psu-blue);
+    --accent-ink: #ffffff;
+
+    --warn-bg: #fff8e6;
+    --warn-border: #e0b64a;
+    --off-bg: #f2f3f5;
+
+    --measure: 42rem;
+    --radius: 4px;
+    --gap: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --ink: #e8e8e8;
+        --ink-muted: #b0b0b0;
+        --ink-faint: #9a9a9a;
+        --bg: #14161a;
+        --surface: #1c1f25;
+        --surface-2: #252932;
+        --border: #363b45;
+        --accent: #7aa7e6;
+        --accent-ink: #0d0f12;
+        --warn-bg: #2a2415;
+        --warn-border: #7a6320;
+        --off-bg: #1c1f25;
+    }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Keyboard users need to be able to skip the nav. */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 0.6rem 1rem;
+    z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+:focus-visible {
+    outline: 3px solid var(--psu-blue-light);
+    outline-offset: 2px;
+}
+
+a { color: var(--accent); }
+a:hover { text-decoration: none; }
+
+h1, h2, h3, h4 { line-height: 1.25; margin: 2rem 0 0.75rem; font-weight: 600; }
+h1 { font-size: 1.9rem; margin-top: 0; }
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.15rem; }
+
+p, ul, ol { margin: 0 0 1rem; }
+
+img { max-width: 100%; height: auto; }
+
+code, pre {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.9em;
+}
+pre {
+    background: var(--surface);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    overflow-x: auto;
+}
+
+/* ---------------------------------------------------------------- layout */
+
+.site-header {
+    background: var(--psu-navy);
+    color: #fff;
+    padding: 1rem 1.25rem;
+}
+.site-header a { color: #fff; text-decoration: none; }
+.site-header__title { font-size: 1.3rem; font-weight: 700; margin: 0; }
+.site-header__tagline {
+    margin: 0.15rem 0 0;
+    font-size: 0.9rem;
+    color: #c3ceda;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 16rem minmax(0, 1fr);
+    gap: 2rem;
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 4rem;
+    align-items: start;
+}
+@media (max-width: 850px) {
+    .layout { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+}
+
+.content { min-width: 0; }
+.content > p, .content > ul, .content > ol { max-width: var(--measure); }
+
+.site-footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 1.25rem;
+    color: var(--ink-muted);
+    font-size: 0.85rem;
+}
+.site-footer p { max-width: var(--measure); margin: 0 auto; }
+
+/* ------------------------------------------------------------------- nav */
+
+.nav { font-size: 0.95rem; }
+.nav ul { list-style: none; margin: 0; padding: 0; }
+.nav > ul > li { margin-bottom: 0.15rem; }
+.nav a {
+    display: block;
+    padding: 0.3rem 0.55rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--ink);
+}
+.nav a:hover { background: var(--surface); }
+.nav a[aria-current="page"] {
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 600;
+}
+.nav__section > a { font-weight: 600; }
+.nav__children { margin-left: 0.7rem; border-left: 2px solid var(--border); padding-left: 0.35rem; }
+
+/* On narrow screens the nav collapses so it doesn't push content off-screen. */
+@media (max-width: 850px) {
+    .nav details > summary {
+        cursor: pointer;
+        padding: 0.5rem 0.55rem;
+        background: var(--surface);
+        border-radius: var(--radius);
+        font-weight: 600;
+    }
+}
+
+/* -------------------------------------------------------------- seminars */
+
+.notice {
+    background: var(--warn-bg);
+    border: 1px solid var(--warn-border);
+    border-left-width: 4px;
+    border-radius: var(--radius);
+    padding: 0.9rem 1.1rem;
+    margin: 0 0 1.5rem;
+    font-size: 0.93rem;
+}
+.notice ul { margin: 0; padding-left: 1.1rem; }
+.notice li + li { margin-top: 0.35rem; }
+.notice strong { color: #a4341c; }
+@media (prefers-color-scheme: dark) {
+    .notice strong { color: #ff9d84; }
+}
+
+.seminars {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 2rem;
+}
+.seminars caption {
+    text-align: left;
+    color: var(--ink-muted);
+    font-size: 0.85rem;
+    padding-bottom: 0.5rem;
+}
+.seminars th {
+    text-align: left;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+    border-bottom: 2px solid var(--border);
+    padding: 0 0.7rem 0.4rem;
+}
+.seminars td {
+    border-bottom: 1px solid var(--border);
+    padding: 0.85rem 0.7rem;
+    vertical-align: top;
+}
+.seminars tbody tr:hover { background: var(--surface); }
+
+.seminar__when { white-space: nowrap; width: 1%; }
+.seminar__date { font-weight: 600; }
+.seminar__time, .seminar__where {
+    display: block;
+    font-size: 0.87rem;
+    color: var(--ink-muted);
+    font-weight: 400;
+    white-space: normal;
+}
+.seminar__who { min-width: 10rem; }
+.seminar__name { font-weight: 600; }
+.seminar__affil, .seminar__host {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+}
+.seminar__title { font-style: italic; }
+.seminar__links { margin-top: 0.35rem; font-size: 0.88rem; font-style: normal; }
+.seminar__links a + a { margin-left: 0.75rem; }
+
+/* Status. Never conveyed by colour alone -- each has a text badge. */
+.badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+}
+.badge--next     { color: #1c6b3c; }
+.badge--cancelled{ color: #a4341c; }
+.badge--moved    { color: #8a5a00; }
+.badge--off      { color: var(--ink-faint); }
+@media (prefers-color-scheme: dark) {
+    .badge--next      { color: #6fd396; }
+    .badge--cancelled { color: #ff9d84; }
+    .badge--moved     { color: #e0b64a; }
+}
+
+.seminar--past { color: var(--ink-muted); }
+.seminar--past .seminar__name { font-weight: 500; }
+.seminar--next { background: var(--surface); box-shadow: inset 3px 0 0 var(--accent); }
+.seminar--cancelled .seminar__date,
+.seminar--cancelled .seminar__title { text-decoration: line-through; }
+.seminar--off { background: var(--off-bg); color: var(--ink-faint); }
+.seminar--off .seminar__title { font-style: normal; }
+
+/* Responsive: below this width the table stacks into labelled cards.
+   The <thead> is hidden, so each cell carries its own label. */
+@media (max-width: 700px) {
+    .seminars thead {
+        position: absolute;
+        width: 1px; height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
+    .seminars, .seminars tbody, .seminars tr, .seminars td { display: block; width: auto; }
+    .seminars tr {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        margin-bottom: 0.85rem;
+        padding: 0.25rem 0.9rem 0.75rem;
+    }
+    .seminars td { border-bottom: 0; padding: 0.45rem 0; }
+    .seminars td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--ink-faint);
+        margin-bottom: 0.15rem;
+    }
+    .seminar__when { white-space: normal; width: auto; }
+    .seminar--next { box-shadow: inset 0 3px 0 var(--accent); }
+}
+
+/* --------------------------------------------------------------- archive */
+
+.season-list { list-style: none; padding: 0; }
+.season-list li { padding: 0.4rem 0; border-bottom: 1px solid var(--border); }
+.season-list__count { color: var(--ink-faint); font-size: 0.85rem; }
+
+.archive-group { margin-bottom: 1.5rem; }
+.archive-group h3 { margin: 1rem 0 0.4rem; }
+
+.upcoming { list-style: none; padding: 0; margin: 0 0 2rem; }
+.upcoming li {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+}
+.upcoming__date { font-weight: 600; }
+.upcoming__title { font-style: italic; }

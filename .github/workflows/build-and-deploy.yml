@@ -4,38 +4,50 @@ on:
   push:
     branches:
       - master
+  pull_request:
   workflow_dispatch:
+
+# Hugo is pinned rather than floating on "latest" so a Hugo release can never
+# break a deploy without someone choosing to take the upgrade.
+env:
+  HUGO_VERSION: '0.164.0'
+  # Without a UTF-8 locale, nokogiri reads pages as US-ASCII and html-proofer
+  # skips every file containing a non-ASCII character -- then still reports
+  # success. Several speaker names and talk titles are non-ASCII.
+  LANG: C.UTF-8
+  LC_ALL: C.UTF-8
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
         with:
-          submodules: recursive
           fetch-depth: 0
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-        env:
-          BUNDLE_BUILD__NOKOGIRI: --use-system-libraries
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.50'
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
 
       - name: Build Site
-        run: hugo
+        run: hugo --minify
 
       - name: Check Site
         working-directory: ./public
         run: bundle exec ../ccbb-htmlproofer
 
+      # Only master deploys. Pull requests build and link-check so a broken
+      # change is caught before it can reach the live site.
       - name: Deploy Site
-        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+        uses: peaceiris/actions-gh-pages@v4
         with:
           publish_dir: ./public
           personal_token: ${{ secrets.PAGES_DEPLOY_TOKEN }}
@@ -43,4 +55,3 @@ jobs:
           publish_branch: master
           cname: www.ccbb.psu.edu
           force_orphan: true
-

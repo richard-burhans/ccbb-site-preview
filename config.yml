@@ -1,24 +1,34 @@
-#baseURL: "/"
 baseURL: "http://www.ccbb.psu.edu/"
-languageCode: "en-us"
+locale: "en-us"
 DefaultContentLanguage: "en"
 
 title: "CCBB"
-theme: "docdock"
+
+markup:
+    goldmark:
+        renderer:
+            # content/people/_index.md and content/WEMSA/2024.md write links as
+            # raw <a> tags inside markdown tables. Hugo 0.50's blackfriday passed
+            # those through; goldmark drops them unless unsafe is set, which would
+            # silently delete every faculty link on the people page.
+            unsafe: true
+
+# No `theme:` -- layouts live in this repo under layouts/ and assets/.
+# The previous docdock theme was unmaintained since 2019 and did not build on
+# current Hugo. See README "Layouts".
 
 params:
-    editURL:
-    showVisitedLinks: false
-    themeStyle: "original"     # default is "original"
-    themeVariant: "gray"       # default is "blue"
-    ordersectionsby: "weight"  # ordersectionsby = "title"
-    disableHomeIcon: false     # default is false
-    disableSearch: false       # default is false
-    disableNavChevron: true    # default is false
-    disableTopBar: true        # default is false
+    ordersectionsby: "weight"
+
+    seminars:
+        # How many recent seasons appear in full before older ones are grouped
+        # into the archive. Derived from the build date, so seasons age out on
+        # their own -- there is nothing to run and no state to update.
+        recent_seasons: 4
+        # Upcoming talks surfaced on the home page.
+        upcoming_count: 3
 
 outputs:
     home:
         - "HTML"
         - "RSS"
-        - "JSON"

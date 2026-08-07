@@ -1,13 +1,30 @@
+{{/* /seminar/ -- shows the most recent season inline, then links to the rest.
+
+     The old template showed only the newest season and nothing else, so the
+     other 22 were reachable only through the sidebar. Listing them here as
+     well gives the archive a real index page. */}}
 {{ define "main" }}
-  {{- with index .Data.Pages.ByWeight.Reverse 0 -}}
-    <h1>{{ .Title }}</h1>
-    {{ partial "seminar-default" . }}
-    {{ partial "seminar-table-header" . }}
-    {{- with index .Site.Data.seminar .File.TranslationBaseName -}}
-      {{- range sort . "seminar_date" -}}
-        {{ partial "seminar-tr" . }}
-      {{- end -}}
-    {{- end -}}
-    {{ partial "seminar-table-footer" . }}
-  {{- end -}}
+  {{- $seasons := .RegularPages.ByWeight.Reverse -}}
+  {{- $latest := index $seasons 0 -}}
+
+  <h1>{{ or $latest.Title .Title }}</h1>
+  {{ .Content }}
+  {{ partial "seminar-notice.html" . }}
+
+  {{- with index hugo.Data.seminar $latest.File.TranslationBaseName }}
+    {{ partial "seminar-table.html" . }}
+  {{- end }}
+
+  {{- with after 1 $seasons }}
+    <h2>Previous seasons</h2>
+    <ul class="season-list">
+      {{- range . }}
+        {{- $count := len (index hugo.Data.seminar .File.TranslationBaseName) }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <span class="season-list__count">{{ $count }} seminar{{ if ne $count 1 }}s{{ end }}</span>
+        </li>
+      {{- end }}
+    </ul>
+  {{- end }}
 {{ end }}
