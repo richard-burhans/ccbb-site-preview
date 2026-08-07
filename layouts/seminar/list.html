@@ -1,32 +1,44 @@
-{{/* /seminar/ -- the current season in full, then the other recent ones, then
-     a link to the archive.
+{{/* /seminar/ -- the current schedule in full, then the other recent seasons.
 
-     "Current" is the newest season that has not finished, falling back to the
-     most recent one. The old template always showed the newest and nothing
-     else, so the other 22 seasons were reachable only through the sidebar. */}}
+     The featured season is the newest one that actually has talks in it. A
+     season is normally created before any speakers are confirmed, so the very
+     newest is often empty; featuring it would show a heading and no schedule
+     while the season people actually want sat in a list below. */}}
 {{ define "main" }}
   {{- $window := partial "season-window.html" . -}}
   {{- $recent := $window.recent -}}
-  {{- $latest := index $recent 0 -}}
 
-  <h1>{{ $latest.Title }}</h1>
+  {{- $featured := index $recent 0 -}}
+  {{- range $recent -}}
+    {{- if and (eq $featured (index $recent 0)) (partialCached "season-seminars.html" .Params.season .Params.season) -}}
+      {{- $featured = . -}}
+    {{- end -}}
+  {{- end -}}
+
+  <h1>{{ $featured.Title }}</h1>
   {{ .Content }}
   {{ partial "seminar-notice.html" . }}
 
-  {{- with partialCached "season-seminars.html" $latest.Params.season $latest.Params.season }}
+  {{- with partialCached "season-seminars.html" $featured.Params.season $featured.Params.season }}
     {{ partial "seminar-table.html" . }}
+  {{- else }}
+    <p>No seminars are listed yet.</p>
   {{- end }}
 
-  {{ partial "maintainer-bar.html" (dict "season" $latest.Params.season "page" .) }}
+  {{ partial "maintainer-bar.html" (dict "season" $featured.Params.season "page" .) }}
 
-  {{- with after 1 $recent }}
-    <h2>Recent seasons</h2>
+  {{- $others := where $recent "Params.season" "!=" $featured.Params.season }}
+  {{- with $others }}
+    <h2>Other seasons</h2>
     <ul class="season-list">
       {{- range . }}
         {{- $count := len (partialCached "season-seminars.html" .Params.season .Params.season) }}
         <li>
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          <span class="season-list__count">{{ $count }} seminar{{ if ne $count 1 }}s{{ end }}</span>
+          <span class="season-list__count">
+            {{- if $count }}{{ $count }} seminar{{ if ne $count 1 }}s{{ end }}
+            {{- else }}schedule to be announced{{ end -}}
+          </span>
         </li>
       {{- end }}
     </ul>

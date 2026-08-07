@@ -18,5 +18,16 @@
       </main>
     </div>
     {{ partial "site-footer.html" . }}
+    {{/* The nav ships open so it works without JavaScript, but on a narrow
+         screen an open nav pushes the content off the bottom -- twelve menu
+         items and six seasons before the first talk. Collapse it there.
+         Without JS the nav is simply long, which is inconvenient rather than
+         broken. */}}
+    <script>
+      (function () {
+        var d = document.querySelector('.nav details');
+        if (d && window.matchMedia('(max-width: 850px)').matches) { d.open = false; }
+      })();
+    </script>
   </body>
 </html>

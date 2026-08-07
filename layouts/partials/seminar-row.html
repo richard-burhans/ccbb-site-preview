@@ -49,7 +49,14 @@
     {{- if $off -}}
       <span class="badge badge--off">No seminar</span>
     {{- else -}}
-      {{- with $s.presenters }}<span class="seminar__name">{{ . }}</span>{{ end -}}
+      {{- with $s.presenters -}}
+        <span class="seminar__name">{{ . }}</span>
+      {{- else -}}
+        {{/* A held date with no speaker confirmed yet. Saying so is better than
+             an apparently empty row, which reads as missing data rather than
+             as a slot deliberately reserved. */}}
+        <span class="seminar__tba">Speaker to be announced</span>
+      {{- end -}}
       {{- with $s.affiliations }}<span class="seminar__affil">{{ . }}</span>{{ end -}}
       {{- with $s.host }}<span class="seminar__host">Host: {{ . }}</span>{{ end -}}
     {{- end -}}

@@ -1,44 +1,100 @@
 /* CCBB site styles.
-   In-repo, no third-party theme -- see README "Layouts". */
+   In-repo, no third-party theme -- see README "Layouts".
+
+   Colour and type follow Penn State's brand standards (brand.psu.edu), used
+   deliberately quietly: the navy is confined to the masthead, Beaver Blue is
+   reserved for interactive text, and everything else is neutral. The intent is
+   an academic centre that looks well made rather than designed. */
+
+/* Roboto is Penn State's recommended web typeface. Self-hosted rather than
+   loaded from Google Fonts: it is Apache-licensed, and this site's whole
+   problem was depending on things that rot. Latin subset only -- there is no
+   Cyrillic or Greek content and shipping every subset would quadruple the
+   download. Paths are relative to this file so they survive a subdirectory
+   baseURL (the preview clone publishes under /ccbb-site-preview/). */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/roboto-400.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../fonts/roboto-500.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/roboto-700.woff2') format('woff2');
+}
 
 :root {
-    --psu-navy: #001e44;
-    --psu-blue: #1e407c;
-    --psu-blue-light: #3b7dd8;
+    /* Penn State brand -- brand.psu.edu/visual-identity-standards */
+    --psu-navy: #001e44;    /* Nittany Navy, Pantone 282 */
+    --psu-blue: #1e407c;    /* Beaver Blue,  Pantone 287 */
+    --psu-stone: #91959c;   /* Limestone                 */
 
-    --ink: #1a1a1a;
-    --ink-muted: #5c5c5c;
-    --ink-faint: #767676;      /* 4.54:1 on --bg, passes AA */
+    --ink: #1a1c1f;
+    --ink-muted: #55595f;
+    --ink-faint: #6f7479;
     --bg: #ffffff;
-    --surface: #f5f6f8;
-    --surface-2: #eceef2;
-    --border: #d4d7dd;
+    --surface: #f6f7f9;
+    --surface-2: #eef0f3;
+    --border: #dcdfe4;
+    --border-strong: #c3c8cf;
     --accent: var(--psu-blue);
     --accent-ink: #ffffff;
 
-    --warn-bg: #fff8e6;
-    --warn-border: #e0b64a;
-    --off-bg: #f2f3f5;
+    --notice-bg: #f6f7f9;
+    --notice-rule: var(--psu-stone);
+    --emphasis: #8a2b18;
+    --off-bg: #f1f2f4;
 
-    --measure: 42rem;
-    --radius: 4px;
-    --gap: 1rem;
+    /* Type scale, 1.25 ratio from a 1rem base. */
+    --t-xs: 0.75rem;
+    --t-sm: 0.8125rem;
+    --t-md: 0.9375rem;
+    --t-base: 1rem;
+    --t-lg: 1.125rem;
+    --t-xl: 1.375rem;
+    --t-2xl: 1.75rem;
+
+    /* Spacing scale. Every margin below comes from this, so vertical rhythm
+       is consistent instead of chosen per element. */
+    --s-1: 0.25rem;
+    --s-2: 0.5rem;
+    --s-3: 0.75rem;
+    --s-4: 1rem;
+    --s-5: 1.5rem;
+    --s-6: 2rem;
+    --s-7: 3rem;
+
+    --measure: 40rem;
+    --radius: 3px;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --ink: #e8e8e8;
-        --ink-muted: #b0b0b0;
-        --ink-faint: #9a9a9a;
+        --ink: #e6e8ea;
+        --ink-muted: #aeb3b9;
+        --ink-faint: #979da3;
         --bg: #14161a;
-        --surface: #1c1f25;
-        --surface-2: #252932;
-        --border: #363b45;
-        --accent: #7aa7e6;
+        --surface: #1b1e23;
+        --surface-2: #23272e;
+        --border: #333840;
+        --border-strong: #454b55;
+        --accent: #8fb3e8;
         --accent-ink: #0d0f12;
-        --warn-bg: #2a2415;
-        --warn-border: #7a6320;
-        --off-bg: #1c1f25;
+        --notice-bg: #1b1e23;
+        --notice-rule: #4a5058;
+        --emphasis: #ff9d84;
+        --off-bg: #1a1d21;
     }
 }
 
@@ -50,8 +106,11 @@ body {
     margin: 0;
     background: var(--bg);
     color: var(--ink);
-    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                 Helvetica, Arial, sans-serif;
+    font-size: var(--t-base);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* Keyboard users need to be able to skip the nav. */
@@ -61,25 +120,30 @@ body {
     top: 0;
     background: var(--accent);
     color: var(--accent-ink);
-    padding: 0.6rem 1rem;
+    padding: var(--s-2) var(--s-4);
     z-index: 100;
 }
 .skip-link:focus { left: 0; }
 
 :focus-visible {
-    outline: 3px solid var(--psu-blue-light);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
 }
 
-a { color: var(--accent); }
+a { color: var(--accent); text-underline-offset: 0.15em; }
 a:hover { text-decoration: none; }
 
-h1, h2, h3, h4 { line-height: 1.25; margin: 2rem 0 0.75rem; font-weight: 600; }
-h1 { font-size: 1.9rem; margin-top: 0; }
-h2 { font-size: 1.4rem; }
-h3 { font-size: 1.15rem; }
+h1, h2, h3, h4 {
+    line-height: 1.25;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: var(--s-6) 0 var(--s-3);
+}
+h1 { font-size: var(--t-2xl); margin-top: 0; letter-spacing: -0.02em; }
+h2 { font-size: var(--t-xl); }
+h3 { font-size: var(--t-lg); }
 
-p, ul, ol { margin: 0 0 1rem; }
+p, ul, ol { margin: 0 0 var(--s-4); }
 
 img { max-width: 100%; height: auto; }
 
@@ -89,37 +153,52 @@ code, pre {
 }
 pre {
     background: var(--surface);
-    padding: 0.75rem 1rem;
+    padding: var(--s-3) var(--s-4);
     border-radius: var(--radius);
     overflow-x: auto;
 }
 
+table { border-collapse: collapse; }
+
 /* ---------------------------------------------------------------- layout */
 
+/* The masthead is the only place the navy appears. A single band, kept low so
+   it frames the page rather than dominating it. */
 .site-header {
     background: var(--psu-navy);
     color: #fff;
-    padding: 1rem 1.25rem;
+    padding: var(--s-4) var(--s-5);
+    border-bottom: 3px solid var(--psu-blue);
 }
-.site-header a { color: #fff; text-decoration: none; }
-.site-header__title { font-size: 1.3rem; font-weight: 700; margin: 0; }
+.site-header a { color: #fff; text-decoration: none; display: inline-block; }
+.site-header__title {
+    font-size: var(--t-lg);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
 .site-header__tagline {
-    margin: 0.15rem 0 0;
-    font-size: 0.9rem;
-    color: #c3ceda;
+    margin: 2px 0 0;
+    font-size: var(--t-md);
+    font-weight: 400;
+    color: #b9c4d2;
 }
 
 .layout {
     display: grid;
-    grid-template-columns: 16rem minmax(0, 1fr);
-    gap: 2rem;
-    max-width: 68rem;
+    grid-template-columns: 15rem minmax(0, 1fr);
+    gap: var(--s-7);
+    max-width: 66rem;
     margin: 0 auto;
-    padding: 1.5rem 1.25rem 4rem;
+    padding: var(--s-6) var(--s-5) var(--s-7);
     align-items: start;
 }
 @media (max-width: 850px) {
-    .layout { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+    .layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--s-4);
+        padding: var(--s-4) var(--s-4) var(--s-6);
+    }
 }
 
 .content { min-width: 0; }
@@ -127,141 +206,166 @@ pre {
 
 .site-footer {
     border-top: 1px solid var(--border);
-    padding: 1.5rem 1.25rem;
+    padding: var(--s-5);
     color: var(--ink-muted);
-    font-size: 0.85rem;
+    font-size: var(--t-md);
 }
-.site-footer p { max-width: var(--measure); margin: 0 auto; }
+.site-footer p { max-width: 66rem; margin: 0 auto; }
 
 /* ------------------------------------------------------------------- nav */
 
-.nav { font-size: 0.95rem; }
+.nav { font-size: var(--t-md); }
 .nav ul { list-style: none; margin: 0; padding: 0; }
-.nav > ul > li { margin-bottom: 0.15rem; }
+
+/* The disclosure control only exists for narrow screens. Above the breakpoint
+   the nav is always open, so the "Menu" summary would just be a stray
+   triangle sitting above the links. */
+.nav details > summary { display: none; }
+.nav details { display: block; }
+
 .nav a {
     display: block;
-    padding: 0.3rem 0.55rem;
-    border-radius: var(--radius);
+    padding: var(--s-1) var(--s-3);
     text-decoration: none;
     color: var(--ink);
+    border-left: 2px solid transparent;
 }
-.nav a:hover { background: var(--surface); }
-.nav a[aria-current="page"] {
-    background: var(--accent);
-    color: var(--accent-ink);
-    font-weight: 600;
-}
-.nav__section > a { font-weight: 600; }
-.nav__children { margin-left: 0.7rem; border-left: 2px solid var(--border); padding-left: 0.35rem; }
+.nav a:hover { color: var(--accent); border-left-color: var(--border-strong); }
 
-/* On narrow screens the nav collapses so it doesn't push content off-screen. */
+/* Current page is marked with weight and a rule rather than a filled block --
+   a solid bar of colour in the sidebar pulls the eye away from the content. */
+.nav a[aria-current="page"] {
+    color: var(--accent);
+    font-weight: 700;
+    border-left-color: var(--accent);
+    background: var(--surface);
+}
+.nav__section > a { font-weight: 500; }
+.nav__children {
+    margin: var(--s-1) 0 var(--s-3) var(--s-3);
+    padding-left: var(--s-2);
+    border-left: 1px solid var(--border);
+}
+.nav__children a { font-size: var(--t-sm); color: var(--ink-muted); }
+.nav__children a:hover { color: var(--accent); }
+
 @media (max-width: 850px) {
     .nav details > summary {
+        display: block;
         cursor: pointer;
-        padding: 0.5rem 0.55rem;
+        padding: var(--s-2) var(--s-3);
         background: var(--surface);
+        border: 1px solid var(--border);
         border-radius: var(--radius);
-        font-weight: 600;
+        font-weight: 500;
     }
+    .nav details[open] > summary { margin-bottom: var(--s-2); }
 }
 
 /* -------------------------------------------------------------- seminars */
 
+/* Standing notice. Deliberately quiet -- it is permanent furniture, not an
+   alert, so it reads as a caption rather than a warning. */
 .notice {
-    background: var(--warn-bg);
-    border: 1px solid var(--warn-border);
-    border-left-width: 4px;
-    border-radius: var(--radius);
-    padding: 0.9rem 1.1rem;
-    margin: 0 0 1.5rem;
-    font-size: 0.93rem;
+    background: var(--notice-bg);
+    border-left: 3px solid var(--notice-rule);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: var(--s-3) var(--s-4);
+    margin: 0 0 var(--s-6);
+    font-size: var(--t-md);
+    color: var(--ink-muted);
+    max-width: var(--measure);
 }
-.notice ul { margin: 0; padding-left: 1.1rem; }
-.notice li + li { margin-top: 0.35rem; }
-.notice strong { color: #a4341c; }
-@media (prefers-color-scheme: dark) {
-    .notice strong { color: #ff9d84; }
-}
+.notice ul { margin: 0; padding-left: var(--s-4); }
+.notice li + li { margin-top: var(--s-1); }
+.notice strong { color: var(--emphasis); font-weight: 500; }
+.notice a { color: var(--accent); }
 
 .seminars {
     width: 100%;
-    border-collapse: collapse;
-    margin: 0 0 2rem;
+    margin: 0 0 var(--s-6);
+    font-size: var(--t-md);
 }
 .seminars caption {
     text-align: left;
-    color: var(--ink-muted);
-    font-size: 0.85rem;
-    padding-bottom: 0.5rem;
+    color: var(--ink-faint);
+    font-size: var(--t-sm);
+    padding-bottom: var(--s-2);
 }
 .seminars th {
     text-align: left;
-    font-size: 0.78rem;
+    font-size: var(--t-xs);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--ink-muted);
-    border-bottom: 2px solid var(--border);
-    padding: 0 0.7rem 0.4rem;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+    color: var(--ink-faint);
+    border-bottom: 1px solid var(--border-strong);
+    padding: 0 var(--s-3) var(--s-2);
 }
 .seminars td {
     border-bottom: 1px solid var(--border);
-    padding: 0.85rem 0.7rem;
-    vertical-align: top;
+    padding: var(--s-4) var(--s-3);
+    vertical-align: baseline;
 }
 .seminars tbody tr:hover { background: var(--surface); }
 
-.seminar__when { white-space: nowrap; width: 1%; }
-.seminar__date { font-weight: 600; }
+/* Sized so the date never wraps and a room name has somewhere to go. Without
+   a minimum the column collapses to the width of "January 21" and a location
+   like "100 Life Science Building" breaks over four lines. */
+.seminar__when { width: 9rem; min-width: 9rem; }
+.seminar__date { white-space: nowrap; }
+.seminar__tba { color: var(--ink-faint); font-style: italic; }
+.seminar__date { font-weight: 500; color: var(--ink); }
 .seminar__time, .seminar__where {
     display: block;
-    font-size: 0.87rem;
-    color: var(--ink-muted);
+    font-size: var(--t-sm);
+    color: var(--ink-faint);
     font-weight: 400;
     white-space: normal;
 }
-.seminar__who { min-width: 10rem; }
-.seminar__name { font-weight: 600; }
+.seminar__who { min-width: 11rem; }
+.seminar__name { font-weight: 500; }
 .seminar__affil, .seminar__host {
     display: block;
-    font-size: 0.88rem;
+    font-size: var(--t-sm);
     color: var(--ink-muted);
 }
-.seminar__title { font-style: italic; }
-.seminar__links { margin-top: 0.35rem; font-size: 0.88rem; font-style: normal; }
-.seminar__links a + a { margin-left: 0.75rem; }
+.seminar__host { color: var(--ink-faint); }
+.seminar__title { color: var(--ink); }
+.seminar__links { display: block; margin-top: var(--s-2); font-size: var(--t-sm); }
+.seminar__links a + a { margin-left: var(--s-3); }
 
-/* Status. Never conveyed by colour alone -- each has a text badge. */
+/* Status is never carried by colour alone -- each state has a text badge. */
 .badge {
     display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 700;
+    font-size: var(--t-xs);
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    padding: 0.1rem 0.45rem;
-    border-radius: 999px;
+    letter-spacing: 0.06em;
+    padding: 0 var(--s-2);
+    border-radius: 2px;
     border: 1px solid currentColor;
     white-space: nowrap;
+    line-height: 1.6;
 }
-.badge--next     { color: #1c6b3c; }
-.badge--cancelled{ color: #a4341c; }
-.badge--moved    { color: #8a5a00; }
-.badge--off      { color: var(--ink-faint); }
+.badge--next      { color: #1c6b3c; }
+.badge--cancelled { color: var(--emphasis); }
+.badge--moved     { color: #7a5514; }
+.badge--off       { color: var(--ink-faint); }
 @media (prefers-color-scheme: dark) {
-    .badge--next      { color: #6fd396; }
-    .badge--cancelled { color: #ff9d84; }
-    .badge--moved     { color: #e0b64a; }
+    .badge--next  { color: #6fd396; }
+    .badge--moved { color: #d8b66a; }
 }
 
-.seminar--past { color: var(--ink-muted); }
-.seminar--past .seminar__name { font-weight: 500; }
-.seminar--next { background: var(--surface); box-shadow: inset 3px 0 0 var(--accent); }
+.seminar--past .seminar__name,
+.seminar--past .seminar__title { color: var(--ink-muted); }
+.seminar--next { background: var(--surface); box-shadow: inset 2px 0 0 var(--accent); }
 .seminar--cancelled .seminar__date,
 .seminar--cancelled .seminar__title { text-decoration: line-through; }
 .seminar--off { background: var(--off-bg); color: var(--ink-faint); }
-.seminar--off .seminar__title { font-style: normal; }
 
-/* Responsive: below this width the table stacks into labelled cards.
-   The <thead> is hidden, so each cell carries its own label. */
+/* Below this width the table stacks into labelled cards. The <thead> is
+   hidden, so each cell carries its own label via data-label. */
 @media (max-width: 700px) {
     .seminars thead {
         position: absolute;
@@ -270,43 +374,60 @@ pre {
         clip: rect(0 0 0 0);
         white-space: nowrap;
     }
-    .seminars, .seminars tbody, .seminars tr, .seminars td { display: block; width: auto; }
+    .seminars, .seminars tbody, .seminars tr, .seminars td {
+        display: block;
+        width: auto;
+    }
+    /* A table-caption inside a display:block table shrinks to its widest word,
+       so "21 seminars" breaks across two lines. */
+    .seminars caption { display: block; }
     .seminars tr {
         border: 1px solid var(--border);
         border-radius: var(--radius);
-        margin-bottom: 0.85rem;
-        padding: 0.25rem 0.9rem 0.75rem;
+        margin-bottom: var(--s-3);
+        padding: var(--s-2) var(--s-4) var(--s-3);
     }
-    .seminars td { border-bottom: 0; padding: 0.45rem 0; }
+    .seminars td { border-bottom: 0; padding: var(--s-2) 0; }
     .seminars td::before {
         content: attr(data-label);
         display: block;
-        font-size: 0.72rem;
+        font-size: var(--t-xs);
         text-transform: uppercase;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.06em;
         color: var(--ink-faint);
-        margin-bottom: 0.15rem;
+        margin-bottom: 2px;
     }
-    .seminar__when { white-space: normal; width: auto; }
-    .seminar--next { box-shadow: inset 0 3px 0 var(--accent); }
+    .seminar__when { white-space: normal; width: auto; min-width: 0; }
+    .seminar--next { box-shadow: inset 0 2px 0 var(--accent); }
 }
 
-/* --------------------------------------------------------------- archive */
+/* --------------------------------------------------------------- listing */
 
-.season-list { list-style: none; padding: 0; }
-.season-list li { padding: 0.4rem 0; border-bottom: 1px solid var(--border); }
-.season-list__count { color: var(--ink-faint); font-size: 0.85rem; }
-
-.archive-group { margin-bottom: 1.5rem; }
-.archive-group h3 { margin: 1rem 0 0.4rem; }
-
-.upcoming { list-style: none; padding: 0; margin: 0 0 2rem; }
-.upcoming li {
-    padding: 0.7rem 0;
+.season-list { list-style: none; padding: 0; max-width: var(--measure); }
+.season-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--s-4);
+    padding: var(--s-2) 0;
     border-bottom: 1px solid var(--border);
 }
-.upcoming__date { font-weight: 600; }
-.upcoming__title { font-style: italic; }
+.season-list__count { color: var(--ink-faint); font-size: var(--t-sm); }
+
+.archive-group { margin-bottom: var(--s-5); }
+.archive-group h3 {
+    margin: var(--s-5) 0 var(--s-2);
+    font-size: var(--t-md);
+    font-weight: 500;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.upcoming { list-style: none; padding: 0; margin: 0 0 var(--s-6); max-width: var(--measure); }
+.upcoming li { padding: var(--s-3) 0; border-bottom: 1px solid var(--border); }
+.upcoming__date { font-weight: 500; }
+.upcoming__title { color: var(--ink-muted); font-size: var(--t-md); }
 
 /* ------------------------------------------------- maintainer controls
 
@@ -323,54 +444,62 @@ pre {
 .editing .maintain-toggle__off { display: inline; }
 
 .seminar__edit {
-    margin-top: 0.4rem;
-    font-size: 0.78rem;
-    font-style: normal;
-    font-weight: 600;
+    margin-top: var(--s-2);
+    font-size: var(--t-xs);
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    padding: 0.1rem 0.5rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    letter-spacing: 0.06em;
+    padding: 0 var(--s-2);
+    border: 1px solid var(--border-strong);
+    border-radius: 2px;
+    color: var(--ink-muted);
     text-decoration: none;
+    line-height: 1.7;
 }
-.seminar__edit:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.seminar__edit:hover {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-color: var(--accent);
+}
 
 .maintain {
     border: 1px solid var(--border);
-    border-left: 4px solid var(--accent);
-    border-radius: var(--radius);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
     background: var(--surface);
-    padding: 1rem 1.2rem;
-    margin: 1.5rem 0;
+    padding: var(--s-4);
+    margin: var(--s-5) 0;
+    max-width: var(--measure);
 }
 .maintain__title {
-    margin: 0 0 0.35rem;
-    font-weight: 700;
-    font-size: 0.78rem;
+    margin: 0 0 var(--s-1);
+    font-weight: 500;
+    font-size: var(--t-xs);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
 }
-.maintain__help { margin: 0 0 0.9rem; font-size: 0.9rem; max-width: var(--measure); }
-.maintain__actions { margin: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.maintain__help { margin: 0 0 var(--s-3); font-size: var(--t-md); color: var(--ink-muted); }
+.maintain__actions { margin: 0; display: flex; flex-wrap: wrap; gap: var(--s-2); }
 
 .btn {
     display: inline-block;
     background: var(--accent);
     color: var(--accent-ink);
-    padding: 0.45rem 0.9rem;
+    padding: var(--s-2) var(--s-4);
     border-radius: var(--radius);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.92rem;
+    font-weight: 500;
+    font-size: var(--t-md);
+    border: 1px solid var(--accent);
 }
-.btn:hover { filter: brightness(1.1); }
+.btn:hover { background: var(--psu-navy); border-color: var(--psu-navy); }
 .btn--quiet {
     background: transparent;
     color: var(--accent);
-    border: 1px solid var(--border);
+    border-color: var(--border-strong);
 }
+.btn--quiet:hover { background: var(--surface); color: var(--accent); border-color: var(--accent); }
 
-.maintain-toggle { margin: 2rem 0 0; font-size: 0.82rem; }
+.maintain-toggle { margin: var(--s-6) 0 0; font-size: var(--t-sm); }
 .maintain-toggle a { color: var(--ink-faint); }
