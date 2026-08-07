@@ -1,0 +1,13 @@
+{{/* Returns the seminars belonging to one season, in date order.
+
+     Context: a season slug.
+
+     data/seminars/ is flat -- filenames are opaque and nothing parses them --
+     so membership comes from each record's own `season` field. That is what
+     lets two seasons legitimately contain the same date, which the old
+     directory layout could not express. */}}
+{{- $all := slice -}}
+{{- range $name, $rec := hugo.Data.seminars -}}
+  {{- $all = $all | append $rec -}}
+{{- end -}}
+{{- return sort (where $all "season" .) "seminar_date" -}}

@@ -58,73 +58,74 @@ The table is a real `<table>` so it keeps its schedule semantics for screen
 readers; CSS restacks it into labelled cards below 700px, which is why every
 `<td>` carries a `data-label`.
 
-## Adding a seminar
+## Seminar data
 
-Seminars live in `data/seminar/<season>-<year>/`, one file per seminar, named
-`YYYY-MM-DD.yml`. For example, `data/seminar/fall-2026/2026-09-02.yml`:
+Seminars live in `data/seminars/`, one file per talk:
 
 ```yaml
-seminar_date: 2026-09-02T15:00:00
-presenters: "Jane Doe"
-affiliations: "PSU"
-title: "Title of the talk"
-host: "CCBB (Some Host)"
-location: ""
-zoom_url: ""
+season: fall-2026
+seminar_date: '2026-09-02T15:00:00'
+status: scheduled
+presenters: Jane Doe
+affiliations: Penn State
+title: 'Title of the talk: subtitles are fine'
+host: CCBB (Some Host)
 ```
 
-To add one through the GitHub web interface, use **Add file → Create new file**
-and type the full path into the filename box, including the slashes:
+Three things are deliberately different from how this used to work:
 
-```
-data/seminar/fall-2026/2026-09-02.yml
-```
+**The filename does not matter.** Nothing parses it. `seminar_date` inside the
+file is authoritative and `season` says which season the talk belongs to. The
+old layout encoded both in the path, so `Fall-2026` instead of `fall-2026`, or
+`2026-02-10,yml` instead of `.yml`, silently produced a page with nothing on it.
 
-GitHub creates any missing folders as you type each `/`. There is no need to
-create the folder first.
+**There are no season directories**, so there is no empty-directory problem and
+no placeholder files. A `.placeholder` used to be required to keep a directory
+in git, while any *non*-dot file under `data/` crashed the build.
 
-**Do not add placeholder files to hold a folder open.** Hugo parses *every* file
-under `data/` as structured data, so a stray `.txt`, `.md`, or `.gitkeep` there
-will fail the build with an error like:
+**`status` replaces five different conventions** for "no talk happened":
 
-```
-unmarshal of format "" is not supported
-```
-
-A season folder only needs to exist once it has a real seminar file in it.
+| `status` | Means |
+| --- | --- |
+| `scheduled` | a normal talk (the default) |
+| `cancelled` | called off; the row still shows, marked |
+| `rescheduled` | being moved; no date shown |
+| `no_seminar` | a break week — put the reason in `note` |
 
 ## Starting a new season
 
-A season needs **two** things. Adding seminar data without the page will build
-successfully and show nothing on the site, so do not skip the second one.
+Add one entry to `data/seasons.yml`:
 
-1. The data files, as described above:
-   `data/seminar/fall-2026/2026-09-02.yml`
+```yaml
+- slug: spring-2027
+  label: Spring 2027
+  start: '2027-01-01'
+  end: '2027-05-31'
+  default_weekday: Wednesday
+  default_time: '15:00'
+```
 
-2. A page for the season: `content/seminar/fall-2026.md`
+That is the whole job. The season's page is generated from this entry by
+`content/seminar/_content.gotmpl`, so there is no second file to create and no
+`weight` to work out — ordering comes from `start`.
 
-   ```yaml
-   ---
-   title: 'Fall 2026'
-   pre: "<i class='fa fa-bell-o'></i> "
-   weight: 20263
-   layout: 'seminar-table'
-   ---
-   ```
+Previously a season needed **two** files whose names had to match exactly, and
+getting only the data file right produced a green build that displayed nothing.
 
-`layouts/seminar/seminar-table.html` matches the two by filename, so
-`content/seminar/fall-2026.md` renders whatever is in
-`data/seminar/fall-2026/`. The names must agree exactly.
+`start` and `end` only pre-select the season when adding a talk; a seminar's
+`season` field is always what counts. Seasons may overlap, and historically they
+have — `spring-2021` and `fall-2021` both contained a talk dated 2021-09-22.
 
-The `weight` controls where the season sits in the left-hand navigation.
-It is the year followed by a season digit:
+## Re-running the migration
 
-| Season | Digit | Example (2026) |
-| ------ | ----- | -------------- |
-| Spring | 1     | `20261`        |
-| Summer | 2     | `20262`        |
-| Fall   | 3     | `20263`        |
+`scripts/migrate_seminars.py` converts the old `data/seminar/<season>/` layout to
+the current one. It is repeatable, so if seminars were added to the old layout
+after this branch was cut, pick them up with:
 
-(Seasons before 2020 use `2` for fall, from before summer sessions existed.
-Leave those alone; use the table above for anything new.)
+```
+$ git checkout master -- data/seminar
+$ python3 scripts/migrate_seminars.py
+$ git rm -r --cached data/seminar && rm -rf data/seminar
+```
 
+Requires PyYAML (`apt install python3-yaml` or `pip install pyyaml`).

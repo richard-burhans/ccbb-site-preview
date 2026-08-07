@@ -3,59 +3,62 @@
      Context: dict of "s" (the record), "next" (seminar_date of the next
      upcoming talk, for highlighting) and "now".
 
-     Rendering rules carried over from the old seminar-tr.html:
+     Date rules carried over from the original seminar-tr.html:
        - midnight means the time is not known yet -> "[time TBA]"
        - 3:00 pm is the default slot, so it is left implicit; any other time
          is shown
-       - a `reschedule` record shows no date at all
-     Status is still inferred from the old ad-hoc conventions here. Phase 2
-     replaces that with an explicit `status` field. */}}
+
+     `status` replaces the five ad-hoc conventions the data used to carry
+     (a reschedule field, "No seminar" as a presenter, a "CANCELLED" prefix on
+     presenters/affiliations/title, and "[Thanksgiving break]" as a title).
+     Status is never signalled by colour alone -- each one carries a text
+     badge. */}}
 
 {{- $s := .s -}}
+{{- $status := or $s.status "scheduled" -}}
 {{- $date := time.AsTime $s.seminar_date -}}
 {{- $isPast := lt $date .now -}}
 {{- $isNext := and (ne .next "") (eq $s.seminar_date .next) -}}
 {{- $tba := and (eq $date.Hour 0) (eq $date.Minute 0) -}}
 {{- $offSlot := or (ne $date.Hour 15) (ne $date.Minute 0) -}}
-
-{{/* Legacy conventions: "CANCELLED"/"CANCELED" prefixed onto presenters, and
-     "No seminar" as a presenter name. Matched case-insensitively. */}}
-{{- $presenters := or $s.presenters "" -}}
-{{- $upper := upper $presenters -}}
-{{- $cancelled := or (hasPrefix $upper "CANCELLED") (hasPrefix $upper "CANCELED") -}}
-{{- $off := or (eq $upper "NO SEMINAR") (hasPrefix $upper "[NO SEMINAR") -}}
+{{- $off := eq $status "no_seminar" -}}
 
 <tr class="seminar
   {{- if $isPast }} seminar--past{{ end }}
   {{- if $isNext }} seminar--next{{ end }}
-  {{- if $cancelled }} seminar--cancelled{{ end }}
+  {{- if eq $status "cancelled" }} seminar--cancelled{{ end }}
   {{- if $off }} seminar--off{{ end }}">
 
   <td class="seminar__when" data-label="Date">
-    {{- if $s.reschedule -}}
+    {{- if eq $status "rescheduled" -}}
       <span class="badge badge--moved">To be rescheduled</span>
     {{- else -}}
       <span class="seminar__date">{{ $date.Format "January 2" }}</span>
-      {{- if $tba -}}
+      {{- if and (not $off) $tba -}}
         <span class="seminar__time">[time TBA]</span>
-      {{- else if $offSlot -}}
+      {{- else if and (not $off) $offSlot -}}
         <span class="seminar__time">{{ $date.Format "3:04 pm" }}</span>
       {{- end -}}
     {{- end -}}
     {{- with $s.location }}<span class="seminar__where">{{ . }}</span>{{ end -}}
     {{- if $isNext }} <span class="badge badge--next">Next</span>{{ end -}}
-    {{- if $cancelled }} <span class="badge badge--cancelled">Cancelled</span>{{ end -}}
+    {{- if eq $status "cancelled" }} <span class="badge badge--cancelled">Cancelled</span>{{ end -}}
   </td>
 
   <td class="seminar__who" data-label="Presenter(s)">
-    {{- with $presenters }}<span class="seminar__name">{{ . }}</span>{{ end -}}
-    {{- with $s.affiliations }}<span class="seminar__affil">{{ . }}</span>{{ end -}}
-    {{- with $s.host }}<span class="seminar__host">Host: {{ . }}</span>{{ end -}}
+    {{- if $off -}}
+      <span class="badge badge--off">No seminar</span>
+    {{- else -}}
+      {{- with $s.presenters }}<span class="seminar__name">{{ . }}</span>{{ end -}}
+      {{- with $s.affiliations }}<span class="seminar__affil">{{ . }}</span>{{ end -}}
+      {{- with $s.host }}<span class="seminar__host">Host: {{ . }}</span>{{ end -}}
+    {{- end -}}
   </td>
 
   <td class="seminar__what" data-label="Topic">
     {{- with $s.title }}<span class="seminar__title">{{ . }}</span>{{ end -}}
-    {{- $zoom := and (not $s.reschedule) $s.zoom_url -}}
+    {{- with $s.note }}<span class="seminar__title">{{ . }}</span>{{ end -}}
+    {{- $zoom := and (ne $status "rescheduled") (ne $status "no_seminar") $s.zoom_url -}}
     {{- if or $zoom $s.slides }}
       <span class="seminar__links">
         {{- with $s.slides }}<a href="{{ . }}" target="_blank" rel="noopener">Slides</a>{{ end -}}

@@ -13,7 +13,9 @@
 {{- $now := now -}}
 {{- $next := "" -}}
 {{- range $seminars -}}
-  {{- if and (eq $next "") (ge (time.AsTime .seminar_date) $now) -}}
+  {{/* A cancelled, moved, or no-seminar week is not "next". */}}
+  {{- $bookable := or (not .status) (eq .status "scheduled") -}}
+  {{- if and (eq $next "") $bookable (ge (time.AsTime .seminar_date) $now) -}}
     {{- $next = .seminar_date -}}
   {{- end -}}
 {{- end -}}

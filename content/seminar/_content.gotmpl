@@ -1,0 +1,27 @@
+{{/* Generates one page per season from data/seasons.yml.
+
+     This replaces the 23 hand-written content/seminar/<season>.md files. Adding
+     a season used to mean creating two files in two places whose names had to
+     agree exactly -- and getting only the data file right produced a successful
+     build that rendered nothing, which is the worst kind of failure. Now a
+     season exists because it is listed in data/seasons.yml, once.
+
+     It also removes the hand-computed `weight` scheme (year followed by a
+     season digit, with a pre-2020 exception). Ordering comes from the season's
+     start date. */}}
+
+{{ range hugo.Data.seasons }}
+  {{ $.AddPage (dict
+    "path" .slug
+    "title" .label
+    "kind" "page"
+    "params" (dict
+      "season" .slug
+      "start" .start
+      "end" .end
+      "default_weekday" .default_weekday
+      "default_time" .default_time
+    )
+    "dates" (dict "date" (time.AsTime .start))
+  ) }}
+{{ end }}
