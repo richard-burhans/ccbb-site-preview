@@ -36,5 +36,10 @@
       "slides" (or $s.slides "")
       "note" (or $s.note "") -}}
 
-<a class="seminar__edit" rel="nofollow"
-   href="https://github.com/{{ site.Params.repo }}/issues/new?{{ $params }}">Edit</a>
+{{/* safeURL is required, not cosmetic. `querify` already percent-encodes the
+     values; interpolating the result into an href puts it in Go's URL context,
+     where html/template encodes it a second time -- turning every "=" into %3d
+     and every "&" into %26. GitHub then sees one meaningless parameter, drops
+     the template silently, and serves a blank issue page. */}}
+{{- $url := printf "https://github.com/%s/issues/new?%s" site.Params.repo $params -}}
+<a class="seminar__edit" rel="nofollow" href="{{ $url | safeURL }}">Edit</a>

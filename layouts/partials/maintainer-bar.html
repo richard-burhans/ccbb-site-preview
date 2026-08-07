@@ -19,14 +19,18 @@
     link, which opens already filled in.
   </p>
   <p class="maintain__actions">
+    {{/* safeURL as in edit-link.html: querify has already encoded these, and
+         Go's URL context would encode them again, breaking the query string. */}}
     {{- if $season }}
-      <a class="btn" rel="nofollow"
-         href="https://github.com/{{ site.Params.repo }}/issues/new?{{ querify "template" "seminar-add.yml" "season" $season }}">
+      {{- $add := printf "https://github.com/%s/issues/new?%s" site.Params.repo
+            (querify "template" "seminar-add.yml" "season" $season) }}
+      <a class="btn" rel="nofollow" href="{{ $add | safeURL }}">
         Add a seminar to {{ $page.Title }}
       </a>
     {{- end }}
-    <a class="btn btn--quiet" rel="nofollow"
-       href="https://github.com/{{ site.Params.repo }}/issues/new?{{ querify "template" "season-start.yml" }}">
+    {{- $new := printf "https://github.com/%s/issues/new?%s" site.Params.repo
+          (querify "template" "season-start.yml") }}
+    <a class="btn btn--quiet" rel="nofollow" href="{{ $new | safeURL }}">
       Start a new season
     </a>
   </p>
