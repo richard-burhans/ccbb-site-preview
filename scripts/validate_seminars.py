@@ -69,16 +69,34 @@ def check_form_contract(root):
         return ["scripts/seminar_bot.py could not be imported to check the "
                 "issue-form field labels against it."]
 
+    # GitHub's issue-form schema requires these to be strings. An unquoted
+    # YYYY-MM-DD is a YAML date, not a string, so the form fails validation --
+    # and GitHub then ignores the template silently, serving a blank issue page
+    # with no indication why. Exactly the type-coercion trap the data model was
+    # rebuilt to avoid, so it gets checked here too.
+    MUST_BE_STRING = ("label", "description", "placeholder", "value")
+
     problems = []
     for fn in sorted(os.listdir(tpl_dir)):
         if not fn.endswith((".yml", ".yaml")) or fn == "config.yml":
             continue
         with open(os.path.join(tpl_dir, fn), encoding="utf-8") as fh:
             form = yaml.safe_load(fh) or {}
+
         for block in form.get("body", []):
+            attrs = block.get("attributes") or {}
+
+            for key in MUST_BE_STRING:
+                if key in attrs and not isinstance(attrs[key], str):
+                    problems.append(
+                        f".github/ISSUE_TEMPLATE/{fn}: '{key}: {attrs[key]}' is a "
+                        f"{type(attrs[key]).__name__}, but GitHub requires a string. "
+                        "Quote it. GitHub rejects the whole form otherwise, and "
+                        "does so silently.")
+
             if block.get("type") == "markdown":
                 continue
-            label = (block.get("attributes") or {}).get("label")
+            label = attrs.get("label")
             if label and label not in FIELD_LABELS:
                 problems.append(
                     f".github/ISSUE_TEMPLATE/{fn}: the field labelled "
